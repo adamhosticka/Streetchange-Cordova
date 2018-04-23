@@ -1,0 +1,18 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "com.adam.streetchange"
+    },
+    "cordova-plugin-camera": {
+      "PACKAGE_NAME": "com.adam.streetchange"
+    }
+  },
+  "dependent_plugins": {}
+}
