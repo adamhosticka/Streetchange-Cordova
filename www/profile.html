@@ -19,27 +19,23 @@
         <title>Hello World</title>
     </head>
     <body>
-        <div id="container" style="width: 100%; height: auto;">
-            <div id="header" style="width: 100%; height: 50px;">
-                <img id='menuButton' src="Img/menu.png" style="height: 50px; width: auto;position: absolute;">
-                <img src="Img/logo.jpg" style="height:100%; width: 100%;">
+        <div id="container">
+            <div id="header">
+                <img id='menuButton' src="Img/menu.png">
+                <img id="headerBackground" src="Img/logo.jpg">
             </div>
         
-            <div id="menu" style="height: 100%;  width: 60%; background: grey;  top: 0; left: 0; position: absolute; display: none;">
-                <div id="menuHeader" style="height: 50px; width: 100%; background: green;">
+            <div id="menu">
+                <div id="menuHeader">
                     <a href="profile.html">
-                        <img id="profileImg" src="Img/profile01.png" style="padding: 5px; height: 40px;  width: auto; ">
+                        <img id="profileHeaderImg" src="Img/profile01.png">
                     </a>
                 </div>    
-                
-                <ul style="color:red; list-style-type:none; padding: 5px;">
-                        <li>Cau</li>
-                    </ul>
             </div>
                 
             <div id="topMenu" class='topMenu'>
                 <a href="profile.html"><h4>Profil</h4></a>
-                <a href="sells.html"><h4>Prodává</h4></a>
+                <a href="html.html"><h4>Prodává</h4></a>
                 <a href="sells.html"><h4>Prodává</h4></a>
                 <a href="sells.html"><h4>Prodává</h4></a>
                 <a href="sells.html"><h4>Prodává</h4></a>
@@ -47,16 +43,33 @@
                 <a href="buys.html"><h4>Kupuje</h4></a>
             </div>
             
-            <div id="content" style="width: 100%;">
+            <div id="content" class="content">
                 <div id="profileHeader" class="profileHeader">
                     <div id="profileImageBox" class="profileImageBox">
-
+                        <img id="profileImg" src="Img/profile01.png">
                     </div>
 
                     <div id="profileInfoBox" class="profileInfoBox">
-
+                        <h4>Adam Hosticka</h4>
+                        <a href="https://www.facebook.com/adam.hosticka">https://www.facebook.com/adam.hosticka</a>
+                        <p>Nudny popis:) Kterej prodlu6uju jenom proto abzch videl jak se yalamujou slova plus to je s anglickou kl8vesnic9 tak6e to mus9 vzpadat naoyaj nadherne</p>
                     </div>
                 </div>
+
+                <div id="userScore">
+                    <div id="score1">
+                        <h2>Prodává</h2>
+                        <h1>22</h1>
+                    </div>
+                    <div id="score2">
+                        <h2>L/C</h2>
+                        <h1>158</h1>
+                    </div>
+                    <div id="score3">
+                        <h2>Kupuje</h2>
+                        <h1>0</h1>
+                    </div>
+                </div> 
             </div>
         </div>
 

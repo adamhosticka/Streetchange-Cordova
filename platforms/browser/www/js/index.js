@@ -47,12 +47,7 @@ app.initialize();
 
 document.getElementById('menuButton').addEventListener("click", showMenu);
 function showMenu() {
-    if(document.getElementById("menu").style.display ===  "none") {
-        document.getElementById("menu").style.display = "block";
-    }
-    else {
-        document.getElementById("menu").style.display = "none";
-    }
+    document.getElementById("menu").style.display = "block";
 }   
 
 

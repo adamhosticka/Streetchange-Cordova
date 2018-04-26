@@ -44,69 +44,133 @@
             </div>
         </div> -->
         
-        <div id="container" style="width: 100%; height: auto;">
-            <div id="header" style="width: 100%; height: 50px;">
-                <img id='menuButton' src="Img/menu.png" style="height: 50px; width: auto;position: absolute;">
-                <img src="Img/logo.jpg" style="height:100%; width: 100%;">
+        <div id="container">
+            <div id="header">
+                <img id='menuButton' src="Img/menu.png" style="opacity: 0.8;">
+                <img id='headerBackground' src="Img/logo.jpg">
             </div>
         
-            <div id="menu" style="height: 100%;  width: 60%; background: grey;  top: 0; left: 0; position: absolute; display: none;">
-                <a href="profile.html" style="height: 50px; width: 100%;">
-                    <div id="menuHeader" style="height: 50px; width: 100%; background: green;">
-                        <img id="profileImg" src="Img/profile01.png" style="padding: 5px; height: 40px;  width: auto; ">
-                    </div>    
-                </a>
-                
-                <ul style="color:red; list-style-type:none; padding: 5px;">
-                        <li>Cau</li>
-                    </ul>
+            <div id="menu">
+                <div id="menuHeader">
+                    <a href="profile.html">
+                        <img id="profileHeaderImg" src="Img/profile01.png">
+                        <h4>Adam Hoštička</h4>
+                        <p>Zobrazit profil</p>
+                    </a>
+                </div>  
+                <div id="menuList">
+                    <div>
+                        <img src="Img/menu.png">
+                        <h2>TradeMarket</h2>
+                    </div>
+                    <div>
+                        <img src="Img/shoe.png">
+                        <h2>TradeMarket</h2>
+                    </div>
+                    <div>
+                        <img src="Img/ledder.jpg">
+                        <h2>TradeMarket</h2>
+                    </div>
+                    <div>
+                        <h2>TradeMarket</h2>
+                    </div>
+                    <div>
+                        <h2>TradeMarket</h2>
+                    </div>
+                </div>  
             </div>
                 
-            <div id="topMenu" class='topMenu' style="width: 100%;  height: 45px;  padding: 6px; vertical-align: middle;">
-                <div id="favourite" class="topMenuH4"  style="float: left; "> <a href=""><h4>Oblíbené</h4></a></div>
-                <div id="shoes" class="topMenuH4"  style="float: left;"> <a href="shoes.html"><h4>Shoes</h4></a></div>
-                <div id="tees" class="topMenuH4"> <a href="tees.html"><h4>Tees</h4></a></div>
+            <div id="topMenu" class='topMenu'>
+                <a href="profile.html"><h4>Profil</h4></a>
+                <a href="html.html"><h4>Prodává</h4></a>
+                <a href="sells.html"><h4>Prodává</h4></a>
+                <a href="sells.html"><h4>Prodává</h4></a>
+                <a href="sells.html"><h4>Prodává</h4></a>
+                <a href="sells.html"><h4>Prodává</h4></a>
+                <a href="sells.html"><h4>Prodává</h4></a>
+                <a href="sells.html"><h4>Prodává</h4></a>
+                <a href="buys.html"><h4>Kupuje</h4></a>
             </div>
             
-            <div id="content" style="width: 100%;">
-                <div id="box1" class="box left">
-                    <div id="contentDivImg" class="contentDivImg">
+            <div id="content" class="content">
+                <a href="profile.html" id="box1" class="box left">
+                    <div class="contentDivImg">
                         <img src="Img/logo.jpg" class="contentImg">
                     </div>         
                     
-                    <div id="contentDivText" class="contentDivText">
+                    <div class="contentDivText">
+                        <p> Supreme bogo, Price 12,000Kc, Kanye West</p>
+                    </div>
+                </a>
+                
+                <a id="box2" class="box right">
+                    <div class="contentDivImg">
+                        <img src="Img/header.jpg" class="contentImg">
+                    </div>         
+                    
+                    <div class="contentDivText">
+                        <p> Supreme bogo, Price 12,000Kc, Kanye West</p>
+                    </div>
+                </a>
+                
+                <a id="box3" class="box left">
+                    <div class="contentDivImg">
+                        <img src="Img/logo.jpg" class="contentImg">
+                    </div>         
+                    
+                    <div class="contentDivText">
+                        <p> Supreme bogo, Price 12,000Kc, Kanye West</p>
+                    </div>
+                </a>
+                
+                <div id="box4" class="box right">
+                    <div class="contentDivImg">
+                        <img src="Img/header.jpg" class="contentImg">
+                    </div>         
+                    
+                    <div class="contentDivText">
                         <p> Supreme bogo, Price 12,000Kc, Kanye West</p>
                     </div>
                 </div>
                 
-                <div id="box2" class="box right">
-                    <div id="contentDivImg" class="contentDivImg">
-                        <img src="Img/header.jpg" class="contentImg">
+                <div id="box5" class="box left">
+                    <div class="contentDivImg">
+                        <img src="Img/logo.jpg" class="contentImg">
+                    </div>         
+                    
+                    <div class="contentDivText">
+                        <p> Supreme bogo, Price 12,000Kc, Kanye West</p>
                     </div>
                 </div>
                 
-                <div id="box3" class="box left">
-                    <img src="Img/logo.jpg" class="contentImg">
-                </div>
-                
-                <div id="box4" class="box right">
-                    <img src="Img/header.jpg" class="contentImg">
-                </div>
-                
-                <div id="box5" class="box left">
-                    <img src="Img/logo.jpg" class="contentImg">
-                </div>
-                
                 <div id="box6" class="box right">
-                    <img src="Img/header.jpg" class="contentImg">
+                    <div class="contentDivImg">
+                        <img src="Img/header.jpg" class="contentImg">
+                    </div>         
+                    
+                    <div class="contentDivText">
+                        <p> Supreme bogo, Price 12,000Kc, Kanye West</p>
+                    </div>
                 </div>
                 
                 <div id="box7" class="box left">
-                    <img src="Img/logo.jpg" class="contentImg">
+                    <div class="contentDivImg">
+                        <img src="Img/logo.jpg" class="contentImg">
+                    </div>         
+                    
+                    <div class="contentDivText">
+                        <p> Supreme bogo, Price 12,000Kc, Kanye West</p>
+                    </div>
                 </div>
                 
                 <div id="box8" class="box right">
-                    <img src="Img/header.jpg" class="contentImg">
+                    <div class="contentDivImg">
+                        <img src="Img/header.jpg" class="contentImg">
+                    </div>         
+                    
+                    <div class="contentDivText">
+                        <p> Supreme bogo, Price 12,000Kc, Kanye West</p>
+                    </div>
                 </div>
             </div>
         </div>
