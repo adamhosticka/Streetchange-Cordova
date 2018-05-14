@@ -16,7 +16,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-var app = {
+/* var app = {
     // Application Constructor
     initialize: function() {
         document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
@@ -43,16 +43,29 @@ var app = {
     }
 };
 
-app.initialize();
+app.initialize(); */
 
 document.getElementById('menuButton').addEventListener("click", showMenu);
 function showMenu() {
-    document.getElementById("menu").style.display = "block";
+    document.getElementById("menu").classList.remove('horizTranslateBack');
+    document.getElementById("menu").classList.add('horizTranslate');
+    document.getElementById("shadowDiv").classList.remove('fadeOut');
+    document.getElementById("shadowDiv").classList.add('fadeIn');
+    document.getElementById('shadowDiv').style.display = "block";
 }   
 
-
-document.getElementById('topMenu').addEventListener("click", hideMenu);
-document.getElementById('content').addEventListener("click", hideMenu);  
+document.getElementById('shadowDiv').addEventListener("click", hideMenu);  
 function hideMenu() {
-    document.getElementById("menu").style.display = "none";    
+    document.getElementById("menu").classList.remove('horizTranslate');
+    document.getElementById("menu").classList.add('horizTranslateBack');
+    document.getElementById("shadowDiv").classList.remove('fadeIn');
+    document.getElementById("shadowDiv").classList.add('fadeOut');
+    setTimeout(function(){
+        document.getElementById('shadowDiv').style.display = "none";
+    }, 300); 
+}
+
+$callOut = true;
+if($callOut) {
+    document.getElementById('callOutWarning').style.display = 'block';
 }

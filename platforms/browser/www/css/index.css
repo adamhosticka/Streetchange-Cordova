@@ -20,12 +20,22 @@
     -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
 }
 
+::-webkit-scrollbar {
+    height: 0px;
+    width: 0px;
+}
+
+html{
+    height: 100%;
+}
+
 body {
     -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
     -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
     -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
     background-color:#E4E4E4;
-    background-image:linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+
+    /* background-image:linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
     background-image:-webkit-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
     background-image:-ms-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
     background-image:-webkit-gradient(
@@ -34,116 +44,294 @@ body {
         left bottom,
         color-stop(0, #A7A7A7),
         color-stop(0.51, #E4E4E4)
-    );
+    ); */
+
     background-attachment:fixed;
     font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
     font-size:12px;
-    height:100%;
     margin:0px;
     padding:0px;
     width:100%;
-
+    height: 100%;
 }
 
-
-#container {
-    width: 100%; 
-    height: auto;
-}
-
-#header {
-    width: 100%; 
-    height: 50px;
-}
-
-#menu {
-    height: 100%;  
-    width: 60%; 
-    background: grey;  
-    top: 0; 
-    left: 0; 
-    position: absolute; 
-    display: none;
-}
-
-#headerBackground {
-    height:100%;
-    width: 100%;
-}
-
-#menuButton {
-    height: 50px;
-    width: auto;
-    position: absolute;
-}
-
-#menuHeader {
-    height: 75px; 
-    width: 100%; 
-    background: green;
-}
-
-#profileHeaderImg {
-    padding: 5px; 
-    height: 65px;  
-    width: 65px;
-    float: left;
-}
-
-#menuHeader h4, p {
-    padding-top: 12px;
-    
-}
-
-.content {
-    width: 100%;
-}
-
-div, ul, li {
+div, a, ul, lim {
     display: block;
     box-sizing: border-box;
     padding: 0;
     margin: 0;
     border: 0;
 }
-h1, h2, h3, h4, a  {
+
+h1, h2, h3, h4, a, p  {
     padding: 0;
     margin: 0;
     text-decoration: none;
     color: black;
+    display: inline-block;
 }
-.hello 
-{ 
-    font-size: 42; 
+
+.right {
+    float: right;
+}
+
+.left {
+    float: left;
+}
+
+.container {
+    width: 100%; 
+    height: 100%;
+    
+}
+
+.shadowDiv {
     width: 100%;
-    margin-top: 2em;
-    text-align: center;
-    color: blue;
+    height: 100%;
+    position: fixed;
+    background: rgba(0,0,0,0.6);
+    z-index: 5;
+    display: none;
+    animation-duration: 0.3s;
 }
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+ }
+ 
+ .shadowDiv.fadeIn {
+    animation-name: fadeIn;
+ }
+
+@keyframes fadeOut {
+    from {opacity: 1;}
+    to {opacity: 0;}
+ }
+ 
+ .shadowDiv.fadeOut {
+    animation-name: fadeOut;
+ }
+
+/* HEADER */
+
+.header {
+    width: 100%; 
+    height: 50px;
+}
+
+.addItemA {
+    float: right;
+}
+
+.addItemImg {
+    float: right;
+    height: 50px;
+    width: 50px;
+}
+
+.menuButton {
+    height: 50px;
+    width: auto;
+    float: left;
+}
+
+.menuButtonLink {
+    display: inline;
+}
+
+.header h1 {
+    padding-left: 10px;
+    line-height: 50px;
+}
+
+.header a {
+	display: block;
+}
+
+/* MENU */
+
+.menu {
+    position: fixed;
+    z-index: 30;
+    min-height: 100%;
+    height: auto;  
+    width: 75%; 
+    top: 0;
+    left: -100%; 
+    /* left: 0; 
+    position: fixed; 
+    overflow: hidden;
+    transition: 0.5s; */
+    background: #eeeeee;
+}
+
+.menu.horizTranslate {
+  transition: 0.3s;
+  left: 0;
+}
+
+.menu.horizTranslateBack {
+    transition: 0.3s;
+    left: -100%;
+}
+
+.menuHeader {
+    width: 100%;
+    height: 100px;
+    background: linear-gradient(to bottom right, #000000 2%, #b8bbbc 100%);
+}
+
+.menuHeaderLeft {
+    height: 100px; 
+    width: 90%; 
+    float: left;
+    padding: 20px;
+    padding-left: 15px;
+    padding-right: 0;
+}
+
+.menuHeaderRight {
+    height: 100px; 
+    width: 10%; 
+    float: right;
+}
+
+.profileHeaderImg {
+    margin-right: 14px; 
+    height: 100%;  
+    width: 60px;
+    border-radius: 50%;
+    float: left;
+}
+
+.menuHeaderLeft p {
+    padding-top: 3px;
+    font-size: 13px;
+    display: block;
+}
+
+.menuHeaderLeft h4 {
+    padding-top: 12px;
+    font-size: 18px;
+    display: block;
+}
+
+.menuHeaderRight p {
+    float: right; 
+    padding: 0; 
+    padding-right: 10px; 
+    font-size: 20px;
+    line-height: 100px;
+}
+
+.menuList {
+    width: 100%;
+    height: auto;
+}
+
+.menuList a {
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    height: 70px;
+}
+
+.menuList h2 {
+    vertical-align: middle;
+    font-size: 20px;
+    font-weight: normal;
+    line-height: 50px;
+}
+
+.menuList img {
+    height: 40px;
+    width: 40px;
+    display: inline-block;
+    vertical-align: middle;
+    padding-left: 10px;
+    padding-right: 8px;
+    background-color: transparent;
+}
+
+/* TOP MENU */
+
+.topMenu {
+    width:100%;
+    height: 35px;
+    padding: 5px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    background: grey;
+}
+
+.topMenu a {
+    line-height: 25px;
+    text-align: center;
+    height: 25px;
+    width: 22%;
+}
+
+.topMenu4 {
+    width:100%;
+    height: 35px;
+   
+    background: grey;
+    overflow: hidden;
+    width: auto;
+    display: flex;
+}
+
+.topMenu4 a{
+    line-height: 35px;
+    text-align: center;
+    height: 35px;
+    flex: auto;
+    box-sizing: border-box;
+    border-bottom: 3px white solid;
+}
+
+.topMenu h4, .topMenu4 h4 {
+    font-size: 16px;
+}
+
+.content {
+    width: 100%;
+    height: calc(100% - 90px);
+}
+
+.contentWithoutTopMenu {
+    width: 100%;
+    height: calc(100% - 50px);
+    border-top: 1.5px gray solid;
+    padding: 5px;
+}
+
+/* TRADEMARKET CONTENT */
 
 .box
 {
     width: 50%;
-    height: 200px;
-    padding: 5px;
+    height: auto;
+    padding: 10px;
     box-sizing: border-box;
 }
 
 .left
 {
-    background: blue;
     float: left;
+    padding-right: 5px;
 }
 
-.right
-{
-    background: orange;
+.right {
     float: right;
+    padding-left: 5px;
 }
 
 .contentDivImg {
     width: 100%;
-    height: 70%;
+    height: calc(50vw - 10px);
 }
 
 .contentImg {
@@ -151,87 +339,92 @@ h1, h2, h3, h4, a  {
     height: 100%;
 }
 
-.topMenuH4
-{
-    height: 100%;
-    width: auto;
-    display: table; 
+/* USER CONTENT */
+
+.callOutWarning {
+    width: 100%;
+    height: auto;
     padding: 5px;
-    border: 2px solid grey;
-    margin-right: 3px;
+    text-align: center;
+    background: red;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border: 2px black solid;
+    border-radius: 5px;
+    line-height: 25px;
+    display: none;
+}
+
+.callOutWarning p {
+    font-size: 16px;
+}
+
+.callOutWarningTextBold {
+    color: blue;
+    font-weight: bold;
+    padding-left: 4px;
+    padding-right: 1.5px;
 }
 
 .profileHeader {
     width: 100%;
-    height: 100px;
+    height: 110px;
     padding: 5px;
     margin-bottom: 10px;
 }
 
 .profileImageBox {
-    width: 90px;
+    width: 100px;
     height: 100%;
     background: blue;
     float: left;
-}    
+    padding: 5px;
+} 
 
 .profileInfoBox {
-    width: calc(100% - 90px);
+    width: calc(100% - 100px);
     height: 100%;
     background: greenyellow;
     float: right;
     padding: 5px;
+    overflow: hidden;
+    overflow-y: scroll;
 }
 
-#profileImg {
-    padding: 5px; 
-    height: 80px;  
-    width: 80px;
-}
-
-#profileInfoBox a {
-    color: blue;
-    margin: 0px;
+.profileInfoBox p {
     padding-top: 5px;
-    font-size: 8px;
-    word-wrap: normal;
 }
 
-#profileInfoBox p{
-    margin: 0px;
-    padding-top: 5px;
-    font-size: 8px;
-    word-wrap: normal;
-}
-
-.topMenu {
-    width:100%;
-    height: auto;
-    padding: 5px;
-    overflow-x: scroll;
-    overflow-y: hidden;
-    white-space: nowrap;
-}
-
-.topMenu a {
-    display: inline-block;
-    vertical-align: middle;
-}
-
-::-webkit-scrollbar {
-    height: 0px;
-    width: 0px;
-}
-
-#userScore {
+.profileImg {
+    height: 100%;
     width: 100%;
-    height: 110px;
+    border-radius: 50%;
+}
+
+.fbIcons {
+    float: right;
+    height: 8vw;
+    width: 8vw;
+    padding-left: 5px;
+}
+
+.profileInfoBox a {
+    color: blue;
+}
+
+.profileInfoBox h2{
+}
+
+.userScore {
+    width: 100%;
+    height: 30vw;
     padding: 5px;
     display: flex;
 }
 
-#userScore div{ 
+.userScore div{ 
     height: 100%;
+    width: 30%;
     flex: 1;
     padding: 5px;
     margin: 5px;
@@ -239,35 +432,267 @@ h1, h2, h3, h4, a  {
     border: 1px darkgrey solid;
 }
 
-#userScore h1, h2{
+.userScore h1, .userScore h2{
+    padding-top: 10px;
     text-align: center;
+    display: block;
 }
 
-#menuList {
+/* CALLOUT CONTENT */
+
+.callOutDiv {
     width: 100%;
-    height: 300px;
+    height: auto;
+    margin-top: 5px;
 }
 
-#menuList div{
+.callOutHeader {
     width: 100%;
+    height: 50px;
+    background: white;
+    padding: 10px;
+    padding-bottom: 0;
+}
 
+.callOutHeaderImg {
+    height: 40px;
+    width: 40px;
+    float: left;
+    padding-right: 5px;
+}
+
+.callOutHeader h3 {
+    padding-top: 5px;
+    padding-bottom: 3px;
+}
+
+.callOutHeader p {
+    color: grey;
+    display: block;
+}
+
+.callOutText {
+    padding: 10px 8px 10px 8px;
+    width: 100%;
+    height: auto;
+    background: white;
+}
+
+.callOutText p {
+    font-size: 15px;
+}
+
+.callOutFooter {
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    background: white;
+}
+
+.callOutFooterShowComments {
+    width: 50%;
+    height: 100%;
+    float: left;
+}
+
+.callOutFooterShowPhotos {
+    width: 50%;
+    height: 100%;
+    float: right;
+}
+
+.topMenuCallOutDetails {
+    height: 40px;
+    width: 100%;
+    white-space: nowrap;
+}
+
+.topMenuCallOutDetails a {
+    height: 100%;
+    width: 50%;
+    text-align: center;
+    line-height: 40px;
+}
+
+.comment01 {
+    width: calc(100% - 10px);
+    height: auto;
+    margin: 5px;
+    margin-bottom: 0px; 
+}
+
+.commentHeader {
+    width: 50px;
+    height: 50px;
+    padding-top: 2px;
+    float: left;
+}
+
+.commentHeader img {
+    height: 40px;
+    width: 40px;
+    border: 6px;
+    border-radius: 20px;
+}
+
+.commentText {
+    width: calc(100% - 45px);
+    height: auto;
+    background: grey;
+    margin-left: 45px;
+    padding: 8px;
+    border: 1px whitesmoke;
+    border-radius: 10px;
+}
+
+.commentText h3 {
+    padding-bottom: 3px;
+}
+
+.commentFooter {
+    width: calc(100% - 45px);
+    height: 30px;
+    margin-left: 45px;
+    display: flex;
+    padding: 5px;
+}
+
+.commentFooter p {
+    color: grey;
+    flex: auto;
+    font-size: 15px;
+}
+
+.writeComment {
+    width: 100%;
+    height: 50px;
+    background: blue;
+    padding: 5px;
+    bottom: 0;
+    position: fixed;
+}
+
+.writeComment input {
+    height: 40px;
+    width: calc(100% - 90px);
+    float: left;
+    font-size: 18px;
+}
+
+.lastComment {
+    margin-bottom: 50px;
+}
+
+.addPhotosImg {
+    height: 40px;
+    width: 40px;
+    float: left;
+    padding-right: 5px;
+}
+
+.sendCommentImg {
+    height: 40px;
+    width: 40px;
+    padding-left: 5px;
+    float: right;
+}
+
+.box2
+{
+    width: 50%;
+    height: 150px;
+    padding: 5px;
     box-sizing: border-box;
 }
 
-#menuList h2 {
-    margin: 0;
-    padding: 10px;
-    display: inline-block;
-    vertical-align: middle;
-    font-size: 20px;
-    font-weight: normal;
+.box2 img {
+    width: 100%;
+    height: 100%;
 }
 
-#menuList img {
-    width: 10%;
+.legitCheckFooterShowPhotos {
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    background: white;
+}
+
+.legitCheckLinks {
     height: auto;
-    display: inline-block;
-    vertical-align: middle;
-    padding-left: 10px;
-    background-color: transparent;
+    margin-top: 5px;
+    background: white;
+    width: 100%;
+    text-align: center;
+    padding: 3px 0px 7px 5px;
+    overflow: hidden;
+    border-right: 5px white solid;
+}
+
+.legitCheckLinks a {
+    color: blue;
+    padding-top: 4px;
+    display: block;
+}
+
+.itemView {
+    width: 100%;
+    height: calc(10px + 30vw);
+    padding: 5px;
+    min-height: 118px; /* Pro telefony uzsi nez 360px */
+}
+
+.itemViewPhoto {
+    height: 30vw;
+    width: 30%;
+    min-height: 108px; /* Pro telefony */
+    min-width: 108px;  /* uzsi nez 360px */
+    float: left;
+    position: relative;
+    background: white;
+}
+
+.itemViewPhoto img {
+    width: 100%;
+    height: auto;
+    top: 0;
+    bottom: 0;
+    position: absolute;
+    margin: auto;
+}
+
+.itemViewText {
+    width: 70%;
+    height: 100%;
+    float: right;
+    padding: 2px 0px 2px 10px;
+    background: white;
+    max-width: calc(100% - 108px); /* Pro telefony uzsi nez 360px */
+}
+
+.itemViewName {
+    width: 100%;
+    height: 40%;
+    overflow: hidden;
+}
+
+.itemViewText h4 {
+    color: gray;
+    display: block;
+}
+
+.itemViewText h3 {
+    display: block;
+}
+
+.itemAddSelect {
+    border: 0;
+    width: calc(100% - 10px);
+    height: 40px;
+    margin: 10px 5px 10px 5px;
+    display: block;
+    font-size: 17px;
+    font-weight: bold;
+    padding-left: 5px;
 }
