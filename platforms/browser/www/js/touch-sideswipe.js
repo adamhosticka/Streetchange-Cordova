@@ -24,7 +24,7 @@
             moveSpeed: config.moveSpeed || 0.2, //sec
             opacityBackground: config.opacityBackground || 0.8,
             shiftForStart: config.shiftForStart || 50, // px
-            windowMaxWidth: config.windowMaxWidth || 1024, // px
+            windowMaxWidth: config.windowMaxWidth || 3000, // px
         };
         //------------------------------------------------------------------
         var winInnerWidth = window.innerWidth;
@@ -78,7 +78,7 @@
             //-------------------------------
             // create first style parameters: width and state wrapped DOM-element
             //-------------------------------
-            if (winInnerWidth > 499) {
+            if (winInnerWidth > 3000) { /* bylo zde 499 ZMENA */
                 elSubmainWidth = opt.elSubmainWidth;
             } else {
                 elSubmainWidth = winInnerWidth * opt.elSubmainMaxWidth;
@@ -100,7 +100,7 @@
                 tssClose();
             }
             winInnerWidth = window.innerWidth;
-            if (winInnerWidth > 499) {
+            if (winInnerWidth > 3000) { /* bylo zde 499 ZMENA */
                 elSubmainWidth = opt.elSubmainWidth;
             } else {
                 elSubmainWidth = winInnerWidth * opt.elSubmainMaxWidth;
@@ -117,9 +117,10 @@
         //------------------------------------------------------------------
         function tssTouchstart(event) {
             document.body.style.overflow = 'hidden';
+            elMain.style.zIndex = '9999999';
             elMain.style.transitionDuration = '0s';
             elBg.style.transitionDuration = '0s';
-            elBg.style.zIndex = 999;
+            elBg.style.zIndex = 999999;
             elMainCoordX0 = elMain.getBoundingClientRect().left;
             touchstartCoordX = event.changedTouches[0].clientX;
         }
@@ -129,6 +130,7 @@
         // Drag element (use states from tssInitStates, tssRecalcStates, tssTouchstart)
         //------------------------------------------------------------------
         function tssTouchmove(event) {
+            elMain.style.zIndex = '9999999';
             touchmoveCoordX = event.changedTouches[0].clientX;
             var elMainCoordX0New = touchmoveCoordX - (touchstartCoordX - elMainCoordX0);
 
@@ -221,6 +223,7 @@
         // change states on Open
         //------------------------------------------------------------------
         function tssOpen() {
+            elMain.style.zIndex = '9999999';
             elBg.style.opacity = opt.opacityBackground;
             elMain.style.width = winInnerWidth + 'px';
             elMain.style.transform = 'translateX(0px)';
@@ -228,7 +231,7 @@
             elMain.classList.add('tss--open');
             elBg.classList.remove('tss-bg--close');
             elBg.classList.add('tss-bg--open');
-            elBg.style.zIndex = '999';
+            elBg.style.zIndex = '999999';
             open = true;
         }
         //------------------------------------------------------------------
@@ -246,6 +249,11 @@
             elBg.classList.remove('tss-bg--open');
             elBg.classList.add('tss-bg--close');
             elBg.style.zIndex = '-999';
+            console.log('tssClose');
+            setTimeout(function(){
+                elMain.style.zIndex = '9999';
+                console.log('delay');
+            }, opt.moveSpeed*1000);
             open = false;
         }
         //------------------------------------------------------------------
@@ -268,10 +276,10 @@
         //------------------------------------------------------------------
         function winOnresizeEngine(event) {
             winInnerWidth = window.innerWidth;
-            if(winInnerWidth < 1024 && !init){
+            if(winInnerWidth < 3000 && !init){
                 tssActionsEngine();
             }
-            else if(winInnerWidth >= 1024 && init){
+            else if(winInnerWidth >= 3000 && init){
                 tssClear();
             }
         }
@@ -281,7 +289,7 @@
         // set of listeners and states
         //------------------------------------------------------------------
         function tssActionsEngine(){
-            if(winInnerWidth < 1024 && !init){
+            if(winInnerWidth < 3000 && !init){
                 tssInitStates();
                 window.addEventListener('resize', tssRecalcStates, false);
                 elMain.addEventListener('touchstart', tssTouchstart, false);

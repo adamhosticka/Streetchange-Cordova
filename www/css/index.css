@@ -16,25 +16,25 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-* {
+ * {
     -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
 }
-
+ 
 ::-webkit-scrollbar {
     height: 0px;
     width: 0px;
 }
-
+ 
 html{
     height: 100%;
 }
-
+ 
 body {
     -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
     -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
     -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
     background-color:#E4E4E4;
-
+ 
     /* background-image:linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
     background-image:-webkit-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
     background-image:-ms-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
@@ -45,7 +45,7 @@ body {
         color-stop(0, #A7A7A7),
         color-stop(0.51, #E4E4E4)
     ); */
-
+ 
     background-attachment:fixed;
     font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
     font-size:12px;
@@ -54,7 +54,7 @@ body {
     width:100%;
     height: 100%;
 }
-
+ 
 div, a, ul, lim {
     display: block;
     box-sizing: border-box;
@@ -62,7 +62,7 @@ div, a, ul, lim {
     margin: 0;
     border: 0;
 }
-
+ 
 h1, h2, h3, h4, a, p  {
     padding: 0;
     margin: 0;
@@ -70,118 +70,78 @@ h1, h2, h3, h4, a, p  {
     color: black;
     display: inline-block;
 }
-
+ 
 .right {
     float: right;
 }
-
+ 
 .left {
     float: left;
 }
-
+ 
 .container {
-    width: 100%; 
-    height: 100%;
-    
-}
-
-.shadowDiv {
     width: 100%;
     height: 100%;
-    position: fixed;
-    background: rgba(0,0,0,0.6);
-    z-index: 5;
-    display: none;
-    animation-duration: 0.3s;
+    top: 0;
+    left: 0;
+    position: absolute;
 }
-
-@keyframes fadeIn {
-    from {opacity: 0;}
-    to {opacity: 1;}
- }
  
- .shadowDiv.fadeIn {
-    animation-name: fadeIn;
- }
-
-@keyframes fadeOut {
-    from {opacity: 1;}
-    to {opacity: 0;}
- }
- 
- .shadowDiv.fadeOut {
-    animation-name: fadeOut;
- }
-
 /* HEADER */
-
+ 
 .header {
-    width: 100%; 
+    width: 100%;
     height: 50px;
+    background: black;
+    /* box-shadow: 0px -6px 50px 0px black; */
+    position: fixed;
+    top: 0;
+    z-index: 99999;
 }
-
+ 
 .addItemA {
     float: right;
 }
-
+ 
 .addItemImg {
     float: right;
-    height: 50px;
-    width: 50px;
+    height: 30px;
+    width: 30px;
+    padding: 10px 10px 10px 0;
 }
 
 .menuButton {
-    height: 50px;
+    height: 30px;
     width: auto;
     float: left;
+    padding: 10px 0 10px 10px;
+    position: absolute;
+    z-index: 99999;
 }
-
+ 
 .menuButtonLink {
     display: inline;
 }
-
+ 
 .header h1 {
-    padding-left: 10px;
-    line-height: 50px;
+    padding-left: 50px;
+    line-height: 47px;
+    padding-top: 3px;
+    color: white;
 }
-
+ 
 .header a {
-	display: block;
+    display: block;
 }
-
+ 
 /* MENU */
-
-.menu {
-    position: fixed;
-    z-index: 30;
-    min-height: 100%;
-    height: auto;  
-    width: 75%; 
-    top: 0;
-    left: -100%; 
-    /* left: 0; 
-    position: fixed; 
-    overflow: hidden;
-    transition: 0.5s; */
-    background: #eeeeee;
-}
-
-.menu.horizTranslate {
-  transition: 0.3s;
-  left: 0;
-}
-
-.menu.horizTranslateBack {
-    transition: 0.3s;
-    left: -100%;
-}
-
+ 
 .menuHeader {
     width: 100%;
     height: 100px;
     background: linear-gradient(to bottom right, #000000 2%, #b8bbbc 100%);
 }
-
+ 
 .menuHeaderLeft {
     height: 100px; 
     width: 90%; 
@@ -189,14 +149,15 @@ h1, h2, h3, h4, a, p  {
     padding: 20px;
     padding-left: 15px;
     padding-right: 0;
+    overflow: hidden;
 }
-
+ 
 .menuHeaderRight {
     height: 100px; 
     width: 10%; 
     float: right;
 }
-
+ 
 .profileHeaderImg {
     margin-right: 14px; 
     height: 100%;  
@@ -204,19 +165,20 @@ h1, h2, h3, h4, a, p  {
     border-radius: 50%;
     float: left;
 }
-
+ 
 .menuHeaderLeft p {
     padding-top: 3px;
     font-size: 13px;
     display: block;
 }
-
+ 
 .menuHeaderLeft h4 {
+    white-space: nowrap;
     padding-top: 12px;
     font-size: 18px;
     display: block;
 }
-
+ 
 .menuHeaderRight p {
     float: right; 
     padding: 0; 
@@ -224,26 +186,26 @@ h1, h2, h3, h4, a, p  {
     font-size: 20px;
     line-height: 100px;
 }
-
+ 
 .menuList {
     width: 100%;
     height: auto;
 }
-
+ 
 .menuList a {
     padding: 10px;
     width: 100%;
     box-sizing: border-box;
     height: 70px;
 }
-
+ 
 .menuList h2 {
     vertical-align: middle;
     font-size: 20px;
     font-weight: normal;
     line-height: 50px;
 }
-
+ 
 .menuList img {
     height: 40px;
     width: 40px;
@@ -253,63 +215,77 @@ h1, h2, h3, h4, a, p  {
     padding-right: 8px;
     background-color: transparent;
 }
-
+ 
 /* TOP MENU */
-
+ 
 .topMenu {
-    width:100%;
+    width: 100%;
     height: 35px;
     padding: 5px;
     overflow-x: scroll;
     overflow-y: hidden;
+    top: 50px;
     white-space: nowrap;
-    background: grey;
+    background: black;
+    position: fixed;
+    z-index: 99;
 }
-
+ 
 .topMenu a {
     line-height: 25px;
     text-align: center;
     height: 25px;
     width: 22%;
 }
-
+ 
 .topMenu4 {
     width:100%;
     height: 35px;
-   
-    background: grey;
+    background: black;
     overflow: hidden;
-    width: auto;
     display: flex;
+    position: fixed;
+    top: 50px;
 }
-
+ 
 .topMenu4 a{
     line-height: 35px;
     text-align: center;
     height: 35px;
     flex: auto;
-    box-sizing: border-box;
-    border-bottom: 3px white solid;
+ 
+ 
 }
-
+ 
 .topMenu h4, .topMenu4 h4 {
     font-size: 16px;
+    color: white;
 }
-
+ 
 .content {
     width: 100%;
-    height: calc(100% - 90px);
+    min-height: calc(100% - 90px);
+    padding-bottom: 5px;
+    margin-top: 85px;
 }
 
+.callOutWarningActive {
+    min-height: calc(100% - 130px);
+    margin-top: 125px;
+}
+ 
 .contentWithoutTopMenu {
     width: 100%;
     height: calc(100% - 50px);
-    border-top: 1.5px gray solid;
-    padding: 5px;
+    margin-top: 50px;
 }
 
+.contentPadding {
+    padding: 5px;
+}
+ 
 /* TRADEMARKET CONTENT */
-
+ 
 .box
 {
     width: 50%;
@@ -317,62 +293,71 @@ h1, h2, h3, h4, a, p  {
     padding: 10px;
     box-sizing: border-box;
 }
-
+ 
 .left
 {
     float: left;
     padding-right: 5px;
 }
-
+ 
 .right {
     float: right;
     padding-left: 5px;
 }
-
+ 
 .contentDivImg {
     width: 100%;
-    height: calc(50vw - 10px);
+    height: calc(50vw - 15px);
 }
-
+ 
 .contentImg {
     width: 100%;
     height: 100%;
 }
-
+ 
+.contentDivText {
+    padding: 5px 2px 0px 2px;
+}
+ 
+.contentDivTextHeader {
+    overflow: hidden;
+    white-space: nowrap;
+}
+ 
 /* USER CONTENT */
-
+ 
 .callOutWarning {
+    display: none;
     width: 100%;
-    height: auto;
+    height: 40px;
     padding: 5px;
     text-align: center;
     background: red;
-    margin-top: 5px;
     margin-bottom: 5px;
-    border: 2px black solid;
-    border-radius: 5px;
-    line-height: 25px;
-    display: none;
+    line-height: 30px;
+    border-top: 2px gray solid;
+    position: fixed;
+    top: 85px;
 }
-
+ 
 .callOutWarning p {
     font-size: 16px;
 }
-
+ 
 .callOutWarningTextBold {
     color: blue;
     font-weight: bold;
     padding-left: 4px;
     padding-right: 1.5px;
 }
-
+ 
 .profileHeader {
     width: 100%;
     height: 110px;
     padding: 5px;
     margin-bottom: 10px;
 }
-
+ 
 .profileImageBox {
     width: 100px;
     height: 100%;
@@ -380,7 +365,7 @@ h1, h2, h3, h4, a, p  {
     float: left;
     padding: 5px;
 } 
-
+ 
 .profileInfoBox {
     width: calc(100% - 100px);
     height: 100%;
@@ -390,38 +375,38 @@ h1, h2, h3, h4, a, p  {
     overflow: hidden;
     overflow-y: scroll;
 }
-
+ 
 .profileInfoBox p {
     padding-top: 5px;
 }
-
+ 
 .profileImg {
     height: 100%;
     width: 100%;
     border-radius: 50%;
 }
-
+ 
 .fbIcons {
     float: right;
     height: 8vw;
     width: 8vw;
     padding-left: 5px;
 }
-
+ 
 .profileInfoBox a {
     color: blue;
 }
-
+ 
 .profileInfoBox h2{
 }
-
+ 
 .userScore {
     width: 100%;
     height: 30vw;
     padding: 5px;
     display: flex;
 }
-
+ 
 .userScore div{ 
     height: 100%;
     width: 30%;
@@ -431,21 +416,21 @@ h1, h2, h3, h4, a, p  {
     background: lightgray;
     border: 1px darkgrey solid;
 }
-
+ 
 .userScore h1, .userScore h2{
     padding-top: 10px;
     text-align: center;
     display: block;
 }
-
+ 
 /* CALLOUT CONTENT */
-
+ 
 .callOutDiv {
     width: 100%;
     height: auto;
     margin-top: 5px;
 }
-
+ 
 .callOutHeader {
     width: 100%;
     height: 50px;
@@ -453,35 +438,35 @@ h1, h2, h3, h4, a, p  {
     padding: 10px;
     padding-bottom: 0;
 }
-
+ 
 .callOutHeaderImg {
     height: 40px;
     width: 40px;
     float: left;
     padding-right: 5px;
 }
-
+ 
 .callOutHeader h3 {
     padding-top: 5px;
     padding-bottom: 3px;
 }
-
+ 
 .callOutHeader p {
     color: grey;
     display: block;
 }
-
+ 
 .callOutText {
     padding: 10px 8px 10px 8px;
     width: 100%;
     height: auto;
     background: white;
 }
-
+ 
 .callOutText p {
     font-size: 15px;
 }
-
+ 
 .callOutFooter {
     width: 100%;
     height: 40px;
@@ -489,53 +474,53 @@ h1, h2, h3, h4, a, p  {
     text-align: center;
     background: white;
 }
-
+ 
 .callOutFooterShowComments {
     width: 50%;
     height: 100%;
     float: left;
 }
-
+ 
 .callOutFooterShowPhotos {
     width: 50%;
     height: 100%;
     float: right;
 }
-
+ 
 .topMenuCallOutDetails {
     height: 40px;
     width: 100%;
     white-space: nowrap;
 }
-
+ 
 .topMenuCallOutDetails a {
     height: 100%;
     width: 50%;
     text-align: center;
     line-height: 40px;
 }
-
+ 
 .comment01 {
     width: calc(100% - 10px);
     height: auto;
     margin: 5px;
     margin-bottom: 0px; 
 }
-
+ 
 .commentHeader {
     width: 50px;
     height: 50px;
     padding-top: 2px;
     float: left;
 }
-
+ 
 .commentHeader img {
     height: 40px;
     width: 40px;
     border: 6px;
     border-radius: 20px;
 }
-
+ 
 .commentText {
     width: calc(100% - 45px);
     height: auto;
@@ -545,11 +530,11 @@ h1, h2, h3, h4, a, p  {
     border: 1px whitesmoke;
     border-radius: 10px;
 }
-
+ 
 .commentText h3 {
     padding-bottom: 3px;
 }
-
+ 
 .commentFooter {
     width: calc(100% - 45px);
     height: 30px;
@@ -557,13 +542,13 @@ h1, h2, h3, h4, a, p  {
     display: flex;
     padding: 5px;
 }
-
+ 
 .commentFooter p {
     color: grey;
     flex: auto;
     font-size: 15px;
 }
-
+ 
 .writeComment {
     width: 100%;
     height: 50px;
@@ -572,32 +557,32 @@ h1, h2, h3, h4, a, p  {
     bottom: 0;
     position: fixed;
 }
-
+ 
 .writeComment input {
     height: 40px;
     width: calc(100% - 90px);
     float: left;
     font-size: 18px;
 }
-
+ 
 .lastComment {
     margin-bottom: 50px;
 }
-
+ 
 .addPhotosImg {
     height: 40px;
     width: 40px;
     float: left;
     padding-right: 5px;
 }
-
+ 
 .sendCommentImg {
     height: 40px;
     width: 40px;
     padding-left: 5px;
     float: right;
 }
-
+ 
 .box2
 {
     width: 50%;
@@ -605,12 +590,12 @@ h1, h2, h3, h4, a, p  {
     padding: 5px;
     box-sizing: border-box;
 }
-
+ 
 .box2 img {
     width: 100%;
     height: 100%;
 }
-
+ 
 .legitCheckFooterShowPhotos {
     width: 100%;
     height: 40px;
@@ -618,7 +603,7 @@ h1, h2, h3, h4, a, p  {
     text-align: center;
     background: white;
 }
-
+ 
 .legitCheckLinks {
     height: auto;
     margin-top: 5px;
@@ -629,20 +614,20 @@ h1, h2, h3, h4, a, p  {
     overflow: hidden;
     border-right: 5px white solid;
 }
-
+ 
 .legitCheckLinks a {
     color: blue;
     padding-top: 4px;
     display: block;
 }
-
+ 
 .itemView {
     width: 100%;
     height: calc(10px + 30vw);
-    padding: 5px;
+    padding: 5px 0;
     min-height: 118px; /* Pro telefony uzsi nez 360px */
 }
-
+ 
 .itemViewPhoto {
     height: 30vw;
     width: 30%;
@@ -652,7 +637,7 @@ h1, h2, h3, h4, a, p  {
     position: relative;
     background: white;
 }
-
+ 
 .itemViewPhoto img {
     width: 100%;
     height: auto;
@@ -661,7 +646,7 @@ h1, h2, h3, h4, a, p  {
     position: absolute;
     margin: auto;
 }
-
+ 
 .itemViewText {
     width: 70%;
     height: 100%;
@@ -670,22 +655,22 @@ h1, h2, h3, h4, a, p  {
     background: white;
     max-width: calc(100% - 108px); /* Pro telefony uzsi nez 360px */
 }
-
+ 
 .itemViewName {
     width: 100%;
     height: 40%;
     overflow: hidden;
 }
-
+ 
 .itemViewText h4 {
     color: gray;
     display: block;
 }
-
+ 
 .itemViewText h3 {
     display: block;
 }
-
+ 
 .itemAddSelect {
     border: 0;
     width: calc(100% - 10px);
@@ -695,4 +680,68 @@ h1, h2, h3, h4, a, p  {
     font-size: 17px;
     font-weight: bold;
     padding-left: 5px;
+}
+
+/* ITEM INFO */
+
+.item_info {
+    width: 100%;
+    height: auto;
+    background: white;
+    padding-bottom: 3px;
+}
+
+.item_info h1 {
+    padding: 3px 5px;
+}
+
+.item_info_item_img {
+    width: 100%;
+    height: auto;
+    padding: 2px;
+    box-sizing: border-box;
+}
+
+.item_seller {
+    width: 100%;
+    height: 60px;
+    padding: 5;
+    background: white;
+    margin-top: 10px;
+}
+
+.item_seller h2 {
+    line-height: 25px;
+    padding-top: 3px;
+}
+.item_seller p {
+    color: gray;
+    display: block;
+}
+
+.item_seller_profile_img {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+    float: left;
+    border-radius: 50%;
+}
+
+.item_seller_write_mess {
+    width: 40px;
+    height: 40px;
+    float: right;
+}
+
+.addedToFavouriteMessage {
+    padding: 5px 7px;
+    border-radius: 500px;
+    background: rgba(100, 100, 100, 0.2);
+    position: fixed;
+    bottom: 30px;
+    transition: 0.2s;
+    display: none;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 14px;
 }

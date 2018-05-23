@@ -43,9 +43,39 @@
     }
 };
 
+
 app.initialize(); */
 
-document.getElementById('menuButton').addEventListener("click", showMenu);
+try {
+    document.getElementById('addToFavouriteImg').addEventListener("click", function(){
+        document.getElementById('addedToFavouriteMessage').style.display = 'inline-table';
+        setTimeout(function(){
+            document.getElementById('addedToFavouriteMessage').style.background = 'rgba(100,100,100, 0.7)';
+        },0.00000000000000000000000000000000000000000000000000000000000001);
+        setTimeout(function(){
+            document.getElementById('addedToFavouriteMessage').style.background = 'rgba(100,100,100, 0.2)';
+        }, 1300); 
+        setTimeout(function(){
+            document.getElementById('addedToFavouriteMessage').style.display = "none";
+        }, 1500); 
+    });
+}
+catch(error) {
+    console.error(error);
+}
+var menu = new TouchSideSwipe({
+    elementID: 'menu',
+    elementWidth: 3000,
+    elementMaxWidth: 0.8,
+    sideHookWidth: 44,
+    moveSpeed: 0.2,
+    opacityBackground: 0.5,
+    shiftForStart: 70,
+    windowMaxWidth: 2000,
+    sideHookWidth: 30,
+});
+
+/* document.getElementById('menuButton').addEventListener("click", showMenu);
 function showMenu() {
     document.getElementById("menu").classList.remove('horizTranslateBack');
     document.getElementById("menu").classList.add('horizTranslate');
@@ -63,9 +93,19 @@ function hideMenu() {
     setTimeout(function(){
         document.getElementById('shadowDiv').style.display = "none";
     }, 300); 
-}
+} */
 
-$callOut = true;
+$callOut = false;
+/* if($callOut) {
+    document.getElementById('callOutWarning').style.display = 'block';
+    if($('#callOutWarning').is(':visible')) {
+        document.getElementById('content').classList.add('callOutWarningActive');
+    }
+} */
+
 if($callOut) {
     document.getElementById('callOutWarning').style.display = 'block';
+    if(document.getElementById('callOutWarning').style.display === 'block') {
+        document.getElementById('content').classList.add('callOutWarningActive');
+    }
 }

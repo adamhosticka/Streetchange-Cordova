@@ -15,10 +15,12 @@
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
     <link rel="stylesheet" type="text/css" href="css/index.css">
     <title>Hello World</title>
+
+    <link rel="stylesheet" href="css/touch-sideswipe.css">
+    <script src="js/touch-sideswipe.js"></script>
 </head>
 	
 <body>
-    <div id='shadowDiv' class="shadowDiv"></div>
     <div id='container' class="container">
         <div id='header' class="header">
             <img id='menuButton' class='menuButton' src="Img/menu.png">
@@ -28,15 +30,15 @@
             </a>
         </div>
     
-        <div id="menu" class="menu">
+        <div id="menu" class="touch-side-swipe">
             <a class="menuHeader" href="profile.html">
                 <div class="menuHeaderLeft">
-                    <img class="profileHeaderImg" src="Img/profile01.png">
-                    <h4>Adam Hoštička</h4>
-                    <p>Zobrazit profil</p>
+                        <img class="profileHeaderImg" src="Img/profile01.png">
+                        <h4>Adam Hoštička</h4>
+                        <p>Zobrazit profil</p>
                 </div>  
                 <div class='menuHeaderRight'>
-                    <p>></p>
+                        <p>></p>
                 </div>
             </a>
             
@@ -61,7 +63,7 @@
                     <img src="Img/ledder.jpg">
                     <h2>FAQ</h2>
                 </a>
-            </div>  
+            </div> 
         </div>
             
         <div class="topMenu4">
