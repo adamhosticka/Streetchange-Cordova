@@ -48,21 +48,39 @@ app.initialize(); */
 
 try {
     document.getElementById('addToFavouriteImg').addEventListener("click", function(){
-        document.getElementById('addedToFavouriteMessage').style.display = 'inline-table';
-        setTimeout(function(){
-            document.getElementById('addedToFavouriteMessage').style.background = 'rgba(100,100,100, 0.7)';
-        },0.00000000000000000000000000000000000000000000000000000000000001);
-        setTimeout(function(){
-            document.getElementById('addedToFavouriteMessage').style.background = 'rgba(100,100,100, 0.2)';
-        }, 1300); 
-        setTimeout(function(){
-            document.getElementById('addedToFavouriteMessage').style.display = "none";
-        }, 1500); 
-    });
+        if(document.getElementById('addToFavouriteImg').src === "http://localhost:8000/Img/favourite.png") {
+            document.getElementById('addedToFavouriteMessage').style.display = 'inline-table';
+            setTimeout(function(){
+                document.getElementById('addedToFavouriteMessage').style.background = 'rgba(100,100,100, 0.7)';
+            },0.00000000000000000000000000000000000000000000000000000000000001);
+            setTimeout(function(){
+                document.getElementById('addedToFavouriteMessage').style.background = 'rgba(100,100,100, 0.2)';
+            }, 1300); 
+            setTimeout(function(){
+                document.getElementById('addedToFavouriteMessage').style.display = "none";
+            }, 1500); 
+        }
+    }); 
 }
 catch(error) {
     console.error(error);
 }
+
+try {
+    document.getElementById('addToFavouriteImg').addEventListener("click", function(){
+        if(document.getElementById('addToFavouriteImg').src === "http://localhost:8000/Img/favourite.png") {
+            document.getElementById('addToFavouriteImg').src = "http://localhost:8000/Img/favouriteAdded.png";
+        }
+        else {
+            document.getElementById('addToFavouriteImg').src = "http://localhost:8000/Img/favourite.png";
+        }
+    });
+}
+
+catch(error) {
+    console.log(error);
+}
+
 var menu = new TouchSideSwipe({
     elementID: 'menu',
     elementWidth: 3000,
