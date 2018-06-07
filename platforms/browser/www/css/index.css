@@ -53,6 +53,7 @@ body {
     padding:0px;
     width:100%;
     height: 100%;
+    overflow: hidden; /* pro schovani right menu... :/ */
 }
  
 div, a, ul, lim {
@@ -96,7 +97,6 @@ h1, h2, h3, h4, a, p  {
     /* box-shadow: 0px -6px 50px 0px black; */
     position: fixed;
     top: 0;
-    z-index: 99999;
 }
  
 .addItemA {
@@ -105,18 +105,16 @@ h1, h2, h3, h4, a, p  {
  
 .addItemImg {
     float: right;
-    height: 30px;
-    width: 30px;
-    margin: 10px 10px 10px 5px;
+    height: 25px;
+    width: 25px;
+    margin: 12.5px 10px 12.5px 5px;
 }
 
 .menuButton {
-    height: 30px;
-    width: auto;
+    height: 25px;
+    width: 25px;
     float: left;
-    padding: 10px 0 10px 10px;
-    position: absolute;
-    z-index: 99999;
+    padding: 12.5px 10px; /* padding misto marginu kvuli zvetseni plochy pro klik */
 }
  
 .menuButtonLink {
@@ -124,9 +122,7 @@ h1, h2, h3, h4, a, p  {
 }
  
 .header h1 {
-    padding-left: 50px;
-    line-height: 47px;
-    padding-top: 3px;
+    line-height: 50px;
     color: white;
 }
  
@@ -263,7 +259,6 @@ h1, h2, h3, h4, a, p  {
     height: calc(100% - 85px);
     padding-bottom: 5px;
     margin-top: 85px;
-    float: left;
     position: relative;
     overflow: auto;
 }
@@ -275,8 +270,10 @@ h1, h2, h3, h4, a, p  {
  
 .contentWithoutTopMenu {
     width: 100%;
-    min-height: calc(100% - 50px);
+    height: calc(100% - 50px);
     margin-top: 50px;
+    position: relative;
+    overflow: auto;
 }
 
 .contentPadding {
@@ -331,6 +328,43 @@ h1, h2, h3, h4, a, p  {
     white-space: nowrap;
 }
  
+/* FILTER RIGHT MENU FILTER RIGHT MENU! */
+
+.right_menu {
+    width: 70%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translateX(100%);
+    transition: linear 0.2s;
+    background: white;
+    border-left: 1px solid black;
+    z-index: 100;
+}
+
+.right_menu_header {
+    height: 7vh;
+    width: 100%;
+    border-bottom: 1px solid #b9b9b9;
+}
+
+.right_menu_header p, .right_menu_footer p {
+    font-size: 1.5em;
+    line-height: 7vh;
+    color: #2d2d2d;
+    padding: 0 10px;
+}
+
+.right_menu_footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 7vh;
+    border-top: 1px solid #b9b9b9;
+    text-align: center;
+}
+
 /* USER CONTENT */
  
 .callOutWarning {
@@ -637,7 +671,7 @@ h1, h2, h3, h4, a, p  {
     padding: 5px;
     min-height: 118px; /* Pro telefony uzsi nez 360px */
     background: white;
-    border-bottom: 1px solid lightgrey;
+    border-bottom: 1px solid #b9b9b9;
 }
  
 .itemViewPhoto {

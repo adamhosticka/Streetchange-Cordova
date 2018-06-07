@@ -47,6 +47,20 @@
 app.initialize(); */
 
 try {
+    document.getElementById('filterImg').addEventListener("click", function(){
+        document.getElementById('right_menu').style.transform = "translateX(0%)";
+    });
+
+    document.getElementById("closeRightMenu").addEventListener("click", function(){
+        document.getElementById('right_menu').style.transform = "translateX(100%)";
+    });
+}
+catch(error) {
+    console.error(error);
+}
+
+
+try {
     document.getElementById('addToFavouriteImg').addEventListener("click", function(){
         if(document.getElementById('addToFavouriteImg').src === "http://localhost:8000/Img/favourite.png") {
             document.getElementById('addedToFavouriteMessage').style.display = 'inline-table';

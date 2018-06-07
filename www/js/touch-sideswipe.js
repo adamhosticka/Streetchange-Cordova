@@ -118,14 +118,13 @@
         //------------------------------------------------------------------
         function tssTouchstart(event) {
             document.body.style.overflow = 'hidden';
-            elMain.style.zIndex = '9999999';
+            elMain.style.zIndex = '9999';
             elMain.style.transitionDuration = '0s';
             elBg.style.transitionDuration = '0s';
-            elBg.style.zIndex = 999999;
+            elBg.style.zIndex = 999;
             elMainCoordX0 = elMain.getBoundingClientRect().left;
             touchstartCoordX = event.changedTouches[0].clientX;
             touchstartCoordY = event.changedTouches[0].clientY;
-            console.log(touchstartCoordX, touchstartCoordY);
         }
         //------------------------------------------------------------------
 
@@ -133,7 +132,7 @@
         // Drag element (use states from tssInitStates, tssRecalcStates, tssTouchstart)
         //------------------------------------------------------------------
         function tssTouchmove(event) {
-            elMain.style.zIndex = '9999999';
+            elMain.style.zIndex = '9999';
             touchmoveCoordX = event.changedTouches[0].clientX;
             var elMainCoordX0New = touchmoveCoordX - (touchstartCoordX - elMainCoordX0);
 
@@ -183,13 +182,7 @@
                     elMain.style.zIndex = '-200';
                     document.elementFromPoint(touchstartCoordX, touchstartCoordY).click();
                     setTimeout(function(){
-                        if(!open) {
-                            elMain.style.zIndex = '9999';
-                        }
-                        else {
-                            elMain.style.zIndex = '9999999';
-                        }
-
+                        elMain.style.zIndex = '9999';
                     }, 2);
                 }
             }
@@ -219,6 +212,20 @@
             }
         } */
 
+        
+        //------------------------------------------------------------------
+        
+        //------------------------------------------------------------------
+        // open/close on click background-element
+        //------------------------------------------------------------------
+        function elBgClick(event) {
+            event.stopPropagation();
+            var elMainCoordX0ForClick = elMain.getBoundingClientRect().left;
+            if (event.clientX > (elMainCoordX0ForClick + elSubmainWidth) && elMainCoordX0ForClick > -elSubmainWidth+1) {      // moje vec - po menubuttonclick se jeste spustilo tohle, lehka prevence ale sux()
+                tssClose();
+            }
+        }
+        
         function menuButtonClick(event) {
             event.stopPropagation();
             if (open === false) {
@@ -232,23 +239,11 @@
         //------------------------------------------------------------------
 
         //------------------------------------------------------------------
-        // open/close on click background-element
-        //------------------------------------------------------------------
-        function elBgClick(event) {
-            event.stopPropagation();
-            var elMainCoordX0ForClick = elMain.getBoundingClientRect().left;
-            if (event.clientX > (elMainCoordX0ForClick + elSubmainWidth)) {
-                tssClose();
-            }
-        }
-
-        //------------------------------------------------------------------
-
-        //------------------------------------------------------------------
         // change states on Open
         //------------------------------------------------------------------
         function tssOpen() {
-            elMain.style.zIndex = '9999999';
+            console.log("tssOpen");
+            elMain.style.zIndex = '9999';
             elBg.style.opacity = opt.opacityBackground;
             elMain.style.width = winInnerWidth + 'px';
             elMain.style.transform = 'translateX(0px)';
@@ -256,8 +251,7 @@
             elMain.classList.add('tss--open');
             elBg.classList.remove('tss-bg--close');
             elBg.classList.add('tss-bg--open');
-            elBg.style.zIndex = '999999';
-            console.log('tssOpen');
+            elBg.style.zIndex = '999';
             open = true;
         }
         //------------------------------------------------------------------
@@ -266,6 +260,7 @@
         // change states on Close
         //------------------------------------------------------------------
         function tssClose() {
+            console.log("tssClose");
             document.body.style.overflow = '';
             elBg.style.opacity = 0;
             elMain.style.width = elMainWidth + 'px';
@@ -275,9 +270,9 @@
             elBg.classList.remove('tss-bg--open');
             elBg.classList.add('tss-bg--close');
             elBg.style.zIndex = '-999';
-            console.log('tssClose');
             setTimeout(function(){
                 elMain.style.zIndex = '9999';
+                console.log('piiiicici');
             }, opt.moveSpeed*1000);
             open = false;
         }
