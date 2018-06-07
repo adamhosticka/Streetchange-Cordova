@@ -217,7 +217,7 @@ h1, h2, h3, h4, a, p  {
 .topMenu {
     width: 100%;
     height: 35px;
-    padding: 5px;
+    padding: 5px 10px;
     overflow-x: scroll;
     overflow-y: hidden;
     top: 50px;
@@ -231,7 +231,7 @@ h1, h2, h3, h4, a, p  {
     line-height: 25px;
     text-align: center;
     height: 25px;
-    width: 22%;
+    padding: 0 8px;
 }
  
 .topMenu4 {
@@ -260,9 +260,12 @@ h1, h2, h3, h4, a, p  {
  
 .content {
     width: 100%;
-    min-height: calc(100% - 90px);
+    height: calc(100% - 85px);
     padding-bottom: 5px;
     margin-top: 85px;
+    float: left;
+    position: relative;
+    overflow: auto;
 }
 
 .callOutWarningActive {
@@ -447,7 +450,8 @@ h1, h2, h3, h4, a, p  {
     height: 40px;
     width: 40px;
     float: left;
-    padding-right: 5px;
+    margin-right: 8px;
+    border-radius: 50%;
 }
  
 .callOutHeader h3 {
@@ -701,18 +705,17 @@ h1, h2, h3, h4, a, p  {
     width: 100%;
     height: auto;
     background: white;
-    padding-bottom: 3px;
+    padding: 3px 10px;
 }
 
 .item_info h1 {
     padding: 3px 5px;
+    font-size: 1.66em;
 }
 
 .item_info_item_img {
     width: 100%;
     height: auto;
-    padding: 2px;
-    box-sizing: border-box;
 }
 
 .item_seller {
@@ -783,10 +786,54 @@ h1, h2, h3, h4, a, p  {
 
 /* RULES RULES RULES */
 
-.rules_div h3, p {
+.rules_div h3, .rules_div p {
     display: block;
 }
 
 .rules_div p {
     padding: 2px 2px 5px 3px;
+}
+
+/* ANNOUNCEMENT OZNAMENI */
+
+.announcement {
+    width: 100%;
+    height: calc(20vw + 10px);
+    padding: 5px 8px;
+    background: white;
+    margin-bottom: 0;
+}
+
+.announcement_img {
+    width: 20%;
+    height: 20vw;
+    padding: 5px;
+    float: left;
+}
+
+.announcement_img Img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.announcement_text {
+    width: 80%;
+    height: 20vw;
+    padding-left: 10px;
+    display: table-cell;
+    vertical-align: middle;
+}
+.announcement_text h3 {
+    display: inline;
+}
+
+.announcement_text_p {
+    font-size: 1.17em;
+    display: inline;
+}
+
+.time_text {
+    color: grey;
+    display: block;
 }

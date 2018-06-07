@@ -29,6 +29,7 @@
         //------------------------------------------------------------------
         var winInnerWidth = window.innerWidth;
         var touchstartCoordX;
+        var touchstartCoordY;
         var touchmoveCoordX;
         var open;
         var elMainCoordX0;
@@ -123,6 +124,8 @@
             elBg.style.zIndex = 999999;
             elMainCoordX0 = elMain.getBoundingClientRect().left;
             touchstartCoordX = event.changedTouches[0].clientX;
+            touchstartCoordY = event.changedTouches[0].clientY;
+            console.log(touchstartCoordX, touchstartCoordY);
         }
         //------------------------------------------------------------------
 
@@ -158,7 +161,7 @@
         //------------------------------------------------------------------
         function tssTouchend(event) {
             var touchendCoordX = event.changedTouches[0].clientX;
-            document.body.style.overflow = '';
+            /* document.body.style.overflow = ''; */
             elMain.style.transitionDuration = opt.moveSpeed + 's';//todo: перетащить в open/close
             elBg.style.transitionDuration = opt.moveSpeed + 's';
             if (!open && touchendCoordX > touchstartCoordX) {
@@ -169,6 +172,28 @@
                     tssClose();
                 }
             }//touchendCoordX!==touchstartCoordX, equal for click event
+
+            //moje vec - kdyz uzivatel pouze klikl pri otvirani zindex elbg zustal vysoky - melo by se to vyresit tim ze pri pouhem kliknuti se bude klikat na "pozadi" (content)
+            else if (touchendCoordX == touchstartCoordX) {
+                if(open) {
+                    tssOpen();
+                }
+                else {
+                    tssClose();
+                    elMain.style.zIndex = '-200';
+                    document.elementFromPoint(touchstartCoordX, touchstartCoordY).click();
+                    setTimeout(function(){
+                        if(!open) {
+                            elMain.style.zIndex = '9999';
+                        }
+                        else {
+                            elMain.style.zIndex = '9999999';
+                        }
+
+                    }, 2);
+                }
+            }
+
             else if (open && (touchendCoordX < touchstartCoordX) && (touchendCoordX <= elSubmainWidth)){
                 if ((touchstartCoordX > elSubmainWidth) && (touchendCoordX < (elSubmainWidth - opt.shiftForStart)) ||
                     (touchstartCoordX < elSubmainWidth) && (Math.abs(touchstartCoordX - touchendCoordX) > opt.shiftForStart)) {
@@ -232,6 +257,7 @@
             elBg.classList.remove('tss-bg--close');
             elBg.classList.add('tss-bg--open');
             elBg.style.zIndex = '999999';
+            console.log('tssOpen');
             open = true;
         }
         //------------------------------------------------------------------
@@ -252,7 +278,6 @@
             console.log('tssClose');
             setTimeout(function(){
                 elMain.style.zIndex = '9999';
-                console.log('delay');
             }, opt.moveSpeed*1000);
             open = false;
         }
