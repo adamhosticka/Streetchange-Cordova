@@ -71,21 +71,14 @@ h1, h2, h3, h4, a, p  {
     color: black;
     display: inline-block;
 }
- 
-.right {
-    float: right;
-}
- 
-.left {
-    float: left;
-}
- 
+
 .container {
     width: 100%;
     height: 100%;
     top: 0;
     left: 0;
     position: absolute;
+    overflow: hidden;
 }
  
 /* HEADER */
@@ -135,8 +128,8 @@ h1, h2, h3, h4, a, p  {
 .menuHeader {
     width: 100%;
     height: 100px;
-    /* background: linear-gradient(to bottom right, #000000 2%, #b8bbbc 100%); */
-    background: linear-gradient(to bottom right, #0c0c0c 20%, #676866 100%);
+    background: linear-gradient(to bottom right, #000000 2%, #b8bbbc 100%);
+    /* background: linear-gradient(to bottom right, #0c0c0c 20%, #676866 100%); */
 }
  
 .menuHeaderLeft {
@@ -161,6 +154,8 @@ h1, h2, h3, h4, a, p  {
     width: 60px;
     border-radius: 50%;
     float: left;
+    border: 1.4px solid black;
+    box-sizing: border-box;
 }
  
 .menuHeaderLeft p {
@@ -201,8 +196,8 @@ h1, h2, h3, h4, a, p  {
 }
  
 .menuList img {
-    height: 30px;
-    width: 30px;
+    height: 25px;
+    width: 25px;
     vertical-align: middle;
     margin-left: 10px;
     margin-right: 20px;
@@ -248,10 +243,17 @@ h1, h2, h3, h4, a, p  {
  
  
 }
+
+.top_menu_active {
+    border-bottom: 2px solid white;
+}
  
+.topMenu h1, .topMenu h2, .topMenu h3, .topMenu h4, .topMenu h5, .topMenu p, .topMenu4 h1, .topMenu4 h2, .topMenu4 h3, .topMenu4 h4, .topMenu4 h5, .topMenu4 p {
+    color: white;
+}
+
 .topMenu h4, .topMenu4 h4 {
     font-size: 16px;
-    color: white;
 }
  
 .content {
@@ -280,12 +282,25 @@ h1, h2, h3, h4, a, p  {
     padding: 5px;
 }
 
+.content_bottom_padding {
+    padding-bottom: 5px;
+}
+
+.content_comments {
+    height: calc(100% - 135px);
+}
+
 .content_splitter {
     /* border-top: 10px solid #e1e1e1;
     border-bottom: 1px solid #b9b9b9; */
 
     border-bottom: 1px solid #b9b9b9;
     margin-bottom: 10px;
+}
+
+.content_black_background {
+    background: black;
+    padding-bottom: 0;
 }
  
 /* TRADEMARKET CONTENT */
@@ -330,30 +345,42 @@ h1, h2, h3, h4, a, p  {
  
 /* FILTER RIGHT MENU FILTER RIGHT MENU! */
 
+.shadow_div {
+    background: #000;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    z-index: -999;
+    transition: step-start 0.15s;
+}
 .right_menu {
-    width: 70%;
+    width: 80%;
     height: 100%;
     position: absolute;
     top: 0;
     right: 0;
     transform: translateX(100%);
-    transition: linear 0.2s;
+    transition: linear 0.15s;
     background: white;
     border-left: 1px solid black;
-    z-index: 100;
+    z-index: 999999 ;
 }
 
 .right_menu_header {
     height: 7vh;
     width: 100%;
     border-bottom: 1px solid #b9b9b9;
+    background: #313131;
 }
 
 .right_menu_header p, .right_menu_footer p {
     font-size: 1.5em;
     line-height: 7vh;
-    color: #2d2d2d;
-    padding: 0 10px;
+    color: white;
+    padding: 0 20px;
 }
 
 .right_menu_footer {
@@ -363,6 +390,41 @@ h1, h2, h3, h4, a, p  {
     height: 7vh;
     border-top: 1px solid #b9b9b9;
     text-align: center;
+    background: #313131;
+}
+
+.right_menu_filter {
+    height: 86vh;
+    width: 100%;
+}
+
+.right_menu_filter_option {
+    width: 100%;
+    height: auto;
+    overflow: auto;
+    padding: 10px;
+}
+
+.right_menu_filter_option_left_p {
+    font-size: 1.3em;
+    float: left;
+}
+
+.right_menu_filter_option_right_p {
+    font-size: 1.3em;
+    color: gray;
+    float: right;
+}
+
+input[type="checkbox"]{
+}
+
+#select_right_menu {
+    display: none;
+}
+
+#right_menu_header_select {
+    display: none;
 }
 
 /* USER CONTENT */
@@ -469,7 +531,6 @@ h1, h2, h3, h4, a, p  {
 .callOutDiv {
     width: 100%;
     height: auto;
-    margin-top: 5px;
 }
  
 .callOutHeader {
@@ -550,26 +611,23 @@ h1, h2, h3, h4, a, p  {
 }
  
 .commentHeader {
-    width: 50px;
-    height: 50px;
-    padding-top: 2px;
+    width: 40px;
+    height: 40px;
     float: left;
 }
  
 .commentHeader img {
-    height: 40px;
-    width: 40px;
-    border: 6px;
-    border-radius: 20px;
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
 }
  
 .commentText {
-    width: calc(100% - 45px);
+    width: calc(100% - 60px);
     height: auto;
-    background: grey;
+    background: lightgray;
     margin-left: 45px;
     padding: 8px;
-    border: 1px whitesmoke;
     border-radius: 10px;
 }
  
@@ -579,7 +637,6 @@ h1, h2, h3, h4, a, p  {
  
 .commentFooter {
     width: calc(100% - 45px);
-    height: 30px;
     margin-left: 45px;
     display: flex;
     padding: 5px;
@@ -588,13 +645,13 @@ h1, h2, h3, h4, a, p  {
 .commentFooter p {
     color: grey;
     flex: auto;
-    font-size: 15px;
+    font-size: 13px;
 }
  
 .writeComment {
     width: 100%;
     height: 50px;
-    background: blue;
+    background: black;
     padding: 5px;
     bottom: 0;
     position: fixed;
@@ -607,30 +664,35 @@ h1, h2, h3, h4, a, p  {
     font-size: 18px;
 }
  
-.lastComment {
-    margin-bottom: 50px;
-}
- 
-.addPhotosImg {
+/* .addPhotosImg {
     height: 40px;
     width: 40px;
     float: left;
     padding-right: 5px;
+} */
+
+.addPhotosImg {
+    height: 30px;
+    width: 30px;
+    float: left;
+    margin: 5;
+    margin-right: 10px;
 }
  
 .sendCommentImg {
-    height: 40px;
-    width: 40px;
-    padding-left: 5px;
+    height: 30px;
+    width: 30px;
+    margin: 5px;
+    margin-left: 10px;
     float: right;
 }
  
 .box2
 {
-    width: 50%;
-    height: 150px;
-    padding: 5px;
+    width: 33.33333333333%;
+    height: 33.3333333333vw;
     box-sizing: border-box;
+    padding: 2px;
 }
  
 .box2 img {

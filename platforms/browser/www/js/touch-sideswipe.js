@@ -31,6 +31,9 @@
         var touchstartCoordX;
         var touchstartCoordY;
         var touchmoveCoordX;
+        var touchmoveCoordY;
+        var movedX;
+        var movedY;
         var open;
         var elMainCoordX0;
         var elInit;
@@ -47,6 +50,8 @@
         //------------------------------------------------------------------
         function tssInitStates() {
             init = true;
+            movedX = false;
+            movedY = false;
             //-------------------------------
             // create DOM-elements: main-wrapper, sub-wrapper, label, background
             //-------------------------------
@@ -134,9 +139,26 @@
         function tssTouchmove(event) {
             elMain.style.zIndex = '9999';
             touchmoveCoordX = event.changedTouches[0].clientX;
+            touchmoveCoordY = event.changedTouches[0].clientY;
             var elMainCoordX0New = touchmoveCoordX - (touchstartCoordX - elMainCoordX0);
 
-            if ((elMainCoordX0New) <= 0){ // swipe touchmove < elSubmainWidth
+            /* console.log("moveX", movedX)
+            console.log("moveY", movedY) */
+
+            /* console.log(elMainCoordX0New, touchmoveCoordX, touchstartCoordX, elMainCoordX0, elSubmainWidth, elMainWidth ) */
+            console.log(touchstartCoordY, touchmoveCoordY)
+            console.log(touchstartCoordX, touchmoveCoordX)
+            
+            if((touchstartCoordY <= touchmoveCoordY - 8 || touchstartCoordY >= touchmoveCoordY + 8) && movedX !== true) {
+                /* console.log("hierr") */
+                /* elMain.style.transform = 'translateX(0px)'; */
+                movedY = true;
+            } else if((touchstartCoordX <= touchmoveCoordX - 8 || touchstartCoordX >= touchmoveCoordX + 8) && movedY !== true) {
+                elMain.style.overflowY = "hidden";
+                movedX = true;
+            }
+
+            if ((elMainCoordX0New) <= 0 && movedY !== true){ // swipe touchmove < elSubmainWidth
                 if (touchstartCoordX > elSubmainWidth){//if opened and touchstart over elSub
                     elMainCoordX0New = elMainCoordX0New + (touchstartCoordX - elSubmainWidth);
                 }
@@ -160,6 +182,8 @@
         //------------------------------------------------------------------
         function tssTouchend(event) {
             var touchendCoordX = event.changedTouches[0].clientX;
+            elMain.style.overflowY = "overlay";
+            
             /* document.body.style.overflow = ''; */
             elMain.style.transitionDuration = opt.moveSpeed + 's';//todo: перетащить в open/close
             elBg.style.transitionDuration = opt.moveSpeed + 's';
@@ -187,7 +211,7 @@
                 }
             }
 
-            else if (open && (touchendCoordX < touchstartCoordX) && (touchendCoordX <= elSubmainWidth)){
+            else if (open && (touchendCoordX < touchstartCoordX) && (touchendCoordX <= elSubmainWidth) && movedY !== true){
                 if ((touchstartCoordX > elSubmainWidth) && (touchendCoordX < (elSubmainWidth - opt.shiftForStart)) ||
                     (touchstartCoordX < elSubmainWidth) && (Math.abs(touchstartCoordX - touchendCoordX) > opt.shiftForStart)) {
                     tssClose();
@@ -196,6 +220,9 @@
                     tssOpen();
                 }
             }
+
+            movedX = false;
+            movedY = false;
         }
         //------------------------------------------------------------------
 

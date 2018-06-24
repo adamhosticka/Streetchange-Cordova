@@ -43,6 +43,9 @@
     },
     "cordova-plugin-camera": {
       "PACKAGE_NAME": "com.adam.streetchange"
+    },
+    "cordova-plugin-browsersync": {
+      "PACKAGE_NAME": "com.adam.streetchange"
     }
   },
   "dependent_plugins": {},
@@ -82,6 +85,7 @@
   ],
   "plugin_metadata": {
     "cordova-plugin-whitelist": "1.3.3",
-    "cordova-plugin-camera": "4.0.3"
+    "cordova-plugin-camera": "4.0.3",
+    "cordova-plugin-browsersync": "0.1.7"
   }
 }

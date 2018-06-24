@@ -28,19 +28,268 @@
             * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
                 * Enable inline JS: add 'unsafe-inline' to default-src
         -->
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval' ws: 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
         <link rel="stylesheet" type="text/css" href="css/index.css">
         <title>Hello World</title>
+
+        <link rel="stylesheet" href="css/touch-sideswipe.css">
+        <script src="js/touch-sideswipe.js"></script>
     </head>
     <body>
-        <div class="app">
+        <!-- <div class="app">
             <h1>Apache Cordova</h1>
             <div id="deviceready" class="blink">
                 <p class="event listening">Connecting to Device</p>
-                <p class="event received">Device is Ready</p>
+                <p class="event received">Device is Ready!</p>
+            </div>
+        </div> -->
+        
+        <!-- <div id='shadowDiv' class="shadowDiv"></div> -->
+
+        <div class="container">
+            <div class="header">
+                <img id="menuButton" class="menuButton" src="Img/menu.png">
+                <h1>Street Market</h1>
+                <img src="Img/filter.png" id="filterImg" class="addItemImg">
+            </div>
+        
+            <div id="menu" class="touch-side-swipe">
+                <a class="menuHeader" href="profile.html">
+                    <div class="menuHeaderLeft">
+                            <img class="profileHeaderImg" src="Img/profile01.png">
+                            <h4>Adam Hoštička</h4>
+                            <p>Zobrazit profil</p>
+                    </div>  
+                    <div class="menuHeaderRight">
+                            <p>></p>
+                    </div>
+                </a>
+                
+                <div class="menuList">
+                    <a href="index.html">
+                        <img src="Img/market_icon.png">
+                        <h2>Market</h2>
+                    </a>
+                    <a href="announcements.html">
+                        <img src="Img/announcements_icon.png">
+                        <h2>Oznámení</h2>
+                    </a>
+                    <a href="lc_item.html">
+                        <img src="Img/discussion_icon.png">
+                        <h2>Diskuze</h2>
+                    </a>
+                    <a href="callout.html">
+                        <img src="Img/callout_icon.png">
+                        <h2>Callouty</h2>
+                    </a>
+                    <a href="favourite_items.html">
+                        <img src="Img/favourite_icon.png">
+                        <h2>Oblíbené</h2>
+                    </a>
+                    <a href="faq.html">
+                        <img src="Img/faq_icon.jpg">
+                        <h2>FAQ</h2>
+                    </a>
+
+                    <a href="rules.html">
+                        <img src="Img/rules_icon.png">
+                        <h2>Pravidla</h2>
+                    </a>
+
+                    <a href="rules.html">
+                        <img src="Img/rules_icon.png">
+                        <h2>Pravidla</h2>
+                    </a>
+
+                    <a href="rules.html">
+                        <img src="Img/rules_icon.png">
+                        <h2>Pravidla</h2>
+                    </a>
+
+                    <a href="rules.html">
+                        <img src="Img/rules_icon.png">
+                        <h2>Pravidla</h2>
+                    </a>
+
+                    <a href="rules.html">
+                        <img src="Img/rules_icon.png">
+                        <h2>Pravidla</h2>
+                    </a>
+
+                    <a href="rules.html">
+                        <img src="Img/rules_icon.png">
+                        <h2>Pravidla</h2>
+                    </a>
+
+                    <a href="rules.html">
+                        <img src="Img/rules_icon.png">
+                        <h2>Pravidla</h2>
+                    </a>
+                </div>  
+            </div>
+
+            <div id="shadow_div" class="shadow_div"></div>
+            <div id="right_menu" class="right_menu">
+                <div id="right_menu_header_filter" class="right_menu_header">
+                    <p id="closeRightMenu" class="left">Zavřít</p>
+                    <p id="applyFilters" class="right">Filtruj</p>
+                </div>
+
+                <div id="right_menu_header_select" class="right_menu_header">
+                    <p id="filter_back" class="left">Zpět</p>
+                    <p id="applyFilters" class="right">Filtruj</p>
+                </div>
+
+                <div id="right_menu_filter" class="right_menu_filter">
+                    <div id="brand_select" class="right_menu_filter_option">
+                       <p class="right_menu_filter_option_left_p">Značka</p> 
+                       <p class="right_menu_filter_option_right_p">Vše</p> 
+                    </div>
+                    
+                    <div class="right_menu_filter_option">
+                       <p class="right_menu_filter_option_left_p">Velikost</p> 
+                       <p class="right_menu_filter_option_right_p">Vše</p> 
+                    </div>
+                    
+                    <div class="right_menu_filter_option">
+                       <p class="right_menu_filter_option_left_p">Stav</p> 
+                       <p class="right_menu_filter_option_right_p">Vše</p> 
+                    </div>
+                    
+                    <div class="right_menu_filter_option">
+                       <p class="right_menu_filter_option_left_p">Barva</p> 
+                       <p class="right_menu_filter_option_right_p">Vše</p> 
+                    </div>
+                </div>
+
+                <div id="select_right_menu" class="right_menu_filter">
+                    <div id="brand_select" class="right_menu_filter_option">
+                        <p class="right_menu_filter_option_left_p">Supreme</p> 
+                        <input type="checkbox" class="right_menu_filter_option_right_p">
+                     </div>
+                     
+                     <div class="right_menu_filter_option">
+                        <p class="right_menu_filter_option_left_p">Gucci</p> 
+                        <p class="right_menu_filter_option_right_p">Vše</p> 
+                     </div>
+                     
+                     <div class="right_menu_filter_option">
+                        <p class="right_menu_filter_option_left_p">Adidas</p> 
+                        <p class="right_menu_filter_option_right_p">Vše</p> 
+                     </div>
+                     
+                     <div class="right_menu_filter_option">
+                        <p class="right_menu_filter_option_left_p">ASSC</p> 
+                        <p class="right_menu_filter_option_right_p">Vše</p> 
+                     </div>
+                </div>
+
+                <div id="resetFilters" class="right_menu_footer">
+                    <p>Resetovat filtry</p>
+                </div>
+            </div>
+                
+            <div class="topMenu">
+                <a href="profile.html"><h4>Vše</h4></a>
+                <a href="index.html"><h4>Boty</h4></a>
+                <a href="sells.html"><h4>Trička</h4></a>
+                <a href="sells.html"><h4>Mikiny</h4></a>
+                <a href="sells.html"><h4>Košile</h4></a>
+                <a href="sells.html"><h4>Kalhoty</h4></a>
+                <a href="sells.html"><h4>Čepice</h4></a>
+                <a href="sells.html"><h4>Doplňky</h4></a>
+                <a href="buys.html"><h4>Ostatní</h4></a>
+            </div>
+            
+            <div id="content" class="content">         
+                <a href="profile.html" class="box left">
+                    <div class="contentDivImg">
+                        <img src="Img/logo.jpg" class="contentImg">
+                    </div>         
+                    
+                    <div class="contentDivText">
+                        <div class="contentDivTextHeader">
+                            <h3 id="product_name"></h3>
+                        </div>
+                        <p> Supreme bogo, Price 12,000Kc, Kanye West</p>
+                    </div>
+                </a>
+                
+                <a href="item_info.html" class="box right">
+                    <div class="contentDivImg">
+                        <img src="Img/header.jpg" class="contentImg">
+                    </div>         
+                    
+                    <div class="contentDivText">
+                        <div class="contentDivTextHeader">
+                            <h3>Encharted Inline Limited Edition Hoodie</h3>
+                        </div>
+                        <p> Supreme bogo, Price 12,000Kc, Kanye West</p>
+                    </div>
+                </a>
+                
+                <a class="box left">
+                    <div class="contentDivImg">
+                        <img src="Img/logo.jpg" class="contentImg">
+                    </div>         
+                    
+                    <div class="contentDivText">
+                        <p> Supreme bogo, Price 12,000Kc, Kanye West</p>
+                    </div>
+                </a>
+                
+                <div class="box right">
+                    <div class="contentDivImg">
+                        <img src="Img/header.jpg" class="contentImg">
+                    </div>         
+                    
+                    <div class="contentDivText">
+                        <p> Supreme bogo, Price 12,000Kc, Kanye West</p>
+                    </div>
+                </div>
+                
+                <div class="box left">
+                    <div class="contentDivImg">
+                        <img src="Img/logo.jpg" class="contentImg">
+                    </div>         
+                    
+                    <div class="contentDivText">
+                        <p> Supreme bogo, Price 12,000Kc, Kanye West</p>
+                    </div>
+                </div>
+                
+                <div class="box right">
+                    <div class="contentDivImg">
+                        <img src="Img/header.jpg" class="contentImg">
+                    </div>         
+                    
+                    <div class="contentDivText">
+                        <p> Supreme bogo, Price 12,000Kc, Kanye West</p>
+                    </div>
+                </div>
+                
+                <div class="box left">
+                    <div class="contentDivImg">
+                        <img src="Img/logo.jpg" class="contentImg">
+                    </div>         
+                    
+                    <div class="contentDivText">
+                        <p> Supreme bogo, Price 12,000Kc, Kanye West</p>
+                    </div>
+                </div>
+                
+                <div class="box right">
+                    <div class="contentDivImg">
+                        <img src="Img/header.jpg" class="contentImg">
+                    </div>         
+                    
+                    <div class="contentDivText">
+                        <p> Supreme bogo, Price 12,000Kc, Kanye West</p>
+                    </div>
+                </div>
             </div>
         </div>
         <script type="text/javascript" src="cordova.js"></script>

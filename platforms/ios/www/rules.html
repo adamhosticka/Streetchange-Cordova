@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <!--
+        Customize this policy to fit your own app's needs. For more guidance, see:
+            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+        Some notes:
+            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                * Enable inline JS: add 'unsafe-inline' to default-src
+        -->
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <title>Hello World</title>
+
+        <link rel="stylesheet" href="css/touch-sideswipe.css">
+        <script src="js/touch-sideswipe.js"></script>
+    </head>
+    <body>
+        <!-- <div class="app">
+            <h1>Apache Cordova</h1>
+            <div id="deviceready" class="blink">
+                <p class="event listening">Connecting to Device</p>
+                <p class="event received">Device is Ready!</p>
+            </div>
+        </div> -->
+        
+        <!-- <div id='shadowDiv' class="shadowDiv"></div> -->
+
+        <div class="container">
+            <div class="header">
+                <img id='menuButton' class='menuButton' src="Img/menu.png">
+                <h1>Pravidla</h1>
+            </div>
+        
+            <div id="menu" class="touch-side-swipe">
+                <a class="menuHeader" href="profile.html">
+                    <div class="menuHeaderLeft">
+                            <img class="profileHeaderImg" src="Img/profile01.png">
+                            <h4>Adam Hoštička</h4>
+                            <p>Zobrazit profil</p>
+                    </div>  
+                    <div class='menuHeaderRight'>
+                            <p>></p>
+                    </div>
+                </a>
+                
+                <div class="menuList">
+                    <a href="index.html">
+                        <img src="Img/menu.png">
+                        <h2>Market</h2>
+                    </a>
+                    <a href="lcItems.html">
+                        <img src="Img/shoe.png">
+                        <h2>L/C na věci</h2>
+                    </a>
+                    <a href="idAsk.html">
+                        <img src="Img/shoe.png">
+                        <h2>ID ask</h2>
+                    </a>
+                    <a href="callout.html">
+                        <img src="Img/ledder.jpg">
+                        <h2>CallOuts</h2>
+                    </a>
+                    <a href="faq.html">
+                        <img src="Img/ledder.jpg">
+                        <h2>FAQ</h2>
+                    </a>
+
+                    <a href="rules.html">
+                        <img src="Img/ledder.jpg">
+                        <h2>Pravidla</h2>
+                    </a>
+                </div>  
+            </div>
+
+            <div id="content" class="contentWithoutTopMenu contentPadding">
+                <div class="rules_div">
+                    <h3>1. Prvni pravidlo</h3>
+                    <p>Nahodny text k prvnimu pravidlu. Nahodny text k prvnimu pravidlu. Nahodny text k prvnimu pravidlu. Nahodny text k prvnimu pravidlu. Nahodny text k prvnimu pravidlu.</p>
+
+                    <h3>2. Druhe o trochu delsi pravidlo</h3>
+                    <p>Nahodny text k prvnimu pravidlu. </p>
+
+                    <h3>3. Treti pravidlo</h3>
+                    <p>Nahodny text k prvnimu pravidlu. Nahodny text k prvnimu pravidlu. Nahodny text k prvnimu pravidlu. Nahodny text k prvnimu pravidlu. Nahodny text k prvnimu pravidlu.</p>
+
+                    <h3>4. Ctvrte o trochu delsi pravidlo</h3>
+                    <p>Nahodny text k prvnimu pravidlu. </p>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+    </body>
+</html>

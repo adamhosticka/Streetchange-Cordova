@@ -1,0 +1,119 @@
+<!-- <?php 
+    $hostname = "localhost";
+    $username = "root";
+    $password = "";
+    $databaseName = "streetchange";
+
+    $connect = mysqli_connect($hostname, $username, $password, $databaseName);
+    $query = "SELECT * FROM `brands`";
+
+    $result = mysqli_query($connect, $query);
+    $options = "";
+    while($row = mysqli_fetch_array($result)) {
+        $options = $options."<option>$row[1]</option>";
+    }
+?> -->
+
+<html>
+<head>
+    <!--
+    Customize this policy to fit your own app's needs. For more guidance, see:
+        https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+    Some notes:
+        * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+        * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+        * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+            * Enable inline JS: add 'unsafe-inline' to default-src
+    -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <title>Hello World</title>
+
+    <link rel="stylesheet" href="css/touch-sideswipe.css">
+    <script src="js/touch-sideswipe.js"></script>
+</head>
+	
+<body>
+    <div id='container' class="container">
+        <div id='header' class="header">
+            <a href="sells.html"><img id='cancelButton' class='menuButton' src="Img/back.png"></a>
+            <h1></h1>
+            <a href="sell_add.html" class="addItemA">
+                <img src="Img/add.png" class="addItemImg">
+            </a>
+
+            <img src="Img/favourite.png" id='addToFavouriteImg' class="addItemImg">
+        </div>
+
+        <div id='addedToFavouriteMessage' class='addedToFavouriteMessage'><p>Zboží přidáno do oblíbených!</p></div>
+
+        <div id="menu" class="touch-side-swipe">
+            <a class="menuHeader" href="profile.html">
+                <div class="menuHeaderLeft">
+                    <img class="profileHeaderImg" src="Img/profile01.png">
+                    <h4>Adam Hoštička</h4>
+                    <p>Zobrazit profil</p>
+                </div>  
+                <div class='menuHeaderRight'>
+                    <p>></p>
+                </div>
+            </a>
+            
+            <div class="menuList">
+                <a href="index.html">
+                    <img src="Img/menu.png">
+                    <h2>Market</h2>
+                </a>
+                <a href="lcItems.html">
+                    <img src="Img/shoe.png">
+                    <h2>L/C na věci</h2>
+                </a>
+                <a href="idAsk.html">
+                    <img src="Img/shoe.png">
+                    <h2>ID ask</h2>
+                </a>
+                <a href="callout.html">
+                    <img src="Img/ledder.jpg">
+                    <h2>CallOuts</h2>
+                </a>
+                <a href="faq.html">
+                    <img src="Img/ledder.jpg">
+                    <h2>FAQ</h2>
+                </a>
+            </div> 
+        </div>
+
+        <div id="content" class="contentWithoutTopMenu">
+            <div class="item_info content_splitter">
+                <img class="item_info_item_img" src="Img/Air-Jordan-1-Retro-High-Homage-To-Home-1.jpg">
+                <h1>Jordan 1 Retro High Homage To Home Chicago (Numbered)</h1>
+            </div>
+
+            <div class="item_seller content_splitter">
+                <img class="item_seller_profile_img" src="Img/profile01.png">
+                <img class="item_seller_write_mess" src="Img/messenger.png">
+                <h2>Adam Hoštička</h2>
+                <p>12.12.2012</p>
+            </div>
+
+            <div class="item_description content_splitter">
+            	<div class="item_description_header">
+            		<h2>Detaily</h2>
+            	</div>
+            	
+            	<div class="item_description_details">
+            		<p>Velikost: L</p>
+            		<p>Stav: 9/10</p>
+            		<p>Barva: Červená</p>
+            	</div>
+            </div>
+        </div>
+    </div>
+    
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+</body>
+</html>

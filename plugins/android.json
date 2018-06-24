@@ -12,6 +12,9 @@
     },
     "cordova-plugin-camera": {
       "PACKAGE_NAME": "com.adam.streetchange"
+    },
+    "cordova-plugin-browsersync": {
+      "PACKAGE_NAME": "com.adam.streetchange"
     }
   },
   "dependent_plugins": {}

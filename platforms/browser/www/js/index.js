@@ -49,10 +49,20 @@ app.initialize(); */
 try {
     document.getElementById('filterImg').addEventListener("click", function(){
         document.getElementById('right_menu').style.transform = "translateX(0%)";
+        document.getElementById('shadow_div').style.zIndex = "99999";
+        document.getElementById('shadow_div').style.opacity = "0.5";
     });
 
     document.getElementById("closeRightMenu").addEventListener("click", function(){
         document.getElementById('right_menu').style.transform = "translateX(100%)";
+        document.getElementById('shadow_div').style.zIndex = "-999";
+        document.getElementById('shadow_div').style.opacity = "0";
+    });
+
+    document.getElementById('shadow_div').addEventListener("click", function(){
+        document.getElementById('right_menu').style.transform = "translateX(100%)";
+        document.getElementById('shadow_div').style.zIndex = "-999";
+        document.getElementById('shadow_div').style.opacity = "0";
     });
 }
 catch(error) {
@@ -88,6 +98,26 @@ try {
         else {
             document.getElementById('addToFavouriteImg').src = "http://localhost:8000/Img/favourite.png";
         }
+    });
+}
+
+catch(error) {
+    console.log(error);
+}
+
+try {
+    document.getElementById('brand_select').addEventListener("click", function(){
+        document.getElementById('right_menu_filter').style.display = "none";
+        document.getElementById('select_right_menu').style.display = "block";
+        document.getElementById('right_menu_header_filter').style.display = "none";
+        document.getElementById('right_menu_header_select').style.display = "block";
+    });
+
+    document.getElementById('filter_back').addEventListener("click", function(){
+        document.getElementById('right_menu_filter').style.display = "block";
+        document.getElementById('select_right_menu').style.display = "none";
+        document.getElementById('right_menu_header_filter').style.display = "block";
+        document.getElementById('right_menu_header_select').style.display = "none";
     });
 }
 

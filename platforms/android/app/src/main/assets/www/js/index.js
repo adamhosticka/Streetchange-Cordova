@@ -16,7 +16,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-var app = {
+/* var app = {
     // Application Constructor
     initialize: function() {
         document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
@@ -43,4 +43,131 @@ var app = {
     }
 };
 
-app.initialize();
+
+app.initialize(); */
+
+try {
+    document.getElementById('filterImg').addEventListener("click", function(){
+        document.getElementById('right_menu').style.transform = "translateX(0%)";
+        document.getElementById('shadow_div').style.zIndex = "99999";
+        document.getElementById('shadow_div').style.opacity = "0.5";
+    });
+
+    document.getElementById("closeRightMenu").addEventListener("click", function(){
+        document.getElementById('right_menu').style.transform = "translateX(100%)";
+        document.getElementById('shadow_div').style.zIndex = "-999";
+        document.getElementById('shadow_div').style.opacity = "0";
+    });
+
+    document.getElementById('shadow_div').addEventListener("click", function(){
+        document.getElementById('right_menu').style.transform = "translateX(100%)";
+        document.getElementById('shadow_div').style.zIndex = "-999";
+        document.getElementById('shadow_div').style.opacity = "0";
+    });
+}
+catch(error) {
+    console.error(error);
+}
+
+
+try {
+    document.getElementById('addToFavouriteImg').addEventListener("click", function(){
+        if(document.getElementById('addToFavouriteImg').src === "http://localhost:8000/Img/favourite.png") {
+            document.getElementById('addedToFavouriteMessage').style.display = 'inline-table';
+            setTimeout(function(){
+                document.getElementById('addedToFavouriteMessage').style.background = 'rgba(100,100,100, 0.7)';
+            },0.00000000000000000000000000000000000000000000000000000000000001);
+            setTimeout(function(){
+                document.getElementById('addedToFavouriteMessage').style.background = 'rgba(100,100,100, 0.2)';
+            }, 1300); 
+            setTimeout(function(){
+                document.getElementById('addedToFavouriteMessage').style.display = "none";
+            }, 1500); 
+        }
+    }); 
+}
+catch(error) {
+    console.error(error);
+}
+
+try {
+    document.getElementById('addToFavouriteImg').addEventListener("click", function(){
+        if(document.getElementById('addToFavouriteImg').src === "http://localhost:8000/Img/favourite.png") {
+            document.getElementById('addToFavouriteImg').src = "http://localhost:8000/Img/favouriteAdded.png";
+        }
+        else {
+            document.getElementById('addToFavouriteImg').src = "http://localhost:8000/Img/favourite.png";
+        }
+    });
+}
+
+catch(error) {
+    console.log(error);
+}
+
+try {
+    document.getElementById('brand_select').addEventListener("click", function(){
+        document.getElementById('right_menu_filter').style.display = "none";
+        document.getElementById('select_right_menu').style.display = "block";
+        document.getElementById('right_menu_header_filter').style.display = "none";
+        document.getElementById('right_menu_header_select').style.display = "block";
+    });
+
+    document.getElementById('filter_back').addEventListener("click", function(){
+        document.getElementById('right_menu_filter').style.display = "block";
+        document.getElementById('select_right_menu').style.display = "none";
+        document.getElementById('right_menu_header_filter').style.display = "block";
+        document.getElementById('right_menu_header_select').style.display = "none";
+    });
+}
+
+catch(error) {
+    console.log(error);
+}
+
+var menu = new TouchSideSwipe({
+    elementID: 'menu',
+    elementWidth: 3000,
+    elementMaxWidth: 0.8,
+    sideHookWidth: 44,
+    moveSpeed: 0.2,
+    opacityBackground: 0.5,
+    shiftForStart: 70,
+    windowMaxWidth: 2000,
+    sideHookWidth: 30,
+});
+
+/* document.getElementById('menuButton').addEventListener("click", showMenu);
+function showMenu() {
+    document.getElementById("menu").classList.remove('horizTranslateBack');
+    document.getElementById("menu").classList.add('horizTranslate');
+    document.getElementById("shadowDiv").classList.remove('fadeOut');
+    document.getElementById("shadowDiv").classList.add('fadeIn');
+    document.getElementById('shadowDiv').style.display = "block";
+}   
+
+document.getElementById('shadowDiv').addEventListener("click", hideMenu);  
+function hideMenu() {
+    document.getElementById("menu").classList.remove('horizTranslate');
+    document.getElementById("menu").classList.add('horizTranslateBack');
+    document.getElementById("shadowDiv").classList.remove('fadeIn');
+    document.getElementById("shadowDiv").classList.add('fadeOut');
+    setTimeout(function(){
+        document.getElementById('shadowDiv').style.display = "none";
+    }, 300); 
+} */
+
+$callOut = false;
+/* if($callOut) {
+    document.getElementById('callOutWarning').style.display = 'block';
+    if($('#callOutWarning').is(':visible')) {
+        document.getElementById('content').classList.add('callOutWarningActive');
+    }
+} */
+
+if($callOut) {
+    document.getElementById('callOutWarning').style.display = 'block';
+    if(document.getElementById('callOutWarning').style.display === 'block') {
+        document.getElementById('content').classList.add('callOutWarningActive');
+    }
+}
