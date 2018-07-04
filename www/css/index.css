@@ -208,7 +208,6 @@ h1, h2, h3, h4, a, p  {
 .topMenu {
     width: 100%;
     height: 35px;
-    padding: 5px 10px;
     overflow-x: scroll;
     overflow-y: hidden;
     top: 50px;
@@ -218,11 +217,12 @@ h1, h2, h3, h4, a, p  {
     z-index: 99;
 }
  
-.topMenu a {
-    line-height: 25px;
+.topMenu div {
+    line-height: 35px;
     text-align: center;
-    height: 25px;
-    padding: 0 8px;
+    height: 35px;
+    padding: 0 10px;
+    display: inline-block;
 }
  
 .topMenu4 {
@@ -235,13 +235,12 @@ h1, h2, h3, h4, a, p  {
     top: 50px;
 }
  
-.topMenu4 a{
+.topMenu4 div{
     line-height: 35px;
     text-align: center;
     height: 35px;
     flex: auto;
- 
- 
+    display: inline-block;
 }
 
 .top_menu_active {
@@ -259,7 +258,6 @@ h1, h2, h3, h4, a, p  {
 .content {
     width: 100%;
     height: calc(100% - 85px);
-    padding-bottom: 5px;
     margin-top: 85px;
     position: relative;
     overflow: auto;
@@ -284,6 +282,10 @@ h1, h2, h3, h4, a, p  {
 
 .content_bottom_padding {
     padding-bottom: 5px;
+}
+
+.overflow_hidden {
+    overflow: hidden;
 }
 
 .content_comments {
@@ -456,51 +458,52 @@ input[type="checkbox"]{
  
 .profileHeader {
     width: 100%;
-    height: 110px;
-    padding: 5px;
-    margin-bottom: 10px;
+    height: 40vw;
+    padding: 5px 10px;
+    background: white;
 }
  
 .profileImageBox {
-    width: 100px;
-    height: 100%;
-    background: blue;
+    width: 30vw;
+    height: 30vw;
     float: left;
-    padding: 5px;
-} 
+    margin: calc(5vw - 5px) 0;
+}
  
 .profileInfoBox {
-    width: calc(100% - 100px);
-    height: 100%;
-    background: greenyellow;
-    float: right;
-    padding: 5px;
+    width: calc(70vw - 20px);
+    padding-top: 5px;
+    padding-left: 15px;
     overflow: hidden;
-    overflow-y: scroll;
 }
  
 .profileInfoBox p {
-    padding-top: 5px;
+    font-size: 1.1em;
 }
  
 .profileImg {
-    height: 100%;
-    width: 100%;
+    height: 30vw;
+    width: 30vw;
     border-radius: 50%;
 }
  
 .fbIcons {
-    float: right;
-    height: 8vw;
-    width: 8vw;
-    padding-left: 5px;
+    display: inline-block;
+    height: 6vw;
+    width: 6vw;
+    margin-right: 3px;
+    vertical-align: middle;
 }
  
 .profileInfoBox a {
-    color: blue;
+    width: 100%;
+    margin: 5px 0;
 }
  
 .profileInfoBox h2{
+    display: block;
+    text-align: center;
+    padding-bottom: 5px;
 }
  
 .userScore {
@@ -588,19 +591,6 @@ input[type="checkbox"]{
     width: 50%;
     height: 100%;
     float: right;
-}
- 
-.topMenuCallOutDetails {
-    height: 40px;
-    width: 100%;
-    white-space: nowrap;
-}
- 
-.topMenuCallOutDetails a {
-    height: 100%;
-    width: 50%;
-    text-align: center;
-    line-height: 40px;
 }
  
 .comment01 {
@@ -714,7 +704,7 @@ input[type="checkbox"]{
     background: white;
     width: 100%;
     text-align: center;
-    padding: 3px 0px 7px 5px;
+    padding: 3px 5px 7px 5px;
     overflow: hidden;
     border-right: 5px white solid;
 }
@@ -932,4 +922,25 @@ input[type="checkbox"]{
 .time_text {
     color: grey;
     display: block;
+}
+
+/* ------------------------------- DISCUSSION ------------------------------ */
+
+.swipe_layout_content {
+    width: 4000vw;
+    height: 100%;
+    overflow: auto;
+    position: relative;
+    /* transition: 0.5s; */
+}
+
+.swipe_layout_div {
+    width: 100vw;
+    height: 100%;
+    float: left;
+    overflow: auto;
+}
+
+.top_menu_transition {
+    transition: 0.1s;
 }

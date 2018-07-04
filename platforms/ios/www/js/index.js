@@ -47,6 +47,132 @@
 app.initialize(); */
 
 try {
+    var wrapper = document.getElementById("discussion_content");
+    var currentX = 0;
+    var windowWidth = screen.width;
+    var wrapperWidth = screen.width*4;
+    var swipeAble = windowWidth*0.7;
+    var innerDivs = document.getElementsByClassName('discussion_div'); // Pro nastaveni overflow-y pri movingX
+    var innerDivsLength = innerDivs.length;  // zatim neni nutno, kdyztak pouzit for i < innverdivslength - innerdivs[i].style...
+
+    wrapper.addEventListener('touchstart', wrapperTouchstart, false);
+    wrapper.addEventListener('touchmove', wrapperTouchmove, false);
+    wrapper.addEventListener('touchend', wrapperTouchend, false);
+
+    function wrapperTouchstart(event) {
+        touchStartX = event.changedTouches[0].clientX;
+        touchStartY = event.changedTouches[0].clientY;
+        movedX = false;
+        movedY = false;
+        wrapper.style.transition = "0s";
+    }
+
+    function wrapperTouchmove(event) {
+        touchMoveX = event.changedTouches[0].clientX;
+        touchMoveY = event.changedTouches[0].clientY;
+
+        theDiff = touchStartX - touchMoveX;
+        translateX = -theDiff + currentX;
+
+        if((touchStartY <= touchMoveY - 8 || touchStartY >= touchMoveY + 8) && movedX !== true) {
+            movedY = true;
+        } else if((touchStartX <= touchMoveX - 8 || touchStartX >= touchMoveX + 8) && movedY !== true) {
+            movedX = true;
+        }
+
+        if(translateX < 0 && translateX > -windowWidth*3 && theDiff > -windowWidth && theDiff < windowWidth && !movedY) {
+            wrapper.style.transform = "translateX(" + translateX + "px)";
+        }
+    }
+
+    function wrapperTouchend(event) {
+        wrapper.style.transition = "0.5s";
+        
+        if(-theDiff+currentX < currentX - swipeAble && theDiff > 0 && currentX-windowWidth >= -windowWidth*3) {
+            wrapper.style.transform = "translateX(" + (currentX-windowWidth) + "px)";
+            currentX = currentX - windowWidth;
+        } else if(-theDiff+currentX > currentX + swipeAble && theDiff < 0 && currentX+windowWidth <= 0) {
+            wrapper.style.transform = "translateX(" + (currentX + windowWidth) + "px)";
+            currentX = currentX + windowWidth;
+        } else {
+            wrapper.style.transform = "translateX(" + currentX + "px)";
+        }
+
+        if(-currentX / windowWidth == 0) {topMenuActive("lc_a")}
+        if(-currentX / windowWidth == 1) {topMenuActive("ic_a")}
+        if(-currentX / windowWidth == 2) {topMenuActive("id_a")}
+        if(-currentX / windowWidth == 3) {topMenuActive("pc_a")}
+    }
+
+    document.getElementById("lc_a").addEventListener("click", function(){topMenuActive("lc_a")})
+    document.getElementById("ic_a").addEventListener("click", function(){topMenuActive("ic_a")})
+    document.getElementById("id_a").addEventListener("click", function(){topMenuActive("id_a")})
+    document.getElementById("pc_a").addEventListener("click", function(){topMenuActive("pc_a")})
+
+    function topMenuActive(id) {
+        document.getElementById("lc_a").classList.remove('top_menu_active');
+        document.getElementById("ic_a").classList.remove('top_menu_active');
+        document.getElementById("id_a").classList.remove('top_menu_active');
+        document.getElementById("pc_a").classList.remove('top_menu_active');
+        document.getElementById(id).classList.add('top_menu_active');
+        wrapper.style.transition = "0.5s";
+
+        if(id == "lc_a") {
+            document.getElementById("discussion_content").style.transform = "translate3d(0, 0px, 0px)";
+            currentX = 0;
+        } else if(id == "ic_a") {
+            document.getElementById("discussion_content").style.transform = "translate3d(-25%, 0px, 0px)";
+            currentX = -windowWidth;
+        } else if(id == "id_a") {
+            document.getElementById("discussion_content").style.transform = "translate3d(-50%, 0px, 0px)";
+            currentX = -2*windowWidth;
+        } else if(id == "pc_a") {
+            document.getElementById("discussion_content").style.transform = "translate3d(-75%, 0px, 0px)";
+            currentX = -3*windowWidth;
+        }
+    }
+
+    /* document.getElementById("lc_a").addEventListener("click", function() {
+        document.getElementById("discussion_content").style.transform = "translate3d(0, 0px, 0px)";
+        document.getElementById("lc_a").classList.add('top_menu_active');
+        document.getElementById("ic_a").classList.remove('top_menu_active');
+        document.getElementById("id_a").classList.remove('top_menu_active');
+        document.getElementById("pc_a").classList.remove('top_menu_active');
+        currentX = 0;
+    });
+    
+    document.getElementById("ic_a").addEventListener("click", function() {
+        document.getElementById("discussion_content").style.transform = "translate3d(-25%, 0px, 0px)";
+        document.getElementById("lc_a").classList.remove('top_menu_active');
+        document.getElementById("ic_a").classList.add('top_menu_active');
+        document.getElementById("id_a").classList.remove('top_menu_active');
+        document.getElementById("pc_a").classList.remove('top_menu_active');
+        currentX = -windowWidth;
+    });
+
+    document.getElementById("id_a").addEventListener("click", function() {
+        document.getElementById("discussion_content").style.transform = "translate3d(-50%, 0px, 0px)";
+        document.getElementById("lc_a").classList.remove('top_menu_active');
+        document.getElementById("ic_a").classList.remove('top_menu_active');
+        document.getElementById("id_a").classList.add('top_menu_active');
+        document.getElementById("pc_a").classList.remove('top_menu_active');
+        currentX = -2*windowWidth;
+    });
+    
+    document.getElementById("pc_a").addEventListener("click", function() {
+        document.getElementById("discussion_content").style.transform = "translate3d(-75%, 0px, 0px)";
+        document.getElementById("lc_a").classList.remove('top_menu_active');
+        document.getElementById("ic_a").classList.remove('top_menu_active');
+        document.getElementById("id_a").classList.remove('top_menu_active');
+        document.getElementById("pc_a").classList.add('top_menu_active');
+        currentX = -3*windowWidth;
+    }); */
+}
+catch(error) {
+    console.error(error);
+}
+
+try {
     document.getElementById('filterImg').addEventListener("click", function(){
         document.getElementById('right_menu').style.transform = "translateX(0%)";
         document.getElementById('shadow_div').style.zIndex = "99999";

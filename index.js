@@ -128,7 +128,7 @@ test100 = () => {
             console.log("product", product)
             
             div = document.createElement("div")
-            div.innerHTML = product.name
+            div.innerHTML = product.name + " " + product.brand
             
             productsEl.appendChild(div)
         }

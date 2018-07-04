@@ -28,11 +28,12 @@
             * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
                 * Enable inline JS: add 'unsafe-inline' to default-src
         -->
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+       <!--  <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;"> -->
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
         <link rel="stylesheet" type="text/css" href="css/index.css">
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
         <title>Hello World</title>
 
         <link rel="stylesheet" href="css/touch-sideswipe.css">
@@ -193,7 +194,7 @@
             </div>
                 
             <div class="topMenu">
-                <a href="profile.html"><h4>Vše</h4></a>
+                <a href="profile.html" class="top_menu_active"><h4>Vše</h4></a>
                 <a href="index.html"><h4>Boty</h4></a>
                 <a href="sells.html"><h4>Trička</h4></a>
                 <a href="sells.html"><h4>Mikiny</h4></a>
@@ -294,5 +295,7 @@
         </div>
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
+        <script src="../index.js"></script>
+        <script src="../users.json"></script>
     </body>
 </html>

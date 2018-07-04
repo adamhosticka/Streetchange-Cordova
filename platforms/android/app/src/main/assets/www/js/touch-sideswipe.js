@@ -145,9 +145,7 @@
             /* console.log("moveX", movedX)
             console.log("moveY", movedY) */
 
-            /* console.log(elMainCoordX0New, touchmoveCoordX, touchstartCoordX, elMainCoordX0, elSubmainWidth, elMainWidth ) */
-            console.log(touchstartCoordY, touchmoveCoordY)
-            console.log(touchstartCoordX, touchmoveCoordX)
+            console.log(elMainCoordX0New, touchmoveCoordX, touchstartCoordX, elMainCoordX0, elSubmainWidth, elMainWidth )
             
             if((touchstartCoordY <= touchmoveCoordY - 8 || touchstartCoordY >= touchmoveCoordY + 8) && movedX !== true) {
                 /* console.log("hierr") */
@@ -269,7 +267,6 @@
         // change states on Open
         //------------------------------------------------------------------
         function tssOpen() {
-            console.log("tssOpen");
             elMain.style.zIndex = '9999';
             elBg.style.opacity = opt.opacityBackground;
             elMain.style.width = winInnerWidth + 'px';
@@ -287,7 +284,6 @@
         // change states on Close
         //------------------------------------------------------------------
         function tssClose() {
-            console.log("tssClose");
             document.body.style.overflow = '';
             elBg.style.opacity = 0;
             elMain.style.width = elMainWidth + 'px';
@@ -299,7 +295,6 @@
             elBg.style.zIndex = '-999';
             setTimeout(function(){
                 elMain.style.zIndex = '9999';
-                console.log('piiiicici');
             }, opt.moveSpeed*1000);
             open = false;
         }
