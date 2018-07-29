@@ -52,9 +52,9 @@
 
         <div class="container">
             <div class="header">
-                <img id="menuButton" class="menuButton" src="Img/menu.png">
+                <img id='menuButton' class='menuButton' src="Img/menu.png">
                 <h1>Street Market</h1>
-                <img src="Img/filter.png" id="filterImg" class="addItemImg">
+                <img src="Img/filter.png" id='filterImg' class="addItemImg">
             </div>
         
             <div id="menu" class="touch-side-swipe">
@@ -64,7 +64,7 @@
                             <h4>Adam Hoštička</h4>
                             <p>Zobrazit profil</p>
                     </div>  
-                    <div class="menuHeaderRight">
+                    <div class='menuHeaderRight'>
                             <p>></p>
                     </div>
                 </a>
@@ -78,7 +78,7 @@
                         <img src="Img/announcements_icon.png">
                         <h2>Oznámení</h2>
                     </a>
-                    <a href="lc_item.html">
+                    <a href="discussion.html">
                         <img src="Img/discussion_icon.png">
                         <h2>Diskuze</h2>
                     </a>
@@ -166,7 +166,7 @@
                     </div>
                 </div>
 
-                <div id="select_right_menu" class="right_menu_filter">
+                <div id='select_right_menu' class="right_menu_filter">
                     <div id="brand_select" class="right_menu_filter_option">
                         <p class="right_menu_filter_option_left_p">Supreme</p> 
                         <input type="checkbox" class="right_menu_filter_option_right_p">
@@ -194,103 +194,244 @@
             </div>
                 
             <div class="topMenu">
-                <a href="profile.html" class="top_menu_active"><h4>Vše</h4></a>
-                <a href="index.html"><h4>Boty</h4></a>
-                <a href="sells.html"><h4>Trička</h4></a>
-                <a href="sells.html"><h4>Mikiny</h4></a>
-                <a href="sells.html"><h4>Košile</h4></a>
-                <a href="sells.html"><h4>Kalhoty</h4></a>
-                <a href="sells.html"><h4>Čepice</h4></a>
-                <a href="sells.html"><h4>Doplňky</h4></a>
-                <a href="buys.html"><h4>Ostatní</h4></a>
+                <div class="top_menu_transition top_menu_active"><h4>Vše</h4></div>
+                <div class="top_menu_transition"><h4>Boty</h4></div>
+                <div class="top_menu_transition"><h4>Trička</h4></div>
+                <div class="top_menu_transition"><h4>Mikiny</h4></div>
+                <div class="top_menu_transition"><h4>Košile</h4></div>
+                <div class="top_menu_transition"><h4>Kalhoty</h4></div>
+                <div class="top_menu_transition"><h4>Čepice</h4></div>
+                <div class="top_menu_transition"><h4>Doplňky</h4></div>
+                <div class="top_menu_transition"><h4>Ostatní</h4></div>
             </div>
             
-            <div id="content" class="content">         
-                <a href="profile.html" class="box left">
-                    <div class="contentDivImg">
-                        <img src="Img/logo.jpg" class="contentImg">
-                    </div>         
+            <div id="content" class="content overflow_hidden">       
+                <div id="swipe_layout_content" class="swipe_layout_content">
                     
-                    <div class="contentDivText">
-                        <div class="contentDivTextHeader">
-                            <h3 id="product_name"></h3>
-                        </div>
-                        <p> Supreme bogo, Price 12,000Kc, Kanye West</p>
+                    <div class="swipe_layout_div">
+                        <a href="profile.html" class="box left">
+                            <div class="contentDivImg">
+                                <img src="Img/logo.jpg" class="contentImg">
+                            </div>         
+                            
+                            <div class="contentDivText">
+                                <div class="contentDivTextHeader">
+                                    <h3 id='product_name'></h3>
+                                </div>
+                                <p> Supreme bogo, Price 12,000Kc, Kanye West</p>
+                            </div>
+                        </a>
+                        
+                        <a href="item_info.html" class="box right">
+                            <div class="contentDivImg">
+                                <img src="Img/header.jpg" class="contentImg">
+                            </div>         
+                            
+                            <div class="contentDivText">
+                                <div class="contentDivTextHeader">
+                                    <h3>Encharted Inline Limited Edition Hoodie</h3>
+                                </div>
+                                <p> Supreme bogo, Price 12,000Kc, Kanye West</p>
+                            </div>
+                        </a>
                     </div>
-                </a>
+                    
+                    <div class="swipe_layout_div">
+                        <a href="profile.html" class="box left">
+                            <div class="contentDivImg">
+                                <img src="Img/logo.jpg" class="contentImg">
+                            </div>         
+                            
+                            <div class="contentDivText">
+                                <div class="contentDivTextHeader">
+                                    <h3 id='product_name'></h3>
+                                </div>
+                                <p> Supreme bogo, Price 12,000Kc, Kanye West</p>
+                            </div>
+                        </a>
+                        
+                        <a href="item_info.html" class="box right">
+                            <div class="contentDivImg">
+                                <img src="Img/header.jpg" class="contentImg">
+                            </div>         
+                            
+                            <div class="contentDivText">
+                                <div class="contentDivTextHeader">
+                                    <h3>Encharted Inline Limited Edition Hoodie</h3>
+                                </div>
+                                <p> Supreme bogo, Price 12,000Kc, Kanye West</p>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <div class="swipe_layout_div">
+                        <a href="profile.html" class="box left">
+                            <div class="contentDivImg">
+                                <img src="Img/logo.jpg" class="contentImg">
+                            </div>         
+                            
+                            <div class="contentDivText">
+                                <div class="contentDivTextHeader">
+                                    <h3 id='product_name'></h3>
+                                </div>
+                                <p> Supreme bogo, Price 12,000Kc, Kanye West</p>
+                            </div>
+                        </a>
+                        
+                        <a href="item_info.html" class="box right">
+                            <div class="contentDivImg">
+                                <img src="Img/header.jpg" class="contentImg">
+                            </div>         
+                            
+                            <div class="contentDivText">
+                                <div class="contentDivTextHeader">
+                                    <h3>Encharted Inline Limited Edition Hoodie</h3>
+                                </div>
+                                <p> Supreme bogo, Price 12,000Kc, Kanye West</p>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <div class="swipe_layout_div">
+                        <a href="profile.html" class="box left">
+                            <div class="contentDivImg">
+                                <img src="Img/logo.jpg" class="contentImg">
+                            </div>         
+                            
+                            <div class="contentDivText">
+                                <div class="contentDivTextHeader">
+                                    <h3 id='product_name'></h3>
+                                </div>
+                                <p> Supreme bogo, Price 12,000Kc, Kanye West</p>
+                            </div>
+                        </a>
+                        
+                        <a href="item_info.html" class="box right">
+                            <div class="contentDivImg">
+                                <img src="Img/header.jpg" class="contentImg">
+                            </div>         
+                            
+                            <div class="contentDivText">
+                                <div class="contentDivTextHeader">
+                                    <h3>Encharted Inline Limited Edition Hoodie</h3>
+                                </div>
+                                <p> Supreme bogo, Price 12,000Kc, Kanye West</p>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <div class="swipe_layout_div">
+                        <a href="profile.html" class="box left">
+                            <div class="contentDivImg">
+                                <img src="Img/logo.jpg" class="contentImg">
+                            </div>         
+                            
+                            <div class="contentDivText">
+                                <div class="contentDivTextHeader">
+                                    <h3 id='product_name'></h3>
+                                </div>
+                                <p> Supreme bogo, Price 12,000Kc, Kanye West</p>
+                            </div>
+                        </a>
+                        
+                        <a href="item_info.html" class="box right">
+                            <div class="contentDivImg">
+                                <img src="Img/header.jpg" class="contentImg">
+                            </div>         
+                            
+                            <div class="contentDivText">
+                                <div class="contentDivTextHeader">
+                                    <h3>Encharted Inline Limited Edition Hoodie</h3>
+                                </div>
+                                <p> Supreme bogo, Price 12,000Kc, Kanye West</p>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <div class="swipe_layout_div">
+                        <a href="profile.html" class="box left">
+                            <div class="contentDivImg">
+                                <img src="Img/logo.jpg" class="contentImg">
+                            </div>         
+                            
+                            <div class="contentDivText">
+                                <div class="contentDivTextHeader">
+                                    <h3 id='product_name'></h3>
+                                </div>
+                                <p> Supreme bogo, Price 12,000Kc, Kanye West</p>
+                            </div>
+                        </a>
+                        
+                        <a href="item_info.html" class="box right">
+                            <div class="contentDivImg">
+                                <img src="Img/header.jpg" class="contentImg">
+                            </div>         
+                            
+                            <div class="contentDivText">
+                                <div class="contentDivTextHeader">
+                                    <h3>Encharted Inline Limited Edition Hoodie</h3>
+                                </div>
+                                <p> Supreme bogo, Price 12,000Kc, Kanye West</p>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <div class="swipe_layout_div">
+                        <a href="profile.html" class="box left">
+                            <div class="contentDivImg">
+                                <img src="Img/logo.jpg" class="contentImg">
+                            </div>         
+                            
+                            <div class="contentDivText">
+                                <div class="contentDivTextHeader">
+                                    <h3 id='product_name'></h3>
+                                </div>
+                                <p> Supreme bogo, Price 12,000Kc, Kanye West</p>
+                            </div>
+                        </a>
+                        
+                        <a href="item_info.html" class="box right">
+                            <div class="contentDivImg">
+                                <img src="Img/header.jpg" class="contentImg">
+                            </div>         
+                            
+                            <div class="contentDivText">
+                                <div class="contentDivTextHeader">
+                                    <h3>Encharted Inline Limited Edition Hoodie</h3>
+                                </div>
+                                <p> Supreme bogo, Price 12,000Kc, Kanye West</p>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <div class="swipe_layout_div">
+                        <a href="profile.html" class="box left">
+                            <div class="contentDivImg">
+                                <img src="Img/logo.jpg" class="contentImg">
+                            </div>         
+                            
+                            <div class="contentDivText">
+                                <div class="contentDivTextHeader">
+                                    <h3 id='product_name'></h3>
+                                </div>
+                                <p> Supreme bogo, Price 12,000Kc, Kanye West</p>
+                            </div>
+                        </a>
+                        
+                        <a href="item_info.html" class="box right">
+                            <div class="contentDivImg">
+                                <img src="Img/header.jpg" class="contentImg">
+                            </div>         
+                            
+                            <div class="contentDivText">
+                                <div class="contentDivTextHeader">
+                                    <h3>Encharted Inline Limited Edition Hoodie</h3>
+                                </div>
+                                <p> Supreme bogo, Price 12,000Kc, Kanye West</p>
+                            </div>
+                        </a>
+                    </div>
                 
-                <a href="item_info.html" class="box right">
-                    <div class="contentDivImg">
-                        <img src="Img/header.jpg" class="contentImg">
-                    </div>         
-                    
-                    <div class="contentDivText">
-                        <div class="contentDivTextHeader">
-                            <h3>Encharted Inline Limited Edition Hoodie</h3>
-                        </div>
-                        <p> Supreme bogo, Price 12,000Kc, Kanye West</p>
-                    </div>
-                </a>
-                
-                <a class="box left">
-                    <div class="contentDivImg">
-                        <img src="Img/logo.jpg" class="contentImg">
-                    </div>         
-                    
-                    <div class="contentDivText">
-                        <p> Supreme bogo, Price 12,000Kc, Kanye West</p>
-                    </div>
-                </a>
-                
-                <div class="box right">
-                    <div class="contentDivImg">
-                        <img src="Img/header.jpg" class="contentImg">
-                    </div>         
-                    
-                    <div class="contentDivText">
-                        <p> Supreme bogo, Price 12,000Kc, Kanye West</p>
-                    </div>
-                </div>
-                
-                <div class="box left">
-                    <div class="contentDivImg">
-                        <img src="Img/logo.jpg" class="contentImg">
-                    </div>         
-                    
-                    <div class="contentDivText">
-                        <p> Supreme bogo, Price 12,000Kc, Kanye West</p>
-                    </div>
-                </div>
-                
-                <div class="box right">
-                    <div class="contentDivImg">
-                        <img src="Img/header.jpg" class="contentImg">
-                    </div>         
-                    
-                    <div class="contentDivText">
-                        <p> Supreme bogo, Price 12,000Kc, Kanye West</p>
-                    </div>
-                </div>
-                
-                <div class="box left">
-                    <div class="contentDivImg">
-                        <img src="Img/logo.jpg" class="contentImg">
-                    </div>         
-                    
-                    <div class="contentDivText">
-                        <p> Supreme bogo, Price 12,000Kc, Kanye West</p>
-                    </div>
-                </div>
-                
-                <div class="box right">
-                    <div class="contentDivImg">
-                        <img src="Img/header.jpg" class="contentImg">
-                    </div>         
-                    
-                    <div class="contentDivText">
-                        <p> Supreme bogo, Price 12,000Kc, Kanye West</p>
-                    </div>
-                </div>
             </div>
         </div>
         <script type="text/javascript" src="cordova.js"></script>

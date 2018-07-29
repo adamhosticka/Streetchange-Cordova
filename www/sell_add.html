@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <!-- <?php 
     $hostname = "localhost";
     $username = "root";
@@ -25,20 +26,21 @@
         * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
             * Enable inline JS: add 'unsafe-inline' to default-src
     -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;"> -->
     <meta name="format-detection" content="telephone=no">
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
     <link rel="stylesheet" type="text/css" href="css/index.css">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <title>Hello World</title>
 </head>
 	
 <body>
     <div id='container' class="container">
         <div id='header' class="header">
-            <a href="sells.html"><img id='cancelButton' class='menuButton' src="Img/cancel.png"></a>
+            <a href="profile.html"><img id='cancelButton' class='menuButton' src="Img/cancel.png"></a>
             <h1>Přidat item</h1>
-            <a href="" class="right"><img id='acceptButton' class='addItemImg' src="Img/accept.png"></a>
+            <a href="profile.html" class="right"><img id='acceptButton' class='addItemImg' src="Img/accept.png"></a>
         </div>
 
         <div id="content" class="contentWithoutTopMenu contentPadding">
@@ -87,25 +89,6 @@
                 <option value="Oranžová"></option>
                 <option value="Černá"></option>
                 <option value="Bílá"></option>
-            </datalist> -->
-            <h1>Značka</h1>
-            <select class="itemAddSelect">
-                <!-- <?php echo $options; ?> -->
-            </select>
-
-            <h1>Typ</h1>
-            <select class="itemAddSelect">
-                
-            </select>
-
-            <h1>Název</h1>
-            <select class="itemAddSelect">
-                
-            </select>
-            
-            <h1>Velikost</h1>
-            <select class="itemAddSelect">
-                <option value="" disabled selected hidden>Vyberte velikost</option>
                 <option value="XXS">XXS</option>
                 <option value="XS">XS</option>
                 <option value="S">S</option>
@@ -114,21 +97,60 @@
                 <option value="XL">XL</option>
                 <option value="XXL">XXL</option>
                 <option value="XXXL">XXXL</option>
+            </datalist> -->
+
+            <h1>Značka</h1>
+            <select id="selectBrand" class="itemAddSelect" onchange="nameSelectLoad()" required>
+                <!-- <?php echo $options; ?> -->
+                <option value="" disabled selected hidden>Vyberte značku</option>
+            </select>
+            
+            <h1>Typ</h1>
+            <select id="selectType" class="itemAddSelect" onchange="nameSelectLoad(), sizeSelectLoad()" required>
+                <option value="" disabled selected hidden>Vyberte typ</option>
+            </select>
+
+            <h1>Název</h1>
+            <select id="selectName" class="itemAddSelect" onchange="fillBrandAndType()" required>
+                <option value="" disabled selected hidden>Vyberte název</option>
+            </select>
+            
+            <h1>Velikost</h1>
+            <select id="selectSize" class="itemAddSelect" required>
+                <option value="" disabled selected hidden>Nejprve vyberte typ</option>
             </select>
 
             <h1>Stav</h1>
-            <select class="itemAddSelect">
-
+            <select id="selectCondition" class="itemAddSelect" required>
+                <option value="" disabled selected hidden>Vyberte stav</option>
+                <option value="10">10/10</option>
+                <option value="9">9/10</option>
+                <option value="8">8/10</option>
+                <option value="7">7/10</option>
+                <option value="6">6/10</option>
+                <option value="5">5/10</option>
+                <option value="4">4/10</option>
+                <option value="3">3/10</option>
+                <option value="2">2/10</option>
+                <option value="1">1/10</option>
             </select>
 
             <h1>Barva</h1>
-            <select class="itemAddSelect">
+            <select class="itemAddSelect" required multiple>
 
             </select>
+
+            <h1>Fotky</h1>
+            <h2 class="sell_add_h2">Náhledová fotka</h2>
+            <h2 class="sell_add_h2">Ostatní fotky</h2>
+
+            <h1>Popisek</h1>
+            <textarea rows="4" class="sell_add_input_text itemAddSelect"></textarea>
         </div>
     </div>
     
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
+    <script src="../index.js"></script>
 </body>
 </html>

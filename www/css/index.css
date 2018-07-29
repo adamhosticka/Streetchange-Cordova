@@ -1,40 +1,40 @@
 /*
- * Licensed to the Apache Software Foundation (ASF) under one
- * or more contributor license agreements.  See the NOTICE file
- * distributed with this work for additional information
- * regarding copyright ownership.  The ASF licenses this file
- * to you under the Apache License, Version 2.0 (the
- * "License"); you may not use this file except in compliance
- * with the License.  You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on an
- * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied.  See the License for the
- * specific language governing permissions and limitations
- * under the License.
- */
- * {
+* Licensed to the Apache Software Foundation (ASF) under one
+* or more contributor license agreements.  See the NOTICE file
+* distributed with this work for additional information
+* regarding copyright ownership.  The ASF licenses this file
+* to you under the Apache License, Version 2.0 (the
+* "License"); you may not use this file except in compliance
+* with the License.  You may obtain a copy of the License at
+*
+* http://www.apache.org/licenses/LICENSE-2.0
+*
+* Unless required by applicable law or agreed to in writing,
+* software distributed under the License is distributed on an
+* "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+* KIND, either express or implied.  See the License for the
+* specific language governing permissions and limitations
+* under the License.
+*/
+* {
     -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
 }
- 
+
 ::-webkit-scrollbar {
     height: 0px;
     width: 0px;
 }
- 
+
 html{
     height: 100%;
 }
- 
+
 body {
     -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
     -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
     -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
     background-color:#E4E4E4;
- 
+
     /* background-image:linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
     background-image:-webkit-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
     background-image:-ms-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
@@ -45,7 +45,7 @@ body {
         color-stop(0, #A7A7A7),
         color-stop(0.51, #E4E4E4)
     ); */
- 
+
     background-attachment:fixed;
     font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
     font-size: 12px;
@@ -55,7 +55,7 @@ body {
     height: 100%;
     overflow: hidden; /* pro schovani right menu... :/ */
 }
- 
+
 div, a, ul, lim {
     display: block;
     box-sizing: border-box;
@@ -63,7 +63,7 @@ div, a, ul, lim {
     margin: 0;
     border: 0;
 }
- 
+
 h1, h2, h3, h4, a, p  {
     padding: 0;
     margin: 0;
@@ -80,9 +80,9 @@ h1, h2, h3, h4, a, p  {
     position: absolute;
     overflow: hidden;
 }
- 
+
 /* HEADER */
- 
+
 .header {
     width: 100%;
     height: 50px;
@@ -91,11 +91,11 @@ h1, h2, h3, h4, a, p  {
     position: fixed;
     top: 0;
 }
- 
+
 .addItemA {
     float: right;
 }
- 
+
 .addItemImg {
     float: right;
     height: 25px;
@@ -109,29 +109,29 @@ h1, h2, h3, h4, a, p  {
     float: left;
     padding: 12.5px 10px; /* padding misto marginu kvuli zvetseni plochy pro klik */
 }
- 
+
 .menuButtonLink {
     display: inline;
 }
- 
+
 .header h1 {
     line-height: 50px;
     color: white;
 }
- 
+
 .header a {
     display: block;
 }
- 
+
 /* MENU */
- 
+
 .menuHeader {
     width: 100%;
     height: 100px;
     background: linear-gradient(to bottom right, #000000 2%, #b8bbbc 100%);
     /* background: linear-gradient(to bottom right, #0c0c0c 20%, #676866 100%); */
 }
- 
+
 .menuHeaderLeft {
     height: 100px; 
     width: 90%; 
@@ -141,13 +141,13 @@ h1, h2, h3, h4, a, p  {
     padding-right: 0;
     overflow: hidden;
 }
- 
+
 .menuHeaderRight {
     height: 100px; 
     width: 10%; 
     float: right;
 }
- 
+
 .profileHeaderImg {
     margin-right: 14px; 
     height: 100%;  
@@ -157,20 +157,20 @@ h1, h2, h3, h4, a, p  {
     border: 1.4px solid black;
     box-sizing: border-box;
 }
- 
+
 .menuHeaderLeft p {
     padding-top: 3px;
     font-size: 13px;
     display: block;
 }
- 
+
 .menuHeaderLeft h4 {
     white-space: nowrap;
     padding-top: 12px;
     font-size: 18px;
     display: block;
 }
- 
+
 .menuHeaderRight p {
     float: right; 
     padding: 0; 
@@ -178,23 +178,23 @@ h1, h2, h3, h4, a, p  {
     font-size: 20px;
     line-height: 100px;
 }
- 
+
 .menuList {
     width: 100%;
     height: auto;
 }
- 
+
 .menuList a {
     padding: 5px 10px;
     width: 100%;
     box-sizing: border-box;
 }
- 
+
 .menuList h2 {
     vertical-align: middle;
     line-height: 50px;
 }
- 
+
 .menuList img {
     height: 25px;
     width: 25px;
@@ -202,9 +202,9 @@ h1, h2, h3, h4, a, p  {
     margin-left: 10px;
     margin-right: 20px;
 }
- 
+
 /* TOP MENU */
- 
+
 .topMenu {
     width: 100%;
     height: 35px;
@@ -216,15 +216,15 @@ h1, h2, h3, h4, a, p  {
     position: fixed;
     z-index: 99;
 }
- 
-.topMenu div {
+
+.topMenu div, topMenu a {
     line-height: 35px;
     text-align: center;
     height: 35px;
     padding: 0 10px;
     display: inline-block;
 }
- 
+
 .topMenu4 {
     width:100%;
     height: 35px;
@@ -234,8 +234,8 @@ h1, h2, h3, h4, a, p  {
     position: fixed;
     top: 50px;
 }
- 
-.topMenu4 div{
+
+.topMenu4 div, .topMenu4 a{
     line-height: 35px;
     text-align: center;
     height: 35px;
@@ -246,7 +246,7 @@ h1, h2, h3, h4, a, p  {
 .top_menu_active {
     border-bottom: 2px solid white;
 }
- 
+
 .topMenu h1, .topMenu h2, .topMenu h3, .topMenu h4, .topMenu h5, .topMenu p, .topMenu4 h1, .topMenu4 h2, .topMenu4 h3, .topMenu4 h4, .topMenu4 h5, .topMenu4 p {
     color: white;
 }
@@ -254,26 +254,28 @@ h1, h2, h3, h4, a, p  {
 .topMenu h4, .topMenu4 h4 {
     font-size: 16px;
 }
- 
+
 .content {
     width: 100%;
     height: calc(100% - 85px);
     margin-top: 85px;
     position: relative;
     overflow: auto;
+background:  #E4E4E4;
 }
 
 .callOutWarningActive {
     min-height: calc(100% - 130px);
     margin-top: 125px;
 }
- 
+
 .contentWithoutTopMenu {
     width: 100%;
     height: calc(100% - 50px);
     margin-top: 50px;
     position: relative;
     overflow: auto;
+background: #E4E4E4;
 }
 
 .contentPadding {
@@ -304,9 +306,9 @@ h1, h2, h3, h4, a, p  {
     background: black;
     padding-bottom: 0;
 }
- 
+
 /* TRADEMARKET CONTENT */
- 
+
 .box
 {
     width: 50%;
@@ -314,37 +316,37 @@ h1, h2, h3, h4, a, p  {
     padding: 10px;
     box-sizing: border-box;
 }
- 
+
 .left
 {
     float: left;
     padding-right: 5px;
 }
- 
+
 .right {
     float: right;
     padding-left: 5px;
 }
- 
+
 .contentDivImg {
     width: 100%;
     height: calc(50vw - 15px);
 }
- 
+
 .contentImg {
     width: 100%;
     height: 100%;
 }
- 
+
 .contentDivText {
     padding: 5px 2px 0px 2px;
 }
- 
+
 .contentDivTextHeader {
     overflow: hidden;
     white-space: nowrap;
 }
- 
+
 /* FILTER RIGHT MENU FILTER RIGHT MENU! */
 
 .shadow_div {
@@ -400,11 +402,17 @@ h1, h2, h3, h4, a, p  {
     width: 100%;
 }
 
+.right_menu_filter div:active, .right_menu_filter label:active {
+    background: #ecedef;
+}
+
 .right_menu_filter_option {
     width: 100%;
     height: auto;
     overflow: auto;
     padding: 10px;
+    display: block;
+    box-sizing: border-box;
 }
 
 .right_menu_filter_option_left_p {
@@ -419,6 +427,35 @@ h1, h2, h3, h4, a, p  {
 }
 
 input[type="checkbox"]{
+    opacity: 0;
+}
+
+select:required:invalid {
+    color: grey;
+}
+
+option {
+    color: black;
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.checkmark:after {
+    width: 5px;
+    height: 10px;
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.right_menu_filter input:checked ~ .checkmark:after {
+    display: block;
 }
 
 #select_right_menu {
@@ -430,7 +467,7 @@ input[type="checkbox"]{
 }
 
 /* USER CONTENT */
- 
+
 .callOutWarning {
     display: none;
     width: 100%;
@@ -444,49 +481,49 @@ input[type="checkbox"]{
     position: fixed;
     top: 85px;
 }
- 
+
 .callOutWarning p {
     font-size: 16px;
 }
- 
+
 .callOutWarningTextBold {
     color: blue;
     font-weight: bold;
     padding-left: 4px;
     padding-right: 1.5px;
 }
- 
+
 .profileHeader {
     width: 100%;
-    height: 40vw;
+    min-height: 40vw;
     padding: 5px 10px;
     background: white;
 }
- 
+
 .profileImageBox {
     width: 30vw;
     height: 30vw;
     float: left;
     margin: calc(5vw - 5px) 0;
 }
- 
+
 .profileInfoBox {
     width: calc(70vw - 20px);
     padding-top: 5px;
     padding-left: 15px;
     overflow: hidden;
 }
- 
+
 .profileInfoBox p {
     font-size: 1.1em;
 }
- 
+
 .profileImg {
     height: 30vw;
     width: 30vw;
     border-radius: 50%;
 }
- 
+
 .fbIcons {
     display: inline-block;
     height: 6vw;
@@ -494,25 +531,31 @@ input[type="checkbox"]{
     margin-right: 3px;
     vertical-align: middle;
 }
- 
+
 .profileInfoBox a {
     width: 100%;
     margin: 5px 0;
 }
- 
+
 .profileInfoBox h2{
     display: block;
     text-align: center;
     padding-bottom: 5px;
 }
- 
+
+.profile_description {
+background: white;
+padding: 15px 7px;
+font-size: 1.1em;
+}
+
 .userScore {
     width: 100%;
     height: 30vw;
     padding: 5px;
     display: flex;
 }
- 
+
 .userScore div{ 
     height: 100%;
     width: 30%;
@@ -522,20 +565,20 @@ input[type="checkbox"]{
     background: lightgray;
     border: 1px darkgrey solid;
 }
- 
+
 .userScore h1, .userScore h2{
     padding-top: 10px;
     text-align: center;
     display: block;
 }
- 
+
 /* CALLOUT CONTENT */
- 
+
 .callOutDiv {
     width: 100%;
     height: auto;
 }
- 
+
 .callOutHeader {
     width: 100%;
     height: 50px;
@@ -543,7 +586,7 @@ input[type="checkbox"]{
     padding: 10px;
     padding-bottom: 0;
 }
- 
+
 .callOutHeaderImg {
     height: 40px;
     width: 40px;
@@ -551,28 +594,33 @@ input[type="checkbox"]{
     margin-right: 8px;
     border-radius: 50%;
 }
- 
+
 .callOutHeader h3 {
     padding-top: 5px;
     padding-bottom: 3px;
 }
- 
+
 .callOutHeader p {
     color: grey;
     display: block;
 }
- 
+
+.date_p {
+    color: grey;
+    display: block;
+}
+
 .callOutText {
     padding: 10px 8px 10px 8px;
     width: 100%;
     height: auto;
     background: white;
 }
- 
+
 .callOutText p {
     font-size: 15px;
 }
- 
+
 .callOutFooter {
     width: 100%;
     height: 40px;
@@ -580,38 +628,38 @@ input[type="checkbox"]{
     text-align: center;
     background: white;
 }
- 
+
 .callOutFooterShowComments {
     width: 50%;
     height: 100%;
     float: left;
 }
- 
+
 .callOutFooterShowPhotos {
     width: 50%;
     height: 100%;
     float: right;
 }
- 
+
 .comment01 {
     width: calc(100% - 10px);
     height: auto;
     margin: 5px;
     margin-bottom: 0px; 
 }
- 
+
 .commentHeader {
     width: 40px;
     height: 40px;
     float: left;
 }
- 
+
 .commentHeader img {
     height: 100%;
     width: 100%;
     border-radius: 50%;
 }
- 
+
 .commentText {
     width: calc(100% - 60px);
     height: auto;
@@ -620,24 +668,24 @@ input[type="checkbox"]{
     padding: 8px;
     border-radius: 10px;
 }
- 
+
 .commentText h3 {
     padding-bottom: 3px;
 }
- 
+
 .commentFooter {
     width: calc(100% - 45px);
     margin-left: 45px;
     display: flex;
     padding: 5px;
 }
- 
+
 .commentFooter p {
     color: grey;
     flex: auto;
     font-size: 13px;
 }
- 
+
 .writeComment {
     width: 100%;
     height: 50px;
@@ -646,14 +694,14 @@ input[type="checkbox"]{
     bottom: 0;
     position: fixed;
 }
- 
+
 .writeComment input {
     height: 40px;
     width: calc(100% - 90px);
     float: left;
     font-size: 18px;
 }
- 
+
 /* .addPhotosImg {
     height: 40px;
     width: 40px;
@@ -668,7 +716,7 @@ input[type="checkbox"]{
     margin: 5;
     margin-right: 10px;
 }
- 
+
 .sendCommentImg {
     height: 30px;
     width: 30px;
@@ -676,7 +724,7 @@ input[type="checkbox"]{
     margin-left: 10px;
     float: right;
 }
- 
+
 .box2
 {
     width: 33.33333333333%;
@@ -684,12 +732,12 @@ input[type="checkbox"]{
     box-sizing: border-box;
     padding: 2px;
 }
- 
+
 .box2 img {
     width: 100%;
     height: 100%;
 }
- 
+
 .legitCheckFooterShowPhotos {
     width: 100%;
     height: 40px;
@@ -697,7 +745,7 @@ input[type="checkbox"]{
     text-align: center;
     background: white;
 }
- 
+
 .legitCheckLinks {
     height: auto;
     margin-top: 5px;
@@ -708,13 +756,13 @@ input[type="checkbox"]{
     overflow: hidden;
     border-right: 5px white solid;
 }
- 
+
 .legitCheckLinks a {
     color: blue;
     padding-top: 4px;
     display: block;
 }
- 
+
 /* ITEM VIEW STUFF */
 
 .itemView {
@@ -725,7 +773,7 @@ input[type="checkbox"]{
     background: white;
     border-bottom: 1px solid #b9b9b9;
 }
- 
+
 .itemViewPhoto {
     height: 30vw;
     width: 30%;
@@ -735,7 +783,7 @@ input[type="checkbox"]{
     position: relative;
     background: white;
 }
- 
+
 .itemViewPhoto img {
     width: 100%;
     height: auto;
@@ -744,7 +792,7 @@ input[type="checkbox"]{
     position: absolute;
     margin: auto;
 }
- 
+
 .itemViewText {
     width: 70%;
     height: 100%;
@@ -753,7 +801,7 @@ input[type="checkbox"]{
     background: white;
     max-width: calc(100% - 108px); /* Pro telefony uzsi nez 360px */
 }
- 
+
 .itemViewName {
     width: 100%;
     max-height: 3em;
@@ -763,26 +811,37 @@ input[type="checkbox"]{
 .itemViewName h2 {
     font-size: 1.35em;
 }
- 
+
 .itemViewText h4 {
     color: gray;
     display: block;
     padding-bottom: 2px;
 }
- 
+
 .itemViewText h3 {
     display: block;
 }
- 
+
 .itemAddSelect {
     border: 0;
-    width: calc(100% - 10px);
+    width: calc(100% - 20px);
     height: 40px;
-    margin: 10px 5px 10px 5px;
+    margin: 10px 10px;
     display: block;
     font-size: 17px;
     font-weight: bold;
     padding-left: 5px;
+}
+
+.sell_add_h2 {
+    display: block;
+    font-size: 1.4em;
+    margin-left: 2em;
+    line-height: 2em;
+}
+
+.sell_add_input_text {
+    height: auto;
 }
 
 /* ITEM INFO */
@@ -842,19 +901,19 @@ input[type="checkbox"]{
 }
 
 .item_description_header {
-	width: 100%;
-	padding: 15px 0 10px 15px;
+    width: 100%;
+    padding: 15px 0 10px 15px;
 }
 
 .item_description_details {
-	width: 100%;
-	padding-left: 30px;
+    width: 100%;
+    padding-left: 30px;
 }
 
 .item_description_details p {
-	display: block;
-	line-height: 1.6em;
-	font-size: 1.2em;
+    display: block;
+    line-height: 1.6em;
+    font-size: 1.2em;
 }
 
 .addedToFavouriteMessage {
@@ -876,8 +935,13 @@ input[type="checkbox"]{
     display: block;
 }
 
+.rules_div h3 {
+    text-align: center;
+}
+
 .rules_div p {
-    padding: 2px 2px 5px 3px;
+    padding: 5px 2px 5px 3px;
+    text-align: center;
 }
 
 /* ANNOUNCEMENT OZNAMENI */
@@ -943,4 +1007,88 @@ input[type="checkbox"]{
 
 .top_menu_transition {
     transition: 0.1s;
+}
+
+.information_div {
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    width: 90%;
+    height: 80%;
+    background: white;
+    border: 1px solid black;
+    z-index: -999;
+    transition: step-start 0.15s;
+}
+
+.information_text {
+    margin-top: 50px;
+    height: calc(80% - 50px);
+    width: 100%;
+    padding: 5px;
+    text-align: center;
+}
+
+.information_text h3 {
+    padding: 20px 0 5px 0;
+}
+
+/* REGISTER REGISTER REGISTER */
+
+.register {
+    text-align: center;
+    width: 100%;
+    height: 100%;
+}
+
+
+.register_logo {
+    margin-top: 10%;
+    margin-left: 10%;
+    margin-right: 10%;
+    width: 80%;
+}
+
+.register_profile_img {
+    margin-top: 25%;
+    margin-left: 30%;
+    margin-right: 30%;
+    width: 40%;
+    height: 40vw;
+    border-radius: 50%;
+}
+
+.iop {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.jkl {
+    margin-top: 30px;
+    margin-left: 15%;
+    margin-right: 15%;
+    text-align: center;
+    height: 40px;
+    line-height: 40px;
+    width: 70%;
+    background: darkblue;
+}
+
+.bnm {
+    margin-top: 15px;
+    margin-left: 15%;
+    margin-right: 15%;
+    text-align: center;
+    height: 40px;
+    line-height: 40px;
+    width: 70%;
+    background: lightgrey;
+}
+
+.register_background {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    opacity: .4;
+    z-index: -1;
 }

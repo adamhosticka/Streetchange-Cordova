@@ -46,17 +46,25 @@
 
 app.initialize(); */
 
-try {
-    var wrapper = document.getElementById("swipe_layout_content");
-    var currentX = 0;
-    var windowWidth = screen.width;
-    var innerDivs = document.getElementsByClassName('swipe_layout_div'); // Pro nastaveni overflow-y pri movingX
-    var innerDivsLength = innerDivs.length;  // zatim neni nutno, kdyztak pouzit for i < innverdivslength - innerdivs[i].style...
-    /* var wrapperWidth = screen.width*4; */
-    var wrapperWidth = screen.width*innerDivsLength;
-    var swipeAble = windowWidth*0.7;
-    var theDiff = 0;
+try {  
 
+    lastId = 0;
+
+    function setParams() {
+        wrapper = document.getElementById("swipe_layout_content");
+        currentX = 0;
+        windowWidth = screen.width;
+        innerDivs = document.getElementsByClassName('swipe_layout_div'); // Pro nastaveni overflow-y pri movingX
+        innerDivsLength = innerDivs.length;  // zatim neni nutno, kdyztak pouzit for i < innverdivslength - innerdivs[i].style...
+        /* var wrapperWidth = screen.width*4; */
+        wrapperWidth = screen.width*innerDivsLength;
+        swipeAble = windowWidth*0.5;
+        theDiff = 0;
+        topMenuActive(lastId);
+    }
+
+    setParams();
+    window.addEventListener('resize', setParams, false);
     wrapper.addEventListener('touchstart', wrapperTouchstart, false);
     wrapper.addEventListener('touchmove', wrapperTouchmove, false);
     wrapper.addEventListener('touchend', wrapperTouchend, false);
@@ -126,8 +134,6 @@ try {
     }
     
     function topMenuActive(id) {
-        console.log(id)
-
         for(var i = 0; i < innerDivsLength; i++) {
             document.getElementsByClassName('top_menu_transition')[i].classList.remove('top_menu_active');
         }
@@ -136,6 +142,7 @@ try {
         wrapper.style.transition = "0.5s";
         currentX = id*(-windowWidth); 
         document.getElementById("swipe_layout_content").style.transform = "translate3d("+ currentX +"px, 0px, 0px)";
+        lastId = id;
     }
 
     /* function topMenuActive(id) {
@@ -199,6 +206,29 @@ try {
 }
 catch(error) {
     console.error(error);
+}
+
+try {
+document.getElementById('information_icon').addEventListener("click", function(){
+        document.getElementById('information_div').style.zIndex = "999999";
+        document.getElementById('shadow_div').style.zIndex = "99999";
+        document.getElementById('shadow_div').style.opacity = "0.5";
+    });
+ 
+document.getElementById("closeInformationDiv").addEventListener("click", function(){
+        document.getElementById('information_div').style.zIndex = "-99";
+        document.getElementById('shadow_div').style.zIndex = "-999";
+        document.getElementById('shadow_div').style.opacity = "0";
+    });
+ 
+    document.getElementById('shadow_div').addEventListener("click", function(){
+        document.getElementById('information_div').style.zIndex = "-99";
+        document.getElementById('shadow_div').style.zIndex = "-999";
+        document.getElementById('shadow_div').style.opacity = "0";
+    });
+}
+catch(error) {
+    console.log(error);
 }
 
 try {
