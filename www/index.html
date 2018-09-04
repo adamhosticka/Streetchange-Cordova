@@ -33,8 +33,10 @@
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
         <link rel="stylesheet" type="text/css" href="css/index.css">
+<!--         <script src="https://momentjs.com/downloads/moment.js"></script>
+        <script src="https://requirejs.org/docs/release/2.3.5/minified/require.js"></script> -->
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-        <title>Hello World</title>
+        <title>Hello World Hovno</title>
 
         <link rel="stylesheet" href="css/touch-sideswipe.css">
         <script src="js/touch-sideswipe.js"></script>
@@ -55,6 +57,18 @@
                 <img id='menuButton' class='menuButton' src="Img/menu.png">
                 <h1>Street Market</h1>
                 <img src="Img/filter.png" id='filterImg' class="addItemImg">
+                <img src="Img/search.png" class="addItemImg" id="searchButton">
+            </div>
+
+            <div id="search_layout" class="search_layout">
+                    <div class="header">
+                        <img src="Img/back.png" id="close_search_layout" class="menuButton">
+                        <div id="search_div" class="search_div">
+                            <img src="Img/cancel2.png" id="delete_search_input">
+                            <input id="search_input" placeholder="Vyhledejte produkt">
+                        </div>
+                        <img src="Img/question_mark.png" class="addItemImg" id="search_items_ask_button">
+                    </div>
             </div>
         
             <div id="menu" class="touch-side-swipe">
@@ -73,10 +87,12 @@
                     <a href="index.html">
                         <img src="Img/market_icon.png">
                         <h2>Market</h2>
+                        <img src="Img/red_dot.png" class="red_dot_announcement">
                     </a>
                     <a href="announcements.html">
                         <img src="Img/announcements_icon.png">
                         <h2>Oznámení</h2>
+                        <img src="Img/red_dot.png" class="red_dot_announcement">
                     </a>
                     <a href="discussion.html">
                         <img src="Img/discussion_icon.png">
@@ -98,6 +114,7 @@
                     <a href="rules.html">
                         <img src="Img/rules_icon.png">
                         <h2>Pravidla</h2>
+                        <img src="Img/red_dot.png" class="red_dot_announcement">
                     </a>
 
                     <a href="rules.html">
@@ -197,7 +214,7 @@
                 </div>
             </div>
                 
-            <div class="topMenu">
+            <div id="topMenu" class="topMenu">
                 <div class="top_menu_transition top_menu_active"><h4>Vše</h4></div>
                 <div class="top_menu_transition"><h4>Boty</h4></div>
                 <div class="top_menu_transition"><h4>Trička</h4></div>
@@ -213,6 +230,85 @@
                 <div id="swipe_layout_content" class="swipe_layout_content">
                     
                     <div class="swipe_layout_div">
+                        
+                        <a href="profile.html" class="box left">
+                            <div class="contentDivImg">
+                                <img src="Img/logo.jpg" class="contentImg">
+                            </div>         
+                            
+                            <div class="contentDivText">
+                                <div class="contentDivTextHeader">
+                                    <h3 id='product_name'></h3>
+                                </div>
+                                <p> Supreme bogo, Price 12,000Kc, Kanye West</p>
+                            </div>
+                        </a>
+                        
+                        <a href="item_info.html" class="box right">
+                            <div class="contentDivImg">
+                                <img src="Img/hoodie.png" class="contentImg">
+                            </div>         
+                            
+                            <div class="contentDivText">
+                                <div class="contentDivTextHeader">
+                                    <h3>Encharted Inline Limited Edition Hoodie</h3>
+                                </div>
+                                <p> Supreme bogo, Price 12,000Kc, Kanye West</p>
+                            </div>
+                        </a>
+                        
+                        <a href="profile.html" class="box left">
+                            <div class="contentDivImg">
+                                <img src="Img/logo.jpg" class="contentImg">
+                            </div>         
+                            
+                            <div class="contentDivText">
+                                <div class="contentDivTextHeader">
+                                    <h3 id='product_name'></h3>
+                                </div>
+                                <p> Supreme bogo, Price 12,000Kc, Kanye West</p>
+                            </div>
+                        </a>
+                        
+                        <a href="item_info.html" class="box right">
+                            <div class="contentDivImg">
+                                <img src="Img/header.jpg" class="contentImg">
+                            </div>         
+                            
+                            <div class="contentDivText">
+                                <div class="contentDivTextHeader">
+                                    <h3>Encharted Inline Limited Edition Hoodie</h3>
+                                </div>
+                                <p> Supreme bogo, Price 12,000Kc, Kanye West</p>
+                            </div>
+                        </a>
+                        
+                        <a href="profile.html" class="box left">
+                            <div class="contentDivImg">
+                                <img src="Img/logo.jpg" class="contentImg">
+                            </div>         
+                            
+                            <div class="contentDivText">
+                                <div class="contentDivTextHeader">
+                                    <h3 id='product_name'></h3>
+                                </div>
+                                <p> Supreme bogo, Price 12,000Kc, Kanye West</p>
+                            </div>
+                        </a>
+                        
+                        <a href="item_info.html" class="box right">
+                            <div class="contentDivImg">
+                                <img src="Img/header.jpg" class="contentImg">
+                            </div>         
+                            
+                            <div class="contentDivText">
+                                <div class="contentDivTextHeader">
+                                    <h3>Encharted Inline Limited Edition Hoodie</h3>
+                                </div>
+                                <p> Supreme bogo, Price 12,000Kc, Kanye West</p>
+                            </div>
+                        </a>
+                        
                         <a href="profile.html" class="box left">
                             <div class="contentDivImg">
                                 <img src="Img/logo.jpg" class="contentImg">

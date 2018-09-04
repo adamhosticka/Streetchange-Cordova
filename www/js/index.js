@@ -98,16 +98,18 @@ try {
     function wrapperTouchend(event) {
         wrapper.style.transition = "0.5s";
         
-        if(-theDiff+currentX < currentX - swipeAble && theDiff > 0 && currentX-windowWidth >= -windowWidth*(innerDivsLength-1)) {
-            wrapper.style.transform = "translateX(" + (currentX-windowWidth) + "px)";
-            currentX = currentX - windowWidth;
-        } else if(-theDiff+currentX > currentX + swipeAble && theDiff < 0 && currentX+windowWidth <= 0) {
-            wrapper.style.transform = "translateX(" + (currentX + windowWidth) + "px)";
-            currentX = currentX + windowWidth;
-        } else {
-            wrapper.style.transform = "translateX(" + currentX + "px)";
+        if(movedX) {
+            if(-theDiff+currentX < currentX - swipeAble && theDiff > 0 && currentX-windowWidth >= -windowWidth*(innerDivsLength-1)) {
+                wrapper.style.transform = "translateX(" + (currentX-windowWidth) + "px)";
+                currentX = currentX - windowWidth;
+            } else if(-theDiff+currentX > currentX + swipeAble && theDiff < 0 && currentX+windowWidth <= 0) {
+                wrapper.style.transform = "translateX(" + (currentX + windowWidth) + "px)";
+                currentX = currentX + windowWidth;
+            } else {
+                wrapper.style.transform = "translateX(" + currentX + "px)";
+            }
         }
-
+        
         /* if(-currentX / windowWidth == 0) {topMenuActive("lc_a")}
         if(-currentX / windowWidth == 1) {topMenuActive("ic_a")}
         if(-currentX / windowWidth == 2) {topMenuActive("id_a")}
@@ -257,7 +259,7 @@ catch(error) {
 
 try {
     document.getElementById('addToFavouriteImg').addEventListener("click", function(){
-        if(document.getElementById('addToFavouriteImg').src === "http://localhost:8000/Img/favourite.png") {
+        if(document.getElementById('addToFavouriteImg').src === "Img/favourite.png") {
             document.getElementById('addedToFavouriteMessage').style.display = 'inline-table';
             setTimeout(function(){
                 document.getElementById('addedToFavouriteMessage').style.background = 'rgba(100,100,100, 0.7)';
@@ -277,13 +279,39 @@ catch(error) {
 
 try {
     document.getElementById('addToFavouriteImg').addEventListener("click", function(){
-        if(document.getElementById('addToFavouriteImg').src === "http://localhost:8000/Img/favourite.png") {
-            document.getElementById('addToFavouriteImg').src = "http://localhost:8000/Img/favouriteAdded.png";
+        if(document.getElementById('addToFavouriteImg').src == "http://localhost:3000/img/favourite.png") {
+            document.getElementById('addToFavouriteImg').src = "http://localhost:3000/img/favouriteAdded.png";
         }
         else {
-            document.getElementById('addToFavouriteImg').src = "http://localhost:8000/Img/favourite.png";
+            document.getElementById('addToFavouriteImg').src = "Img/favourite.png";
         }
     });
+}
+
+catch(error) {
+    console.log(error);
+}
+
+try {
+    var searchButton = document.getElementById('searchButton')
+    var searchLayout = document.getElementById('search_layout')
+    var input = document.getElementById("search_input")
+    var deleteText = document.getElementById('delete_search_input')
+    var closeLayout = document.getElementById('close_search_layout')
+
+    searchButton.addEventListener('click', function(){
+        searchLayout.style.opacity = "1"
+        searchLayout.style.zIndex = "99999999999"
+    })
+
+    deleteText.addEventListener('click', function(){
+        input.value = ""
+    })
+
+    closeLayout.addEventListener('click', function() {
+        searchLayout.style.opacity = "0"
+        searchLayout.style.zIndex = "-9"
+    })
 }
 
 catch(error) {

@@ -1,0 +1,101 @@
+<!-- <!DOCTYPE html> -->
+<!-- <?php 
+    $hostname = "localhost";
+    $username = "root";
+    $password = "";
+    $databaseName = "streetchange";
+
+    $connect = mysqli_connect($hostname, $username, $password, $databaseName);
+    $query = "SELECT * FROM `brands`";
+
+    $result = mysqli_query($connect, $query);
+    $options = "";
+    while($row = mysqli_fetch_array($result)) {
+        $options = $options."<option>$row[1]</option>";
+    }
+?> -->
+
+<html>
+<head>
+    <!--
+    Customize this policy to fit your own app's needs. For more guidance, see:
+        https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+    Some notes:
+        * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+        * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+        * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+            * Enable inline JS: add 'unsafe-inline' to default-src
+    -->
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;"> -->
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <title>Hello World</title>
+</head>
+	
+<body>
+    <div id='container' class="container">
+        <div id='header' class="header">
+            <a href="profile.html"><img id='cancelButton' class='menuButton' src="Img/cancel.png"></a>
+            <h1>Přidat item</h1>
+            <a href="profile.html" class="right"><img id='acceptButton' class='addItemImg' src="Img/accept.png"></a>
+        </div>
+
+        <div id="content" class="contentWithoutTopMenu contentPadding">
+            <h3 class="underline">Jmeno debilka:</h3>
+            <input type="text" name="calloutname" class="co_add_input">
+            <h3 class="underline">Info:</h3>
+            <textarea class="co_add_textarea"></textarea> 
+            <h3 class="underline">Fotky:</h3>
+            <div class="co_add_photos">
+                <div>
+                    <img src="Img/add_black.png">
+                </div>
+                
+                <div>
+                    <img src="Img/add_black.png">
+                </div>
+                
+                <div>
+                    <img src="Img/add_black.png">
+                </div>
+                
+                <div>
+                    <img src="Img/add_black.png">
+                </div>
+                
+                <div>
+                    <img src="Img/add_black.png">
+                </div>
+                
+                <div>
+                    <img src="Img/add_black.png">
+                </div>
+                
+                <div>
+                    <img src="Img/add_black.png">
+                </div>
+                
+                <div>
+                    <img src="Img/add_black.png">
+                </div>
+                
+                <div>
+                    <img src="Img/add_black.png">
+                </div>
+                
+                <div>
+                    <img src="Img/add_black.png">
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="https://requirejs.org/docs/release/2.3.5/comments/require.js"></script>
+    <script src="../index.js"></script>
+</body>
+</html>

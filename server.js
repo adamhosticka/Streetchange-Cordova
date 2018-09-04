@@ -1,4 +1,33 @@
 
+console.time('requiruju mysql')
+var mysql = require('mysql')
+console.timeEnd('requiruju mysql')
+
+console.time('vytvarim mysql connection')
+var con = mysql.createConnection({
+    host: "localhost",
+    user: "root",
+    password: "",
+    database: "streetchange"
+});
+console.timeEnd('vytvarim mysql connection')
+
+console.time('mysql connect()')
+con.connect(function(err) {
+    console.timeEnd('mysql connect()')
+    if (err) throw err
+
+    console.log("Connected!");
+
+//   var sql = "SELECT * FROM types";
+//   con.query(sql, function (err, result) {
+//     if (err) throw err;
+//     console.log(result);
+//   });
+})
+
+console.log(1)
+
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
@@ -23,6 +52,7 @@ app.get("/test", function(req, res) {
     res.end("<html><body><b>wqdaw</b></body></html>")
 })
 
+console.log(2)
 
 app.get('/products', function(req, res) {
     productsMobile = [
@@ -334,8 +364,45 @@ app.get('/types', function(req, res) {
             name: "Trenky"
         }
     ]
+    
+    // types = types.slice(0, 2)
+    // res.end(JSON.stringify(types))
+    
+    /* const sql = "SELECT * FROM types"
+    
+    console.time('query')
+    con.query(sql, function (err, results) {
+        console.timeEnd('query')
+        if (err) throw err
+        
+        console.log(results)
 
-    res.end(JSON.stringify(types))
+        // results = results.map(function (result) {
+        //     result.name = result.name + " HOVNO"
+        //     result.time = Date.now()
+        //     return result
+        // })
+
+        let time = Date.now()
+
+        for (let result of results) {
+            result.time = time
+        }
+
+        setTimeout(() => {
+            results[0].time = Date.now()
+
+            res.end(JSON.stringify(results))
+        }, 20)
+        
+
+    }) */
+
+    const sql = "SELECT * FROM types"
+    con.query(sql, function (err, results) {
+        if (err) throw err
+        res.end(JSON.stringify(results))
+    })
 })
 
 app.get('/items', function(req, res) {
@@ -431,14 +498,21 @@ app.get('/sizes', function(req, res) {
         }
     ]
 
-    res.end(JSON.stringify(sizes))
+    /* res.end(JSON.stringify(sizes)) */
+
+    const sql = "SELECT * FROM clothing_sizes"
+    con.query(sql, function (err, results) {
+        if (err) throw err
+        res.end(JSON.stringify(results))
+    })
+
 })
 
 
 var server = app.listen(3000, function () {
-   var host = server.address().address
-   var port = server.address().port
-   
-   console.log("Example app listening at http://%s:%s", host, port)
+    var host = server.address().address
+    var port = server.address().port
+    
+    console.log("Example app listening at http://%s:%s", host, port)
 
 })

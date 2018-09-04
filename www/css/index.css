@@ -72,6 +72,14 @@ h1, h2, h3, h4, a, p  {
     display: inline-block;
 }
 
+*:focus {
+    outline: none;
+}
+
+textarea:focus, input:focus {
+    outline: none;
+}
+
 .container {
     width: 100%;
     height: 100%;
@@ -121,6 +129,48 @@ h1, h2, h3, h4, a, p  {
 
 .header a {
     display: block;
+}
+
+.search_layout {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: white;
+    transition: 0.2s linear;
+    opacity: 0;
+    z-index: -9;
+}
+
+.search_div {
+    height: 50px;
+    width: calc(100% - 95px);
+    position: absolute;
+    top: 0;
+    left: 45px;
+    background: black;
+    padding: 15px 0px;
+}
+
+.search_div input {
+    width: calc(100% - 15px);
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    background: black;
+    color: white;
+    border-bottom: 1px grey solid;
+    padding-right: 15px;
+}
+
+.search_div img {
+    position: absolute;
+    right: 0;
+    height: 10px;
+    width: 10px;
+    padding: 5px 0;
 }
 
 /* MENU */
@@ -188,6 +238,7 @@ h1, h2, h3, h4, a, p  {
     padding: 5px 10px;
     width: 100%;
     box-sizing: border-box;
+    position: relative;
 }
 
 .menuList h2 {
@@ -201,6 +252,16 @@ h1, h2, h3, h4, a, p  {
     vertical-align: middle;
     margin-left: 10px;
     margin-right: 20px;
+}
+
+.red_dot_announcement {
+    height: 10px !important;
+    width: 10px !important;
+    float: right;
+    position: absolute;
+    right: 15px !important;
+    top: 22px !important;
+    margin: 0 !important;
 }
 
 /* TOP MENU */
@@ -261,7 +322,7 @@ h1, h2, h3, h4, a, p  {
     margin-top: 85px;
     position: relative;
     overflow: auto;
-background:  #E4E4E4;
+    background:  #E4E4E4;
 }
 
 .callOutWarningActive {
@@ -302,6 +363,10 @@ background: #E4E4E4;
     margin-bottom: 10px;
 }
 
+.content_white {
+    background: white;
+}
+
 .content_black_background {
     background: black;
     padding-bottom: 0;
@@ -311,21 +376,10 @@ background: #E4E4E4;
 
 .box
 {
+    padding: 5px;
     width: 50%;
     height: auto;
-    padding: 10px;
     box-sizing: border-box;
-}
-
-.left
-{
-    float: left;
-    padding-right: 5px;
-}
-
-.right {
-    float: right;
-    padding-left: 5px;
 }
 
 .contentDivImg {
@@ -581,7 +635,7 @@ font-size: 1.1em;
 
 .callOutHeader {
     width: 100%;
-    height: 50px;
+    min-height: 50px;
     background: white;
     padding: 10px;
     padding-bottom: 0;
@@ -596,13 +650,14 @@ font-size: 1.1em;
 }
 
 .callOutHeader h3 {
-    padding-top: 5px;
-    padding-bottom: 3px;
+    padding-top: 4px;
 }
 
 .callOutHeader p {
+    padding-top: 3px;
     color: grey;
     display: block;
+    padding-left: 48px;
 }
 
 .date_p {
@@ -782,6 +837,7 @@ font-size: 1.1em;
     float: left;
     position: relative;
     background: white;
+    overflow: hidden;
 }
 
 .itemViewPhoto img {
@@ -789,6 +845,8 @@ font-size: 1.1em;
     height: auto;
     top: 0;
     bottom: 0;
+    right: 0;
+    left: 0 ;
     position: absolute;
     margin: auto;
 }
@@ -888,9 +946,10 @@ font-size: 1.1em;
 }
 
 .item_seller_write_mess {
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     float: right;
+    margin: 10px 5px 0 0;
 }
 
 .item_description {
@@ -940,8 +999,7 @@ font-size: 1.1em;
 }
 
 .rules_div p {
-    padding: 5px 2px 5px 3px;
-    text-align: center;
+    padding: 2px 10px 15px 10px;
 }
 
 /* ANNOUNCEMENT OZNAMENI */
@@ -1091,4 +1149,127 @@ font-size: 1.1em;
     top: 0;
     opacity: .4;
     z-index: -1;
+}
+
+/* MATCHED ITEMS MATCHED ITEMS */
+
+.mi_intro_div {
+    background: white;
+    padding: 5px 10px;
+}
+
+.mi_intro_div h2 {
+    line-height: 1.2em;
+    padding-bottom: 5px;
+}
+
+.mi_intro_div h3 {
+    color: grey;
+    text-decoration: underline;
+}
+
+.mi_item_div {
+    padding: 0 10px;
+    background: white;
+}
+
+.mi_item_profile_pic {
+    width: 40px;
+    height: 40px;
+    margin: 10px 10px 0 0;
+    border-radius:  50%;
+    float:  left;
+}
+
+.mi_item_profile_name {
+    padding-top: 18px;
+}
+
+.mi_item_view_text h3 {
+    padding-top: 10px;
+}
+
+/* FAQ Fucking annoying questions riiiight there #HELP */
+
+.faq_div {
+    width: 100%;
+    padding: 5px;
+    padding-right: 15%;
+    position: relative;
+    border-bottom: 1px solid #b9b9b9;
+    background: white;
+    box-shadow: 0px -2px 20px 1px #abadac;
+}
+
+.faq_arrow {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    width: 20px;
+    height: fit-content;
+    font-weight: bold;
+    color: grey;
+}
+
+/* CALLOUT ADD co_add CALLOUTADD */
+
+.co_add_input {
+    height: 30px;
+    width: 80%;
+    margin: 5px 10% 10px 10%;
+}
+
+.co_add_textarea {
+    margin: 5px 10% 10px 10%;
+    width: 80%;
+    height: 55%;
+}
+
+.co_add_photos {
+    width: 80vw;
+    height: 100px;
+    margin: 5px 10% 10px 10%;
+}
+
+.co_add_photos div {
+    width: 14vw;
+    height: 14vw;
+    margin: 5px 1vw;
+    float: left;
+    position: relative;
+    overflow: hidden;
+    background: white;
+}
+
+.co_add_photos img {
+    width: 100%;
+    height: auto;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    position: absolute;
+    margin: auto;
+}
+
+.discussion_add_select {
+    margin: 5px 10% 10px 10%;
+    width: 80%;
+}
+
+/* HELPING SHIT  ---------- KEEP EM ON BOTTOM PUSSAY*/
+
+.left
+{
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+.underline {
+    text-decoration: underline;
 }

@@ -1,5 +1,6 @@
 console.log("ok fe ready")
 
+sizesLoaded = false;
 
 processData = (data) => {
     productsEl = document.getElementById("products")
@@ -229,7 +230,6 @@ getUserName = (userID) => {
     axios.get('/users')
 
     .then(function (response) {
-        console.log(userID, "///////////////////////")
         var data = response.data
 
         // productsEl.innerHTML = data
@@ -267,6 +267,7 @@ typeSelectLoad = () => {
     axios.get('/types')
 
     .then(function (response) {
+
         var data = response.data
         for (type of data) {
             var option = document.createElement('option')
@@ -372,12 +373,38 @@ sizeSelectLoad = () => {
     axios.get('/sizes')
 
     .then(function (response) {
+        if(sizesLoaded == false) {
+            selectSize = document.getElementById('selectSize')
+            for(i = 0; i < selectSize.length; i++) {
+                if(selectSize[i].value == '') {selectSize[i].innerHTML = "Vyberte velikost"}
+            }
+
+            var data = response.data
+            for (size of data) {
+                var option = document.createElement('option')
+                option.value = size.id
+                option.innerHTML = size.name
+                document.getElementById('selectSize').appendChild(option)
+            }
+
+            sizesLoaded = true
+        }
+    })
+    .catch(function (error) {
+        console.log(error);
+    });
+}
+
+/* itemsForSaleLoad = () => {
+    axios.get('/sizes')
+    
+    .then(function (response) {
         
         selectSize = document.getElementById('selectSize')
         for(i = 0; i < selectSize.length; i++) {
             if(selectSize[i].value == '') {selectSize[i].innerHTML = "Vyberte velikost"}
         }
-
+        
         var data = response.data
         for (size of data) {
             var option = document.createElement('option')
@@ -389,7 +416,28 @@ sizeSelectLoad = () => {
     .catch(function (error) {
         console.log(error);
     });
-}
+} */
+
+/* insertTypesIntoDatabase = () => {
+    axios.get('/types')
+    console.log('-------------------------------------------------------------------------------------------------------------')
+    .then(function (response) {
+        var data = response.data
+        con.connect(function(err) {
+        if (err) throw err;
+        for (type of data) {
+            var sql = "INSERT INTO types VALUES (type.name))";
+            con.query(sql, function (err, result) {
+                if (err) throw err;
+                console.log(result);
+            });
+        }
+        });
+    })
+    .catch(function (error) {
+        console.log(error);
+    });
+} */
 
 try {
     test100()
@@ -432,3 +480,20 @@ try {
 catch(error) {
     console.log(error);
 }
+
+try {
+    itemsForSaleLoad()
+}
+catch(error) {
+    console.log(error);
+}
+
+try {
+    insertTypesIntoDatabase()
+}
+catch(error) {
+    console.log(error);
+}
+
+
+console.log(moment().format())
