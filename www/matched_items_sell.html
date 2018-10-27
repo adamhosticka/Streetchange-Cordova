@@ -1,0 +1,122 @@
+<!-- <?php 
+    $hostname = "localhost";
+    $username = "root";
+    $password = "";
+    $databaseName = "streetchange";
+
+    $connect = mysqli_connect($hostname, $username, $password, $databaseName);
+    $query = "SELECT * FROM `brands`";
+
+    $result = mysqli_query($connect, $query);
+    $options = "";
+    while($row = mysqli_fetch_array($result)) {
+        $options = $options."<option>$row[1]</option>";
+    }
+?> -->
+
+<html>
+<head>
+    <!--
+    Customize this policy to fit your own app's needs. For more guidance, see:
+        https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+    Some notes:
+        * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+        * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+        * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+            * Enable inline JS: add 'unsafe-inline' to default-src
+    -->
+    <!--  <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;"> -->
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+<!--         <script src="https://momentjs.com/downloads/moment.js"></script>
+    <script src="https://requirejs.org/docs/release/2.3.5/minified/require.js"></script> -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <title>Hello World</title>
+
+    <link rel="stylesheet" href="css/touch-sideswipe.css">
+    <script src="js/touch-sideswipe.js"></script>
+</head>
+	
+<body>
+    <div id='container' class="container">
+        <div id='header' class="header">
+            <a href="profile.html"><img id='cancelButton' class='menuButton' src="Img/back.png"></a>
+            <h1></h1>
+
+            <img src="Img/messenger.png" id='messageMatchers' class="addItemImg">
+        </div>
+
+        <div id="menu" class="touch-side-swipe">
+            <a class="menuHeader" href="profile.html">
+                <div class="menuHeaderLeft">
+                        <img class="profileHeaderImg" src="Img/profile01.png">
+                        <h4>Adam Hoštička</h4>
+                        <p>Zobrazit profil</p>
+                </div>  
+                <div class='menuHeaderRight'>
+                        <p>></p>
+                </div>
+            </a>
+            
+            <div class="menuList">
+                <a href="index.html">
+                    <img src="Img/market_icon.png">
+                    <h2>Market</h2>                    
+                </a>
+                <a href="announcements.html">
+                    <img src="Img/announcements_icon.png">
+                    <h2>Oznámení</h2>                  
+                </a>
+                <a href="discussion.html">
+                    <img src="Img/discussion_icon.png">
+                    <h2>Diskuze</h2>
+                </a>
+                <a href="callout.html">
+                    <img src="Img/callout_icon.png">
+                    <h2>Callouty</h2>
+                </a>
+                <a href="favourite_items.html">
+                    <img src="Img/favourite_icon.png">
+                    <h2>Oblíbené</h2>
+                </a>
+                <a href="faq.html">
+                    <img src="Img/faq_icon.jpg">
+                    <h2>FAQ</h2>
+                </a>
+
+                <a href="rules.html">
+                    <img src="Img/rules_icon.png">
+                    <h2>Pravidla</h2>             
+                </a>
+            </div>
+        </div>
+
+        <div id="content" class="contentWithoutTopMenu">
+
+            <div class="itemView content_splitter">
+                <div class="itemViewPhoto">
+                    <img src="Img/hoodie.png" class="itemViewPhoto">
+                </div>
+                <div class="itemViewText">
+                    <div class="itemViewName">
+                        <h2>SLEEVE EMBROIDERY HOODIE</h2>
+                    </div>
+
+                    <h4>Supreme</h4>
+                    <h3>Size: L</h3>
+                    <h3>Stav: 9/10</h3>
+                    <h3>Barva: Černá</h3>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script src="../index.js"></script>
+</body>
+</html>

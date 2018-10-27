@@ -173,6 +173,27 @@ textarea:focus, input:focus {
     padding: 5px 0;
 }
 
+.search_result_div {
+    width: 100%;
+    height: 43px;
+    background: lightgray;
+    padding-top: 3px;
+}
+
+.search_result_div img {
+    margin: 5px 10px 5px 20px;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    vertical-align: middle;
+}
+
+.search_result_div p {
+    font-size: 1.2em;
+    line-height: 40px;
+    vertical-align: middle;
+}
+
 /* MENU */
 
 .menuHeader {
@@ -372,6 +393,11 @@ background: #E4E4E4;
     padding-bottom: 0;
 }
 
+.no_content_loaded {
+    text-align: center;
+    color: gray;
+}
+
 /* TRADEMARKET CONTENT */
 
 .box
@@ -428,7 +454,7 @@ background: #E4E4E4;
 }
 
 .right_menu_header {
-    height: 7vh;
+    height: 40px;
     width: 100%;
     border-bottom: 1px solid #b9b9b9;
     background: #313131;
@@ -436,7 +462,7 @@ background: #E4E4E4;
 
 .right_menu_header p, .right_menu_footer p {
     font-size: 1.5em;
-    line-height: 7vh;
+    line-height: 40px;
     color: white;
     padding: 0 20px;
 }
@@ -445,14 +471,14 @@ background: #E4E4E4;
     position: absolute;
     bottom: 0;
     width: 100%;
-    height: 7vh;
+    height: 40px;
     border-top: 1px solid #b9b9b9;
     text-align: center;
     background: #313131;
 }
 
 .right_menu_filter {
-    height: 86vh;
+    height: calc(100% - 80px);
     width: 100%;
 }
 
@@ -822,11 +848,14 @@ font-size: 1.1em;
 
 .itemView {
     width: 100%;
-    height: calc(10px + 30vw);
     padding: 5px;
-    min-height: 118px; /* Pro telefony uzsi nez 360px */
+    padding-top: 10px;
+    min-height: calc(30vw + 15px);
     background: white;
     border-bottom: 1px solid #b9b9b9;
+    position: relative;
+    overflow: hidden;
+    display: block;
 }
 
 .itemViewPhoto {
@@ -835,9 +864,12 @@ font-size: 1.1em;
     min-height: 108px; /* Pro telefony */
     min-width: 108px;  /* uzsi nez 360px */
     float: left;
-    position: relative;
+    position: absolute;
     background: white;
     overflow: hidden;
+    top: 0;
+    bottom: 0;
+    margin: auto;
 }
 
 .itemViewPhoto img {
@@ -853,9 +885,8 @@ font-size: 1.1em;
 
 .itemViewText {
     width: 70%;
-    height: 100%;
     float: right;
-    padding: 5px 0px 2px 10px;
+    padding-left: 10px;
     background: white;
     max-width: calc(100% - 108px); /* Pro telefony uzsi nez 360px */
 }
@@ -873,11 +904,61 @@ font-size: 1.1em;
 .itemViewText h4 {
     color: gray;
     display: block;
-    padding-bottom: 2px;
+    padding-bottom: 3px;
 }
 
 .itemViewText h3 {
     display: block;
+    padding-bottom: 2px;
+}
+
+.itemView:last-child {
+    margin-bottom: 5px;
+}
+
+/* .itemView:active {
+    background: grey;
+} */
+
+.item_view_settings {
+    position: absolute;
+    z-index: -10;
+    background: white;
+    width: 70%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: fit-content;
+    min-height: 40px;
+    border-radius: 10px;
+    margin: auto;
+}
+
+.item_view_settings_line:first-child {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.item_view_settings_line:last-child {
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+} 
+
+.item_view_settings_line {
+    width: 100%;
+    height: 40px;
+    padding-left: 10px;
+    line-height: 40px;
+    font-size: 1.15em;
+}
+
+/* .item_view_settings_line h3 {
+    line-height: 40px;
+} */
+
+.item_view_settings_line:active {
+    background: #e1e1e1;
 }
 
 .itemAddSelect {
@@ -889,17 +970,23 @@ font-size: 1.1em;
     font-size: 17px;
     font-weight: bold;
     padding-left: 5px;
+    background: white;
+    border: 1px solid black;
 }
 
-.sell_add_h2 {
+.profile_add_h2 {
     display: block;
     font-size: 1.4em;
     margin-left: 2em;
     line-height: 2em;
 }
 
-.sell_add_input_text {
+.profile_add_input_text {
     height: auto;
+}
+
+.profile_add_wrapper {
+
 }
 
 /* ITEM INFO */
@@ -923,7 +1010,7 @@ font-size: 1.1em;
 
 .item_seller {
     width: 100%;
-    height: 70px;
+    height: 65px;
     padding: 10px 5px;
     background: white;
 }
@@ -931,6 +1018,7 @@ font-size: 1.1em;
 .item_seller h2 {
     line-height: 25px;
     padding-top: 3px;
+    font-size: 1.45em;
 }
 .item_seller p {
     color: gray;
@@ -938,8 +1026,8 @@ font-size: 1.1em;
 }
 
 .item_seller_profile_img {
-    width: 50px;
-    height: 50px;
+    width: 45px;
+    height: 45px;
     margin-right: 10px;
     float: left;
     border-radius: 50%;
@@ -949,7 +1037,7 @@ font-size: 1.1em;
     width: 30px;
     height: 30px;
     float: right;
-    margin: 10px 5px 0 0;
+    margin: 7px 5px 0 0;
 }
 
 .item_description {
@@ -1079,16 +1167,61 @@ font-size: 1.1em;
     transition: step-start 0.15s;
 }
 
+.information_div_small {
+    position: absolute;
+    top: 30%;
+    left: 5%;
+    width: 90%;
+    height: 35%;
+    background: white;
+    border: 1px solid black;
+    z-index: -999;
+    box-sizing: unset;
+    transition: step-start 0.15s;
+}
+
 .information_text {
     margin-top: 50px;
-    height: calc(80% - 50px);
+    height: calc(100% - 50px);
     width: 100%;
     padding: 5px;
     text-align: center;
+    position: relative;
+}
+
+.information_text_small {
+    margin-top: 50px;
+    height: calc(100% - 110px);
+    width: 100%;
+    padding: 5px;
+    text-align: center;
+    position: relative;
 }
 
 .information_text h3 {
     padding: 20px 0 5px 0;
+}
+
+.information_div_footer {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    width: calc(100% - 10px);
+    height: 50px;
+    margin: 5px;
+    background: blue;
+    text-align: center;
+}
+
+.information_div_footer img {
+    width: 40px;
+    height: 40px;
+    margin-top: 5px;
+}
+
+.information_text p, .information_text_small p {
+    font-size: 1.1em;
 }
 
 /* REGISTER REGISTER REGISTER */
@@ -1153,21 +1286,32 @@ font-size: 1.1em;
 
 /* MATCHED ITEMS MATCHED ITEMS */
 
-.mi_intro_div {
+.itemViewBuy {
     background: white;
     padding: 5px 10px;
+    border-bottom: 1px solid #b9b9b9;
+    position: relative;
+    overflow: hidden;
+    display: block;
 }
 
-.mi_intro_div h2 {
+.itemViewBuy h2 {
     line-height: 1.2em;
-    padding-bottom: 5px;
+    font-size: 1.35em;
+    display: block;
 }
 
-.mi_intro_div h3 {
+.itemViewBuy h3 {
+    display: block;
+    padding-bottom: 2px;
+}
+
+.itemViewBuy h4 {
     color: grey;
     text-decoration: underline;
+    padding-bottom: 5px;
 }
-
+/* 
 .mi_item_div {
     padding: 0 10px;
     background: white;
@@ -1187,6 +1331,29 @@ font-size: 1.1em;
 
 .mi_item_view_text h3 {
     padding-top: 10px;
+} */
+
+.mi_buy_item_wrapper {
+    position: relative;
+    overflow: hidden;
+    min-height: 30vw;
+    width: 100%;
+}
+
+.mi_item_seller {
+    height: 45px;
+    margin-bottom: 5px;
+    padding: 0;
+}
+
+.mi_item_view_text {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    overflow: hidden;
+    height: fit-content;
 }
 
 /* FAQ Fucking annoying questions riiiight there #HELP */
@@ -1272,4 +1439,8 @@ font-size: 1.1em;
 
 .underline {
     text-decoration: underline;
+}
+
+.display_none {
+    display: none;
 }

@@ -28,7 +28,7 @@
             <div class="header">
                 <img id='menuButton' class='menuButton' src="Img/menu.png">
                 <h1>Profil</h1>
-                <a href="sell_add.html" class="addItemA">	
+                <a href="profile_add.html" class="addItemA">	
                     <img src="Img/add.png" class="addItemImg" id="addButton">
                 </a>
 
@@ -37,14 +37,43 @@
 
             
             <div id="search_layout" class="search_layout">
-                    <div class="header">
-                        <img src="Img/back.png" id="close_search_layout" class="menuButton">
-                        <div id="search_div" class="search_div">
-                            <img src="Img/cancel2.png" id="delete_search_input">
-                            <input id="search_input" placeholder="Vyhledejte uživatele">
-                        </div>
-                        <img src="Img/question_mark.png" class="addItemImg" id="search_profiles_ask_button">
+                <div class="header">
+                    <img src="Img/back.png" id="close_search_layout" class="menuButton">
+                    <div id="search_div" class="search_div">
+                        <img src="Img/cancel.png" id="delete_search_input">
+                        <input id="search_input" placeholder="Vyhledejte uživatele">
                     </div>
+                    <img src="Img/question_mark.png" class="addItemImg" id="information_icon">
+                </div>
+                <div class="contentWithoutTopMenu content_white">
+                    <div class="search_result_div">
+                        <img src="Img/profile01.png">
+                        <p>Adam Hosticka</p>
+                    </div>
+                    <div class="search_result_div">
+                        <img src="Img/profile01.png">
+                        <p>Adam Hosticka</p>
+                    </div>
+                    <div class="search_result_div">
+                        <img src="Img/profile01.png">
+                        <p>Adam Hosticka</p>
+                    </div>
+                    <div class="search_result_div">
+                        <img src="Img/profile01.png">
+                        <p>Adam Hosticka</p>
+                    </div>
+                </div>
+
+                <div id="shadow_div_2" class="shadow_div"></div>
+                <div id="information_div" class="information_div information_div_small">
+                    <img src="Img/cancel_black.png" id="closeInformationDiv" class="addItemImg">
+                    <div class="information_text information_text_small">
+                        <p>Toto slouží pouze pro vyhledávání uživatelů. Pokud chcete hledat produkty klikněte na tlačítko pod textem, nebo vyhledávejte v sekci Market.</p>
+                    </div>
+                    <a href="index.html" class="information_div_footer">
+                        <img src="Img/market_icon.png">
+                    </a> 
+                </div>	
             </div>
             
             <div id="menu" class="touch-side-swipe">
@@ -62,11 +91,11 @@
                 <div class="menuList">
                     <a href="index.html">
                         <img src="Img/market_icon.png">
-                        <h2>Market</h2>
+                        <h2>Market</h2>                      
                     </a>
                     <a href="announcements.html">
                         <img src="Img/announcements_icon.png">
-                        <h2>Oznámení</h2>
+                        <h2>Oznámení</h2>                     
                     </a>
                     <a href="discussion.html">
                         <img src="Img/discussion_icon.png">
@@ -87,39 +116,9 @@
 
                     <a href="rules.html">
                         <img src="Img/rules_icon.png">
-                        <h2>Pravidla</h2>
+                        <h2>Pravidla</h2> 
                     </a>
-
-                    <a href="rules.html">
-                        <img src="Img/rules_icon.png">
-                        <h2>Pravidla</h2>
-                    </a>
-
-                    <a href="rules.html">
-                        <img src="Img/rules_icon.png">
-                        <h2>Pravidla</h2>
-                    </a>
-
-                    <a href="rules.html">
-                        <img src="Img/rules_icon.png">
-                        <h2>Pravidla</h2>
-                    </a>
-
-                    <a href="rules.html">
-                        <img src="Img/rules_icon.png">
-                        <h2>Pravidla</h2>
-                    </a>
-
-                    <a href="rules.html">
-                        <img src="Img/rules_icon.png">
-                        <h2>Pravidla</h2>
-                    </a>
-
-                    <a href="rules.html">
-                        <img src="Img/rules_icon.png">
-                        <h2>Pravidla</h2>
-                    </a>
-                </div>  
+                </div>
             </div>
                 
             <div class="topMenu4">
@@ -132,6 +131,12 @@
             <div id="callOutWarning" class='callOutWarning'>
                 <p>Na tohoto uživatele je podán </p ><p class='callOutWarningTextBold'>CallOut</p><p>!</p>
             </div>
+            
+            <div id="item_view_settings" class="item_view_settings">
+                <div class="item_view_settings_line">Upravit</div>
+                <div class="item_view_settings_line">Odstranit</div>
+            </div>
+            <div id="shadow_div" class="shadow_div"></div>
             
             <div id="content" class="content overflow_hidden">  
                 <div id="swipe_layout_content" class="swipe_layout_content">
@@ -169,7 +174,9 @@
                             <a id="linkTwo"></a>
                             <a id="linkThree"></a>
                         </div>
-                        <div id="legitCheckDiv"></div>
+                        <div class="no_content_loaded">Tento uzivatel zatim nema zadne legitchecky</div>
+
+                        <!-- <div id="legitCheckDiv"></div> -->
                         
                         <!-- <div id='callOutDiv' class="callOutDiv content_splitter">
                             <div id="callOutHeader" class="callOutHeader">
@@ -225,75 +232,9 @@
                         </div> -->
                     </div>
 
-                    <div class="swipe_layout_div">
+                    <div id="swipe_layout_sell_items" class="swipe_layout_div">
                         
-                        <div class="itemView">
-                            <div class="itemViewPhoto">
-                                <img src="Img/hoodie.png" class="itemViewPhoto">
-                            </div>
-                            <div class="itemViewText">
-                                <div class="itemViewName">
-                                    <h2>SLEEVE EMBROIDERY HOODIE</h2>
-                                </div>
-        
-                                <h4>Supreme</h4>
-                                <h3>Size: L</h3>
-                                <h3>Stav: 9/10</h3>
-                                <h3>Barva: Černá</h3>
-                            </div>
-                        </div>
-
-                        <div class="itemView">
-                            <div class="itemViewPhoto">
-                                <img src="Img/tripple_white.png">
-                            </div>
-                            <div class="itemViewText">
-                                <div class="itemViewName">
-                                    <h2>ULTRABOOST TRIPPLE WHITE 4.0</h2>
-                                </div>
-                                
-                                <h4>Adidas</h4>
-                                <h3>Size: 42, 42 2/3, 43</h3>
-                                <h3>Stav: 10/10</h3>
-                                <h3>Barva: Bílá</h3>
-                            </div>
-                        </div>
-                        
-                        <div class="itemView">
-                            <div class="itemViewPhoto">
-                                <img src="Img/supreme_bottle2.png">
-                            </div>
-                            <div class="itemViewText">
-                                <div class="itemViewName">
-                                    <h2>SIGG TRAVELEER 0.6L WATER BOTTLE</h2>
-                                </div>
-                                
-                                <h4>Supreme</h4>
-                                <h3>One Size</h3>
-                                <h3>Stav: 10/10</h3>
-                                <h3>Barva: Červená</h3>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="swipe_layout_div">
-                        <div class="itemView">
-                            <div class="itemViewPhoto">
-                                <img src="Img/tripple_white.png">
-                            </div>
-                            <div class="itemViewText">
-                                <div class="itemViewName">
-                                    <h2>ULTRABOOST TRIPPLE WHITE 4.0</h2>
-                                </div>
-                                
-                                <h4>Adidas</h4>
-                                <h3>Size: 42, 42 2/3, 43</h3>
-                                <h3>Stav: 10/10</h3>
-                                <h3>Barva: Bílá</h3>
-                            </div>
-                        </div>                      
-                        
-                        <a href="matched_items.html" class="itemView">
+                        <!-- <a href="matched_items_sell.html" class="itemView">
                             <div class="itemViewPhoto">
                                 <img src="Img/hoodie.png" class="itemViewPhoto">
                             </div>
@@ -308,6 +249,22 @@
                                 <h3>Barva: Černá</h3>
                             </div>
                         </a>
+
+                        <div class="itemView">
+                            <div class="itemViewPhoto">
+                                <img src="Img/tripple_white.png">
+                            </div>
+                            <div class="itemViewText">
+                                <div class="itemViewName">
+                                    <h2>ULTRABOOST TRIPPLE WHITE 4.0</h2>
+                                </div>
+                                
+                                <h4>Adidas</h4>
+                                <h3>Size: 42, 42 2/3, 43</h3>
+                                <h3>Stav: 10/10</h3>
+                                <h3>Barva: Bílá</h3>
+                            </div>
+                        </div>
                         
                         <div class="itemView">
                             <div class="itemViewPhoto">
@@ -323,8 +280,50 @@
                                 <h3>Stav: 10/10</h3>
                                 <h3>Barva: Červená</h3>
                             </div>
-                        </div>                       
+                        </div> -->
                     </div>
+
+                    <div id="swipe_layout_buy_items" class="swipe_layout_div">
+                        <!-- <div class="itemViewBuy">
+                            <h2>SIGG TRAVELEER 0.6L WATER BOTTLE </h2>
+                            <h4>Supreme </h4>
+                            <h3>Size: L, XL, XXL</h3>
+                            <h3>Stav: 9/10</h3>
+                            <h3>Barva: Černá</h3>
+                        </div>
+                        
+                        <div class="itemViewBuy">
+                            <h2>ULTRABOOST TRIPPLE WHITE 4.0</h2>
+                            <h4>Supreme </h4>
+                            <h3>Size: L, XL, XXL</h3>
+                            <h3>Stav: 9/10</h3>
+                            <h3>Barva: Černá</h3>
+                        </div>
+                        
+                        <div class="itemViewBuy">
+                            <h2>SLEEVE EMBROIDERY HOODIEEEE </h2>
+                            <h4>Supreme </h4>
+                            <h3>Size: L, XL, XXL</h3>
+                            <h3>Stav: 9/10</h3>
+                            <h3>Barva: Černá</h3>
+                        </div>
+                        
+                        <div class="itemViewBuy">
+                            <h2>SLEEVE EMBROIDERY HOODIEEEE </h2>
+                            <h4>Supreme </h4>
+                            <h3>Size: L, XL, XXL</h3>
+                            <h3>Stav: 9/10</h3>
+                            <h3>Barva: Černá</h3>
+                        </div>
+                        
+                        <div class="itemViewBuy">
+                            <h2>SLEEVE EMBROIDERY HOODIEEEE </h2>
+                            <h4>Supreme </h4>
+                            <h3>Size: L, XL, XXL</h3>
+                            <h3>Stav: 9/10</h3>
+                            <h3>Barva: Černá</h3>
+                        </div>
+                    </div> -->
                 </div>
             </div>
         </div>

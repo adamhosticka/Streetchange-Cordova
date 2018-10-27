@@ -53,7 +53,9 @@ try {
     function setParams() {
         wrapper = document.getElementById("swipe_layout_content");
         currentX = 0;
-        windowWidth = screen.width;
+        windowWidth = window.innerWidth
+        /* windowWidth = screen.width; */
+        console.log("RESIIIIIZE", windowWidth, lastId)
         innerDivs = document.getElementsByClassName('swipe_layout_div'); // Pro nastaveni overflow-y pri movingX
         innerDivsLength = innerDivs.length;  // zatim neni nutno, kdyztak pouzit for i < innverdivslength - innerdivs[i].style...
         /* var wrapperWidth = screen.width*4; */
@@ -211,22 +213,22 @@ catch(error) {
 }
 
 try {
-document.getElementById('information_icon').addEventListener("click", function(){
+    document.getElementById('information_icon').addEventListener("click", function(){
         document.getElementById('information_div').style.zIndex = "999999";
-        document.getElementById('shadow_div').style.zIndex = "99999";
-        document.getElementById('shadow_div').style.opacity = "0.5";
+        document.getElementById('shadow_div_2').style.zIndex = "99999";
+        document.getElementById('shadow_div_2').style.opacity = "0.5";
     });
  
-document.getElementById("closeInformationDiv").addEventListener("click", function(){
+    document.getElementById("closeInformationDiv").addEventListener("click", function(){
         document.getElementById('information_div').style.zIndex = "-99";
-        document.getElementById('shadow_div').style.zIndex = "-999";
-        document.getElementById('shadow_div').style.opacity = "0";
+        document.getElementById('shadow_div_2').style.zIndex = "-999";
+        document.getElementById('shadow_div_2').style.opacity = "0";
     });
  
-    document.getElementById('shadow_div').addEventListener("click", function(){
+    document.getElementById('shadow_div_2').addEventListener("click", function(){
         document.getElementById('information_div').style.zIndex = "-99";
-        document.getElementById('shadow_div').style.zIndex = "-999";
-        document.getElementById('shadow_div').style.opacity = "0";
+        document.getElementById('shadow_div_2').style.zIndex = "-999";
+        document.getElementById('shadow_div_2').style.opacity = "0";
     });
 }
 catch(error) {
@@ -301,7 +303,7 @@ try {
 
     searchButton.addEventListener('click', function(){
         searchLayout.style.opacity = "1"
-        searchLayout.style.zIndex = "99999999999"
+        searchLayout.style.zIndex = "9999"
     })
 
     deleteText.addEventListener('click', function(){
@@ -314,6 +316,67 @@ try {
     })
 }
 
+catch(error) {
+    console.log(error);
+}
+
+try {
+    var itemViewSettings = document.getElementById('item_view_settings')
+    var itemView = document.getElementsByClassName('itemView')
+    var shadowDiv = document.getElementById('shadow_div')
+    var onlongtouch
+    var timer
+    var touchduration = 400
+    var touchStartX
+    var touchStartY
+    var touchMoveX
+    var touchMoveY
+
+    for(var i = 0; i < itemView.length; i+= 1) {
+        (function(i) {
+            /* document.getElementsByClassName('top_menu_transition')[i].addEventListener("click", function() {topMenuActive(i)}, false); */
+            itemView[i].addEventListener('touchstart', touchstart, false);
+            itemView[i].addEventListener('touchmove', touchmove, false);
+            itemView[i].addEventListener('touchend', touchend);
+        }(i));
+    }
+
+    /* itemView.addEventListener('touchstart', touchstart);
+    itemView.addEventListener('touchend', touchend); */
+
+    function touchstart(event) {
+        timer = setTimeout(onlongtouch, touchduration); 
+        touchStartX = event.changedTouches[0].clientX;
+        touchStartY = event.changedTouches[0].clientY;
+    }
+
+    function touchmove(event) {
+        touchMoveX = event.changedTouches[0].clientX;
+        touchMoveY = event.changedTouches[0].clientY;
+
+        if(touchStartX <= touchMoveX - 8 || touchStartX >= touchMoveX + 8 || touchStartY <= touchMoveY - 8 || touchStartY >= touchMoveY + 8) {
+            clearTimeout(timer)
+        }
+    }
+
+    function touchend() {
+        if (timer) {
+            clearTimeout(timer);
+        }
+    }
+
+    onlongtouch = function() {
+        itemViewSettings.style.zIndex = '999999'
+        shadowDiv.style.zIndex = '99999'
+        shadowDiv.style.opacity = '0.5'
+    };
+
+    shadowDiv.addEventListener("click", function(){
+        itemViewSettings.style.zIndex = "-10";
+        shadowDiv.style.zIndex = "-999";
+        shadowDiv.style.opacity = "0";
+    });
+}
 catch(error) {
     console.log(error);
 }

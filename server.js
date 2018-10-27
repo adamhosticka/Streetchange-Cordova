@@ -8,7 +8,8 @@ var con = mysql.createConnection({
     host: "localhost",
     user: "root",
     password: "",
-    database: "streetchange"
+    database: "streetchange",
+    multipleStatements: "true"
 });
 console.timeEnd('vytvarim mysql connection')
 
@@ -85,6 +86,33 @@ app.get('/products', function(req, res) {
     res.end(JSON.stringify(products))
 })
 
+app.get('/testSS', function(req, res) {
+
+    console.log(req.query.id)
+    const sql = "INSERT INTO ss (ss) VALUES ('" + req.query.id + "')";
+    con.query(sql, function (err, results) {
+        if (err) throw err
+        res.end(JSON.stringify(results))
+    })
+})
+
+app.get('/testAddItems', function(req, res) {
+    console.log(req.query.brand)
+    const sql = "INSERT INTO testitems (brand, type, name) VALUES ('" + req.query.brand + "', '" + req.query.type + "', '" + req.query.name + "')";
+    con.query(sql, function (err, results) {
+        if (err) throw err
+        res.end(JSON.stringify(results))
+    })
+})
+
+app.get('/profile-add-items', function(req, res) {
+    req.query.action += "items"
+    const sql = "INSERT INTO " + req.query.action + " (brandID,typeID,nameID,sizeID,condID,colorID) VALUES ('" + req.query.brand + "', '" + req.query.type + "', '" + req.query.name + "', '"  + req.query.size + "', '" + req.query.cond + "', '" + req.query.color + "')";
+    con.query(sql, function (err, results) {
+        if (err) throw err
+        res.end(JSON.stringify(results))
+    })
+})
 
 app.post('/comments', urlencodedParser, (req, res, next) => {
     params = req.body
@@ -137,13 +165,13 @@ app.post('/process_post', urlencodedParser, function (req, res) {
 
 
 app.get('/products2', function(req, res) {
-    products = [
+    /* products = [
         {
             name: "big",
             brand: "supreme",
             type: "hoodie"
         },
-        /* {
+        {
             name: "medium",
             brand: "supreme",
             type: "hoodie"
@@ -152,14 +180,14 @@ app.get('/products2', function(req, res) {
             name: "small",
             brand: "supreme",
             type: "tee"
-        } */
-    ]
+        } 
+    ] */
 
-    res.end(JSON.stringify(products))
+    /* res.end(JSON.stringify(products)) */
 })
 
 app.get('/users', function(req, res) {
-    users = [
+    /* users = [
         {
             id: "1",
             firstName: "Adam",
@@ -180,8 +208,8 @@ app.get('/users', function(req, res) {
             itemSell: "15",
             itemBuy: "0",
             info: "CusBus",
-            linkOne: "",
-            linkTwo: "",
+            linkOne: "sdasda",
+            linkTwo: "https://www.youtube.com/watch?v=qa0nCMVk2FE",
             linkThree: ""
         },
         {
@@ -202,13 +230,17 @@ app.get('/users', function(req, res) {
             itemBuy: "4",
             info: "CusBus"
         }
-    ]
+    ] */
 
-    res.end(JSON.stringify(users))
+    const sql = "SELECT * FROM users"
+    con.query(sql, function (err, results) {
+        if (err) throw err
+        res.end(JSON.stringify(results))
+    })
 })
 
 app.get('/legitchecks', function(req, res) {
-    legitchecks = [
+    /* legitchecks = [
         {
             id: "1",
             writerID: "2",
@@ -241,13 +273,13 @@ app.get('/legitchecks', function(req, res) {
             vote: "0",
             date: "5h"
         }
-    ]
+    ] */
 
-    res.end(JSON.stringify(legitchecks))
+    /* res.end(JSON.stringify(legitchecks)) */
 })
 
 app.get('/brands', function(req, res) {
-    brands = [
+    /* brands = [
         {
             id: "1",
             name: "Adidas"
@@ -320,13 +352,19 @@ app.get('/brands', function(req, res) {
             id: "18",
             name: "Vans"
         }
-    ]
+    ] */
 
-    res.end(JSON.stringify(brands))
+    /* res.end(JSON.stringify(brands)) */
+
+    const sql = "SELECT * FROM brands"
+    con.query(sql, function (err, results) {
+        if (err) throw err
+        res.end(JSON.stringify(results))
+    })
 })
 
 app.get('/types', function(req, res) {
-    types = [
+    /* types = [
         {
             id: "1",
             name: "Bundy"
@@ -363,7 +401,7 @@ app.get('/types', function(req, res) {
             id: "9",
             name: "Trenky"
         }
-    ]
+    ] */
     
     // types = types.slice(0, 2)
     // res.end(JSON.stringify(types))
@@ -406,7 +444,7 @@ app.get('/types', function(req, res) {
 })
 
 app.get('/items', function(req, res) {
-    items = [
+    /* items = [
         {
             id: "1",
             name: "Fuck with your head tee",
@@ -449,13 +487,19 @@ app.get('/items', function(req, res) {
             brandID: "16",
             typeID: "5"
         }
-    ]
+    ] */
 
-    res.end(JSON.stringify(items))
+    /* res.end(JSON.stringify(items)) */
+
+    const sql = "SELECT * FROM items"
+    con.query(sql, function (err, results) {
+        if (err) throw err
+        res.end(JSON.stringify(results))
+    })
 })
 
 app.get('/sizes', function(req, res) {
-    sizes = [
+    /* sizes = [
         {
             id: "1",
             name: "XXXS"
@@ -496,7 +540,7 @@ app.get('/sizes', function(req, res) {
             id: "10",
             name: "XXXXL"
         }
-    ]
+    ] */
 
     /* res.end(JSON.stringify(sizes)) */
 
@@ -506,6 +550,80 @@ app.get('/sizes', function(req, res) {
         res.end(JSON.stringify(results))
     })
 
+})
+
+app.get('/conditions', function(req, res) {
+
+    const sql = "SELECT * FROM conditions ORDER BY id DESC"
+    con.query(sql, function (err, results) {
+        if (err) throw err
+        res.end(JSON.stringify(results))
+    })
+
+})
+
+app.get('/colors', function(req, res) {
+
+    const sql = "SELECT * FROM basic_colors"
+    con.query(sql, function (err, results) {
+        if (err) throw err
+        res.end(JSON.stringify(results))
+    })
+
+})
+
+app.get('/items-to-sell', function(req, res) {
+
+    /* const sql = "SELECT * FROM sellitems WHERE userID =" + req.query.userID */
+    const sql = "SELECT * FROM sellitems"
+    con.query(sql, function (err, results) {
+        if (err) throw err
+        res.end(JSON.stringify(results))
+    })
+
+})
+
+app.get('/items-to-buy', function(req, res) {
+
+    const sql = "SELECT * FROM buyitems"
+    con.query(sql, function (err, results) {
+        if (err) throw err
+        res.end(JSON.stringify(results))
+    })
+
+})
+
+app.get('/items-to-buy-matches', function(req, res) {
+
+    /* const sql = "SELECT * FROM sellitems WHERE userID =" + req.query.userID */
+    const sql = "SELECT * FROM buyitems WHERE id ='" + req.query.id + "'; SELECT * FROM sellitems WHERE brandID = '" + req.query.brandID + "';"
+    console.log(sql)
+    con.query(sql, function (err, results) {
+        if (err) throw err
+        console.log(results)
+        res.end(JSON.stringify(results))
+    })
+
+})
+
+app.get('/items-to-sell-matches', function(req, res) {
+
+    /* const sql = "SELECT * FROM sellitems WHERE userID =" + req.query.userID */
+    const sql = "SELECT * FROM buyitems WHERE id != " + req.query.id + "&brandID = " + req.query.brandID
+    con.query(sql, function (err, results) {
+        if (err) throw err
+        res.end(JSON.stringify(results))
+    })
+
+})
+
+app.get('/getparam', function(req, res) {
+    const sql = "SELECT * FROM " + req.query.param + " WHERE id =" + req.query.id;
+    /* console.log(sql) */
+    con.query(sql, function (err, results) {
+        if (err) throw err
+        res.end(JSON.stringify(results))
+    })
 })
 
 

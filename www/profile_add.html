@@ -1,0 +1,124 @@
+<!-- <!DOCTYPE html> -->
+<!-- <?php 
+    $hostname = "localhost";
+    $username = "root";
+    $password = "";
+    $databaseName = "streetchange";
+
+    $connect = mysqli_connect($hostname, $username, $password, $databaseName);
+    $query = "SELECT * FROM `brands`";
+
+    $result = mysqli_query($connect, $query);
+    $options = "";
+    while($row = mysqli_fetch_array($result)) {
+        $options = $options."<option>$row[1]</option>";
+    }
+?> -->
+
+<html>
+<head>
+    <!--
+    Customize this policy to fit your own app's needs. For more guidance, see:
+        https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+    Some notes:
+        * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+        * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+        * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+            * Enable inline JS: add 'unsafe-inline' to default-src
+    -->
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;"> -->
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <title>Hello World</title>
+</head>
+	
+<body>
+    <div id='container' class="container">
+        <div id='header' class="header">
+            <a href="profile.html"><img id='cancelButton' class='menuButton' src="Img/cancel.png"></a>
+            <h1>Přidat item</h1>
+            <img id='profile_add_accept_button' class='addItemImg' src="Img/accept.png" onclick="profileAddChangeAction()">
+        </div>
+
+        <div id="content" class="contentWithoutTopMenu contentPadding">
+
+            <h1>Akce</h1>
+            <select id="selectAction" class="itemAddSelect" required="" onchange="profileAddChangeAction()">
+                <option value="sell">Prodat</option>
+                <option value="buy">Koupit</option>
+                <option value="legitcheck">Legitcheck</option>
+            </select>
+            <div style="
+            width: 100%;
+            height:  1px;
+            background: black;
+            margin-bottom:  10px;
+            "></div>
+
+            <div class="profile_add_wrapper">
+                <div id="buy_add_wrapper">
+                    <h1>Značka</h1>
+                    <select id="selectBrand" class="itemAddSelect" onchange="nameSelectLoad()" required>
+                        <!-- <?php echo $options; ?> -->
+                        <option value="" disabled selected hidden>Vyberte značku</option>
+                    </select>
+                    
+                    <h1>Typ</h1>
+                    <select id="selectType" class="itemAddSelect" onchange="nameSelectLoad(), sizeSelectLoad()" required>
+                        <option value="" disabled selected hidden>Vyberte typ</option>
+                    </select>
+
+                    <h1>Název</h1>
+                    <select id="selectName" class="itemAddSelect" onchange="fillBrandAndType()" required>
+                        <option value="" disabled selected hidden>Vyberte název</option>
+                    </select>
+                    
+                    <h1>Velikost</h1>
+                    <select id="selectSize" class="itemAddSelect" required>
+                        <option value="" disabled selected hidden>Nejprve vyberte typ</option>
+                    </select>
+
+                    <h1>Stav</h1>
+                    <select id="selectCondition" class="itemAddSelect" required>
+                        <option value="" disabled selected hidden>Vyberte stav</option>
+                    </select>
+
+                    <h1>Barva</h1>
+                    <select id="selectColor" class="itemAddSelect" required>
+                        <option value="" disabled selected hidden>Vyberte barvu</option>
+                    </select>
+                </div>
+
+                <div id="sell_add_wrapper">
+                    <h1>Fotky</h1>
+                    <h2 class="profile_add_h2">Náhledová fotka</h2>
+                    <h2 class="profile_add_h2">Ostatní fotky</h2>
+
+                    <h1>Popisek</h1>
+                    <textarea rows="4" class="profile_add_input_text itemAddSelect"></textarea>
+                </div>
+
+                <div id="lc_add_wrapper" class="display_none">
+                    <h1>Link 1</h1>
+                    <input type="url" id="linkOne" class="itemAddSelect">
+    
+                    <h1>Link 2</h1>
+                    <input type="url" id="linkTwo" class="itemAddSelect">
+    
+                    <h1>Link 3</h1>
+                    <input type="url" id="linkThree" class="itemAddSelect">
+                </div>
+            </div>
+
+        </div>
+    </div>
+    
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="https://requirejs.org/docs/release/2.3.5/comments/require.js"></script>
+    <script src="../index.js"></script>
+</body>
+</html>

@@ -61,14 +61,31 @@
             </div>
 
             <div id="search_layout" class="search_layout">
-                    <div class="header">
-                        <img src="Img/back.png" id="close_search_layout" class="menuButton">
-                        <div id="search_div" class="search_div">
-                            <img src="Img/cancel2.png" id="delete_search_input">
-                            <input id="search_input" placeholder="Vyhledejte produkt">
-                        </div>
-                        <img src="Img/question_mark.png" class="addItemImg" id="search_items_ask_button">
+                <div class="header">
+                    <img src="Img/back.png" id="close_search_layout" class="menuButton">
+                    <div id="search_div" class="search_div">
+                        <img src="Img/cancel.png" id="delete_search_input">
+                        <input id="search_input" placeholder="Vyhledejte produkt">
                     </div>
+                    <img src="Img/question_mark.png" class="addItemImg" id="information_icon">
+                </div>
+                <div class="contentWithoutTopMenu content_white">
+                    <div class="search_result_div">
+                        <img src="Img/profile01.png">
+                        <p>Produkt01</p>
+                    </div>
+                </div>
+
+                <div id="shadow_div_2" class="shadow_div"></div>
+                <div id="information_div" class="information_div information_div_small">
+                    <img src="Img/cancel_black.png" id="closeInformationDiv" class="addItemImg">
+                    <div class="information_text information_text_small">
+                        <p>Toto slouží pouze pro vyhledávání produktů. Pokud chcete hledat uživatele klikněte na tlačítko pod textem, nebo vyhledávejte v sekci Profil.</p>
+                    </div>
+                    <a href="profile.html" class="information_div_footer">
+                        <img src="Img/profile_icon.png">
+                    </a> 
+                </div>	
             </div>
         
             <div id="menu" class="touch-side-swipe">
@@ -136,84 +153,84 @@
                         <img src="Img/rules_icon.png">
                         <h2>Pravidla</h2>
                     </a>
-
+                    
                     <a href="rules.html">
                         <img src="Img/rules_icon.png">
                         <h2>Pravidla</h2>
                     </a>
-
+                    
                     <a href="rules.html">
                         <img src="Img/rules_icon.png">
                         <h2>Pravidla</h2>
                     </a>
                 </div>  
             </div>
-
+            
             <div id="shadow_div" class="shadow_div"></div>
             <div id="right_menu" class="right_menu">
                 <div id="right_menu_header_filter" class="right_menu_header">
                     <p id="closeRightMenu" class="left">Zavřít</p>
                     <p id="applyFilters" class="right">Filtruj</p>
                 </div>
-
+                
                 <div id="right_menu_header_select" class="right_menu_header">
                     <p id="filter_back" class="left">Zpět</p>
                     <p id="applyFilters" class="right">Filtruj</p>
                 </div>
-
+                
                 <div id="right_menu_filter" class="right_menu_filter">
                     <div id="brand_select" class="right_menu_filter_option">
-                       <p class="right_menu_filter_option_left_p">Značka</p> 
+                        <p class="right_menu_filter_option_left_p">Značka</p> 
                        <p class="right_menu_filter_option_right_p">Vše</p> 
                     </div>
                     
                     <div class="right_menu_filter_option">
-                       <p class="right_menu_filter_option_left_p">Velikost</p> 
+                        <p class="right_menu_filter_option_left_p">Velikost</p> 
+                        <p class="right_menu_filter_option_right_p">Vše</p> 
+                    </div>
+                    
+                    <div class="right_menu_filter_option">
+                        <p class="right_menu_filter_option_left_p">Stav</p> 
                        <p class="right_menu_filter_option_right_p">Vše</p> 
                     </div>
                     
                     <div class="right_menu_filter_option">
-                       <p class="right_menu_filter_option_left_p">Stav</p> 
-                       <p class="right_menu_filter_option_right_p">Vše</p> 
-                    </div>
-                    
-                    <div class="right_menu_filter_option">
-                       <p class="right_menu_filter_option_left_p">Barva</p> 
-                       <p class="right_menu_filter_option_right_p">Vše</p> 
+                        <p class="right_menu_filter_option_left_p">Barva</p> 
+                        <p class="right_menu_filter_option_right_p">Vše</p> 
                     </div>
                 </div>
-
+                
                 <div id='select_right_menu' class="right_menu_filter">
                     <label id="brand_select" class="right_menu_filter_option">
                         <p class="right_menu_filter_option_left_p">Supreme</p> 
                         <input type="checkbox" class="right_menu_filter_option_right_p">
                         <span class="checkmark right_menu_filter_option_right_p"></span>
                     </label>
-                     
-                     <label class="right_menu_filter_option">
+                    
+                    <label class="right_menu_filter_option">
                         <p class="right_menu_filter_option_left_p">Gucci</p> 
                         <input type="checkbox" class="right_menu_filter_option_right_p">
                         <span class="checkmark right_menu_filter_option_right_p"></span>
-                     </label>
+                    </label>
                      
-                     <label class="right_menu_filter_option">
+                    <label class="right_menu_filter_option">
                         <p class="right_menu_filter_option_left_p">Adidas</p> 
                         <input type="checkbox" class="right_menu_filter_option_right_p">
                         <span class="checkmark right_menu_filter_option_right_p"></span>
                      </label>
                      
                      <label class="right_menu_filter_option">
-                        <p class="right_menu_filter_option_left_p">ASSC</p> 
+                         <p class="right_menu_filter_option_left_p">ASSC</p> 
                         <input type="checkbox" class="right_menu_filter_option_right_p">
                         <span class="checkmark right_menu_filter_option_right_p"></span>
-                     </label>
+                    </label>
                 </div>
-
+                
                 <div id="resetFilters" class="right_menu_footer">
                     <p>Resetovat filtry</p>
                 </div>
             </div>
-                
+            
             <div id="topMenu" class="topMenu">
                 <div class="top_menu_transition top_menu_active"><h4>Vše</h4></div>
                 <div class="top_menu_transition"><h4>Boty</h4></div>
